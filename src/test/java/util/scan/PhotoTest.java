@@ -2,7 +2,6 @@ package util.scan;
 
 import org.bytedeco.javacv.*;
 import org.junit.jupiter.api.Test;
-import org.opencv.osgi.OpenCVInterface;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
