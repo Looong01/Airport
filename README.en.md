@@ -11,5 +11,5 @@ In the File explorer, right click on `Windows.ps1`, and left click on `Running i
 
 Linux: Bash or Mac: Terminal
 ```
-Open the bash or terminal, then input `./Linux&Mac.sh`, and Enter it.
+Open the bash or terminal, then input `bash ./LinuxMac.sh`, and Enter it.
 ```
