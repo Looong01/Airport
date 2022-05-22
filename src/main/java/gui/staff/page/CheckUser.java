@@ -308,12 +308,12 @@ public class CheckUser extends JPanel implements Page {
 
         @Override
         public String getTitle() {
-            return null;
+            return "User Information";
         }
-
+    
         @Override
         public String getLabel() {
-            return null;
+            return "Here is User information";
         }
     }
 }

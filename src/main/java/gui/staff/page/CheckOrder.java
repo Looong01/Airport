@@ -66,11 +66,11 @@ public class CheckOrder extends JPanel implements Page {
 
 	@Override
 	public String getTitle() {
-		return "Order Info";
+		return "Order Information";
 	}
 
 	@Override
 	public String getLabel() {
-		return "This is order info";
+		return "Here is Order information";
 	}
 }

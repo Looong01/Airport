@@ -61,7 +61,7 @@ public class CheckFlight extends JPanel implements Page {
 
 	@Override
 	public String getTitle() {
-		return "Flight information";
+		return "Flight Information";
 	}
 
 	@Override
