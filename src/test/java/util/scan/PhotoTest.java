@@ -1,6 +1,7 @@
 package util.scan;
 
 import org.bytedeco.javacv.*;
+import org.junit.jupiter.api.Test;
 import org.opencv.osgi.OpenCVInterface;
 
 import javax.imageio.ImageIO;
@@ -12,7 +13,8 @@ import java.io.File;
  * 用法：运行弹窗，关闭窗口时拍照并保存
  */
 public class PhotoTest {
-	public static void main(String[] args) throws Exception {
+	@Test
+	public void photo() throws Exception {
 		OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
 		grabber.start();
 
