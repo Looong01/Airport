@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Airport"
+        },
+        {
+            "type": "java",
+            "name": "Launch CustomerGUI",
+            "request": "launch",
+            "mainClass": "gui.customer.CustomerGUI",
+            "projectName": "Airport"
+        },
+        {
+            "type": "java",
+            "name": "Launch StaffGUI",
+            "request": "launch",
+            "mainClass": "gui.staff.StaffGUI",
+            "projectName": "Airport"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+PowerShell.exe -windowstyle hidden java -jar out/Airport.jar
