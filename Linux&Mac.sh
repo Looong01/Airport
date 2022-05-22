@@ -1,1 +1,1 @@
-java -jar out/Airport.jar
+java -jar Airport.jar
