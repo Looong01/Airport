@@ -6,7 +6,7 @@
 
     <groupId>org.bupt</groupId>
     <artifactId>Airport</artifactId>
-    <version>1.4.0</version>
+    <version>1.1.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -21,6 +21,12 @@
             <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-swing -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-swing</artifactId>
+            <version>1.14</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-transcoder -->
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
@@ -31,17 +37,23 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>2.0.3</version>
+            <version>1.2.80</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.3</version>
         </dependency>
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
-            <version>3.5.0</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>javase</artifactId>
-            <version>3.5.0</version>
+            <version>3.3.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
         <dependency>
@@ -49,10 +61,48 @@
             <artifactId>commons-email</artifactId>
             <version>1.5</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv -->
+
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.23</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-freemarker -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarxos</groupId>
+            <artifactId>webcam-capture</artifactId>
+            <version>0.3.12</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.humble/humble-video-all -->
+        <dependency>
+            <groupId>io.humble</groupId>
+            <artifactId>humble-video-all</artifactId>
+            <version>0.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv-platform -->
         <dependency>
             <groupId>org.bytedeco</groupId>
-            <artifactId>javacv</artifactId>
+            <artifactId>javacv-platform</artifactId>
             <version>1.5.7</version>
         </dependency>
     </dependencies>
