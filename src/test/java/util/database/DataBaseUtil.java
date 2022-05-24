@@ -24,10 +24,10 @@ public abstract class DataBaseUtil {
 
 	/**
 	 * Get requested object by its ID
-	 * @param id int object's ID
+	 * @param id object's ID
 	 * @return object
 	 */
-	public abstract Object get(int id);
+	public abstract Object get(String id);
 
 	/**
 	 * Add object to json

@@ -22,12 +22,12 @@ public class BankUtil extends DataBaseUtil {
 	}
 
 	@Override
-	public Object get(int cardId) {
+	public Object get(String cardId) {
 		List<BankAccount> accounts = controller.readArray(BankAccount.class);
 		if (accounts == null)
 			fail("No account");
 		for (BankAccount account : accounts) {
-			if (account.getAccNo() == cardId)
+			if (account.getAccNo() == Integer.parseInt(cardId))
 				return account;
 		}
 		return null;
@@ -36,7 +36,7 @@ public class BankUtil extends DataBaseUtil {
 	@Override
 	public void add(Object o) {
 		BankAccount account = (BankAccount) o;
-		if (get(account.getAccNo()) != null)
+		if (get(account.getAccNo() + "") != null)
 			fail("ID already exists");
 
 		List<BankAccount> accounts = controller.readArray(BankAccount.class);

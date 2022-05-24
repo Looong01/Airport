@@ -22,12 +22,12 @@ public class PlaneUtil extends DataBaseUtil {
     }
 
     @Override
-    public Object get(int planeId) {
+    public Object get(String planeId) {
         List<Plane> planes = controller.readArray(Plane.class);
         if(planes == null)
             fail("No plane");
         for(Plane a : planes){
-            if(a.getPlaneId() == planeId)
+            if(a.getPlaneId() == Integer.parseInt(planeId))
                 return a;
         }
         return null;
@@ -36,7 +36,7 @@ public class PlaneUtil extends DataBaseUtil {
     @Override
     public void add(Object o) {
         Plane a = (Plane) o;
-        if(get(a.getPlaneId()) != null)
+        if(get(a.getPlaneId() + "") != null)
             fail("The plane ID already exists");
         List<Plane> planes = controller.readArray(Plane.class);
         if(planes == null)

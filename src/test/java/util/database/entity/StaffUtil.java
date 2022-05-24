@@ -22,12 +22,12 @@ public class StaffUtil extends DataBaseUtil {
     }
 
     @Override
-    public Object get(int userId) {
+    public Object get(String userId) {
         List<Staff> staffs=controller.readArray(Staff.class);
         if(staffs==null)
             fail("No staff");
         for(Staff s : staffs){
-            if(s.getUserId()==userId)
+            if(s.getUserId() == Integer.parseInt(userId))
                 return s;
         }
         return null;
@@ -36,7 +36,7 @@ public class StaffUtil extends DataBaseUtil {
     @Override
     public void add(Object o) {
         Staff s = (Staff) o;
-        if(get(s.getUserId()) != null)
+        if(get(s.getUserId() + "") != null)
             fail("The ID has existed");
         List<Staff> staffs=controller.readArray(Staff.class);
         if(staffs==null)

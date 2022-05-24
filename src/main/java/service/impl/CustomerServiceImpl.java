@@ -8,6 +8,7 @@ import util.file.JSONController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Service class {@code CustomerServiceImpl}
@@ -43,14 +44,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Order getOrder(int orderId) {
+    public Order getOrder(String orderId) {
         List<Order> orders = orderController.readArray(Order.class);
         if(orders == null) {
             System.out.println("No order");
             return null;
         }
         for(Order order:orders) {
-            if (order.getOrderId() == orderId)
+            if (order.getOrderId().equals(orderId))
                 return order;
         }
         return null;
@@ -71,14 +72,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Order LoginByOrderId(int orderId) {
-        return getOrder(orderId);
-    }
-
-    @Override
     public Customer LoginByCardId(String cardId) {
         List<Customer> customers = customerController.readArray(Customer.class);
-        if(customers == null){
+        if(customers == null) {
             System.out.println("No customer exist!");
             return null;
         }
@@ -117,7 +113,7 @@ public class CustomerServiceImpl implements CustomerService {
                     return false;
                 }
                 for (Order o : orders) {
-                    if (o.getOrderId() == order.getOrderId()) {
+                    if (o.getOrderId().equals(order.getOrderId())) {
                         o.setSeatId(order.getSeatId());
                         o.setStatus("W");
                         orderController.writeArray(orders);
@@ -142,7 +138,7 @@ public class CustomerServiceImpl implements CustomerService {
             return false;
         }
         for (Order o : orders) {
-            if (o.getOrderId() == order.getOrderId()) {
+            if (Objects.equals(o.getOrderId(), order.getOrderId())) {
                 o.setFood(order.getFood());
                 orderController.writeArray(orders);
                 return true;

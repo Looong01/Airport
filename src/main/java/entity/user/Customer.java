@@ -18,7 +18,7 @@ public class Customer extends User {
     private String cardId;
     private String sex;
     private String tel;
-    private ArrayList<Integer> order = new ArrayList<>();
+    private ArrayList<String> orders = new ArrayList<>();
 
     /**
      * The default constructor of the Customer
@@ -103,19 +103,19 @@ public class Customer extends User {
     /**
      * Get the order list of the customer
      *
-     * @return order
+     * @return orders
      */
-    public ArrayList<Integer>  getOrder() {
-        return order;
+    public ArrayList<String> getOrders() {
+        return orders;
     }
 
     /**
      * Set the order list of the customer
      *
-     * @param order the order list of the customer
+     * @param orders the order list of the customer
      */
-    public void setOrder(ArrayList<Integer> order) {
-        this.order = order;
+    public void setOrders(ArrayList<String> orders) {
+        this.orders = orders;
     }
     // get userId
     public int getUserId() {
@@ -132,7 +132,7 @@ public class Customer extends User {
                 ", cardId='" + cardId + '\'' +
                 ", sex='" + sex + '\'' +
                 ", tel='" + tel + '\'' +
-                ", order=" + order +
+                ", order=" + orders +
                 '}';
     }
 }

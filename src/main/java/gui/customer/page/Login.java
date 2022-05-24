@@ -1,33 +1,40 @@
 package gui.customer.page;
 
 import gui.customer.Page;
+import gui.customer.Template;
 import util.gui.Display;
 
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * 直接使用local variable，实现ArrayList<JPanel>，下同
- */
 public class Login extends JPanel implements Page {
-    private final JTextField textField1 = new JTextField();
-    private final JTextField textField2 = new JTextField();
-    private final JTextField textField3 = new JTextField();
+    private final JComboBox<String> comboBox = new JComboBox<>(new String[]{"Card ID", "Order ID"});
+    private final JTextField textField = new JTextField();
 
     public Login() {
-        this.setLayout(new GridLayout(3,2));
-        this.add(new JLabel("Booking Number"));
-        this.add(textField1);
-        this.add(new JLabel("Card ID"));
-        this.add(textField2);
-        this.add(new JLabel("ID Codes"));
-        this.add(textField3);
+        this.setLayout(new GridLayout(3,1));
+        JPanel panel = new JPanel(new GridLayout(1,2));
+
+        JLabel label = new JLabel("Group 80 ☀ Kiosk Project", JLabel.CENTER);
+
+        comboBox.addActionListener(e -> Template.getInfoLabel().setText("Please input your " + ((JComboBox<?>) e.getSource()).getSelectedItem()));
+        panel.add(comboBox);
+        panel.add(textField);
+
+        JButton button = new JButton("Scan QR Code");
+        button.addActionListener(e -> {
+            System.out.println("clicked");
+        });
+
+        this.add(label);
+        this.add(panel);
+        this.add(button);
         Display.setPageFont(this);
     }
 
     @Override
     public void syncPage() {
-        textField2.setText("140109200010204817");
+        textField.setText("140109200010204817");
     }
 
     @Override
@@ -37,7 +44,7 @@ public class Login extends JPanel implements Page {
 
     @Override
     public String getLabel() {
-        return "Please input your card ID";
+        return "Please input your Card ID";
     }
 
     @Override
@@ -52,11 +59,27 @@ public class Login extends JPanel implements Page {
 
     @Override
     public boolean cont() {
-        //目前只有检验CardID的功能
-        DAO.setCustomer(SERVICE.LoginByCardId(textField2.getText()));
-        if(DAO.getCustomer() == null)
-            JOptionPane.showMessageDialog(this, "Your card ID is wrong", "alert", JOptionPane.ERROR_MESSAGE);
+        // input validation
+        if (textField.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please input your ID", "Prompt", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
 
-        return (DAO.getCustomer() != null);
+        switch (comboBox.getSelectedIndex()) {
+            case 0: // cardId
+                DAO.setCustomer(SERVICE.LoginByCardId(textField.getText()));
+                if(DAO.getCustomer() == null)
+                    JOptionPane.showMessageDialog(this, "Your card ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
+
+                return (DAO.getCustomer() != null);
+            case 1: // orderId
+                DAO.setOrder(SERVICE.getOrder(textField.getText()));
+                if (DAO.getOrder() == null)
+                    JOptionPane.showMessageDialog(this, "Your order ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
+                return (DAO.getOrder() != null);
+            default:
+                System.err.println("Fatal error");
+                return false;
+        }
     }
 }

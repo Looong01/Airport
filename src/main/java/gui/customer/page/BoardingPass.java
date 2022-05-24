@@ -10,18 +10,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BoardingPass extends JPanel implements Page {
-	private final JLab infoLabel = new JLab();
-	private final JLab cityLabel = new JLab();
-	private final JLab flight = new JLab();
-	private final JLab name = new JLab();
-	private final JLab gate = new JLab();
-	private final JLab boardingTime = new JLab();
-	private final JLab seatNo = new JLab();
-	private final JLab sideFlight = new JLab();
-	private final JLab sideName = new JLab();
-	private final JLab sideTo = new JLab();
-	private final JLab sideDate = new JLab();
-	private final JLab sideSeatNo = new JLab();
+	private final JLabel infoLabel = new JLabel();
+	private final JLabel cityLabel = new JLabel();
+	private final JLabel flight = new JLabel();
+	private final JLabel name = new JLabel();
+	private final JLabel gate = new JLabel();
+	private final JLabel boardingTime = new JLabel();
+	private final JLabel seatNo = new JLabel();
+	private final JLabel sideFlight = new JLabel();
+	private final JLabel sideName = new JLabel();
+	private final JLabel sideTo = new JLabel();
+	private final JLabel sideDate = new JLabel();
+	private final JLabel sideSeatNo = new JLabel();
 
 	public BoardingPass() {
 		GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
@@ -47,7 +47,7 @@ public class BoardingPass extends JPanel implements Page {
 
 		// titlePanel
 		BufferedImageTranscoder iconTranscoder = new BufferedImageTranscoder("src/main/resources/svg/apple.svg",60 * Template.getP(),60 * Template.getP());
-		JLab iconLabel = new JLab(new ImageIcon(iconTranscoder.getImage()));
+		JLabel iconLabel = new JLabel(new ImageIcon(iconTranscoder.getImage()));
 
 		constraints.setConstraints(0,0,3,2);
 		titleLayout.setConstraints(iconLabel, constraints);
@@ -58,8 +58,8 @@ public class BoardingPass extends JPanel implements Page {
 		titlePanel.add(infoLabel);
 
 		// flightTitlePanel
-		JLab flightTitle = new JLab("Flight / Date / Class");
-		JLab nameTitle = new JLab("Name");
+		JLabel flightTitle = new JLabel("Flight / Date / Class");
+		JLabel nameTitle = new JLabel("Name");
 
 		constraints.setConstraints(0,0,10,2);
 		flightLayout.setConstraints(flightTitle, constraints);
@@ -79,9 +79,9 @@ public class BoardingPass extends JPanel implements Page {
 		flightPanel.add(name);
 
 		// boardingTitlePanel
-		boardingTitlePanel.add(new JLab("Gate"));
-		boardingTitlePanel.add(new JLab("Boarding Time"));
-		boardingTitlePanel.add(new JLab("Seat No."));
+		boardingTitlePanel.add(new JLabel("Gate"));
+		boardingTitlePanel.add(new JLabel("Boarding Time"));
+		boardingTitlePanel.add(new JLabel("Seat No."));
 
 		// boardingPanel
 		boardingPanel.add(gate);
@@ -96,14 +96,14 @@ public class BoardingPass extends JPanel implements Page {
 		mainPanel.add(boardingPanel);
 
 		// side panel
-		sidePanel.add(new JLab(new ImageIcon(iconTranscoder.getImage())));
+		sidePanel.add(new JLabel(new ImageIcon(iconTranscoder.getImage())));
 		sidePanel.add(sideFlight);
 		sidePanel.add(sideName);
 		sidePanel.add(sideTo);
 		sidePanel.add(sideDate);
 		sidePanel.add(sideSeatNo);
 
-		// 待实现JLabel.CENTER全局化，可以@Override JLabel类
+		// TO DO JLabelel.CENTER全局化，可以@Override JLabelel类
 
 		this.add(mainPanel);
 		this.add(sidePanel);
@@ -118,20 +118,6 @@ public class BoardingPass extends JPanel implements Page {
 		sidePanel.setPreferredSize(new Dimension((int) (150 * Template.getP()), (int) (600 * Template.getP())));
 
 		Display.setPageFont(this);
-	}
-
-	private static class JLab extends JLabel {
-		public JLab() {
-			this.setHorizontalAlignment(JLabel.CENTER);
-		}
-
-		public JLab(String text) {
-			super(text, JLabel.CENTER);
-		}
-
-		public JLab(Icon image) {
-			super(image, JLabel.CENTER);
-		}
 	}
 
 	@Override
@@ -149,7 +135,7 @@ public class BoardingPass extends JPanel implements Page {
 		name.setText(DAO.getCustomer().getName());
 		cityLabel.setText("From " + DAO.getFlight().getFromCity() + " To " + DAO.getFlight().getToCity());
 		gate.setText(DAO.getFlight().getGateId() + "");
-		boardingTime.setText(times[0] + times[1]); // 待修改，向前提前30分钟
+		boardingTime.setText(times[0] + times[1]); // TO DO 向前提前30分钟
 		seatNo.setText(DAO.getOrder().getSeatId() + "");
 
 		sideFlight.setText("" + DAO.getFlight().getFlightId());

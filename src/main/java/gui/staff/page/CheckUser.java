@@ -4,7 +4,6 @@ import gui.customer.Template;
 import gui.staff.Page;
 import gui.staff.dao.DAO;
 import util.gui.Display;
-import util.gui.TableCellTextAreaRender;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,7 +12,6 @@ import javax.swing.table.TableModel;
 import javax.swing.border.Border;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Objects;
 
 public class CheckUser extends JPanel implements Page {
@@ -184,7 +182,7 @@ public class CheckUser extends JPanel implements Page {
 
     private class table3 extends JPanel implements Page {
         int[] idInt = DAO.SERVICE.getFlightIds();
-        int[] userId = DAO.SERVICE.getuserIds(idInt[0]);
+        int[] userId = DAO.SERVICE.getUserIds(idInt[0]);
         Object[][] obj2 = new Object[userId.length][3];
         JTable table = new JTable(obj2, new String[] { "Name", "CardID", "Status" });
 
@@ -192,11 +190,11 @@ public class CheckUser extends JPanel implements Page {
 
             this.setLayout(new GridLayout(1, 1)); // 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
 
-            // 查找userid对应的所有oderid
-            int[] orderids = new int[userId.length];
+            // 查找userid对应的所有orderid
+            String[] orderids = new String[userId.length];
             for (int m = 0; m < userId.length; m++) {
-                int[] orderid = DAO.SERVICE.getOrderId(userId[m]);
-                for (int i : orderid) {
+                String[] orderid = DAO.SERVICE.getOrderId(userId[m]);
+                for (String i : orderid) {
                     if (DAO.SERVICE.getFlightId(i) == idInt[0]) {
                         orderids[m] = i;
                         break;
@@ -247,14 +245,14 @@ public class CheckUser extends JPanel implements Page {
         }
 
         public void setdata(int id) {
-            userId = DAO.SERVICE.getuserIds(id);
+            userId = DAO.SERVICE.getUserIds(id);
             obj2 = new Object[userId.length][3];
 
             // 查找userid对应的所有oderid
-            int[] orderids = new int[userId.length];
+            String[] orderids = new String[userId.length];
             for (int m = 0; m < userId.length; m++) {
-                int[] orderid = DAO.SERVICE.getOrderId(userId[m]);
-                for (int i : orderid) {
+                String[] orderid = DAO.SERVICE.getOrderId(userId[m]);
+                for (String i : orderid) {
                     if (DAO.SERVICE.getFlightId(i) == id) {
                         orderids[m] = i;
                         break;

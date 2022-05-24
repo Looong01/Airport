@@ -22,13 +22,13 @@ public class FlightUtil extends DataBaseUtil {
     }
 
     @Override
-    public Object get(int flightId) {
+    public Object get(String flightId) {
         List<Flight> flights=controller.readArray(Flight.class);
         if(flights==null)
             fail("No flight");
 
         for(Flight f:flights){
-            if(f.getFlightId()==flightId)
+            if(f.getFlightId() == Integer.parseInt(flightId))
                 return f;
         }
         return null;
@@ -37,7 +37,7 @@ public class FlightUtil extends DataBaseUtil {
     @Override
     public void add(Object o) {
         Flight f = (Flight) o;
-        if(get(f.getFlightId()) != null)
+        if(get(f.getFlightId() + "") != null)
             fail("The flight already exists");
         List<Flight> flights = controller.readArray(Flight.class);
         if(flights == null)

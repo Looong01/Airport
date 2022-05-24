@@ -5,7 +5,9 @@ import entity.user.*;
 import org.junit.jupiter.api.Test;
 import util.database.entity.*;
 
-import java.util.*;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -40,26 +42,26 @@ public class DatabaseTest {
     public void FlightTest() {
         DataBaseUtil util = new FlightUtil();
         util.removeAll();
-        util.add(new Flight(1001, 1, (new Date()).toString(), "Taiyuan Wusu", "Beijing Capital", 10));
-        util.add(new Flight(1001, 2, (new Date()).toString(), "Taiyuan Wusu","Shanghai Pudong", 20));
-        util.add(new Flight(1002, 3, (new Date()).toString(), "Taiyuan Wusu", "Beijing Daxing", 30));
-        util.add(new Flight(1002, 4, (new Date()).toString(), "Taiyuan Wusu", "Guangzhou Baiyun", 40));
-        util.add(new Flight(1002, 5, (new Date()).toString(), "Taiyuan Wusu", "Shanghai Hongqiao", 50));
-        util.add(new Flight(1002, 6, (new Date()).toString(), "Taiyuan Wusu", "Shenzhen Bao'an", 60));
-        util.add(new Flight(1003, 7, (new Date()).toString(), "Taiyuan Wusu", "Macau", 70));
-        util.add(new Flight(1003, 8, (new Date()).toString(), "Taiyuan Wusu", "Changsha Huanghua", 80));
-        util.add(new Flight(1004, 9, (new Date()).toString(), "Taiyuan Wusu", "Kunming Wujiaba", 90));
-        util.add(new Flight(1004, 10, (new Date()).toString(), "Taiyuan Wusu", "Hangzhou Xiaoshan", 100));
-        util.add(new Flight(1004, 11, (new Date()).toString(), "Taiyuan Wusu", "Chongqing Jiangbei", 110));
-        util.add(new Flight(1004, 12, (new Date()).toString(), "Taiyuan Wusu", "Hong Kong", 120));
-        util.add(new Flight(1005, 13, (new Date()).toString(), "Taiyuan Wusu", "Chengdu Shuangliu", 130));
-        util.add(new Flight(1006, 14, (new Date()).toString(), "Taiyuan Wusu", "Shantou Waisha", 140));
-        util.add(new Flight(1006, 15, (new Date()).toString(), "Taiyuan Wusu", "Xi'an Xianyang", 150));
-        util.add(new Flight(1006, 16, (new Date()).toString(), "Taiyuan Wusu", "Nanjing Lukou", 160));
+        util.add(new Flight(1001, 1, LocalDateTime.now(ZoneOffset.of("-8")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Beijing Capital", 10));
+        util.add(new Flight(1001, 2, LocalDateTime.now(ZoneOffset.of("-7")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu","Shanghai Pudong", 20));
+        util.add(new Flight(1002, 3, LocalDateTime.now(ZoneOffset.of("-6")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Beijing Daxing", 30));
+        util.add(new Flight(1002, 4, LocalDateTime.now(ZoneOffset.of("-5")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Guangzhou Baiyun", 40));
+        util.add(new Flight(1002, 5, LocalDateTime.now(ZoneOffset.of("-4")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shanghai Hongqiao", 50));
+        util.add(new Flight(1002, 6, LocalDateTime.now(ZoneOffset.of("-3")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shenzhen Bao'an", 60));
+        util.add(new Flight(1003, 7, LocalDateTime.now(ZoneOffset.of("-2")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Macau", 70));
+        util.add(new Flight(1003, 8, LocalDateTime.now(ZoneOffset.of("-1")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Changsha Huanghua", 80));
+        util.add(new Flight(1004, 9, LocalDateTime.now(ZoneOffset.of("+1")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Kunming Wujiaba", 90));
+        util.add(new Flight(1004, 10, LocalDateTime.now(ZoneOffset.of("+2")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Hangzhou Xiaoshan", 100));
+        util.add(new Flight(1004, 11, LocalDateTime.now(ZoneOffset.of("+3")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Chongqing Jiangbei", 110));
+        util.add(new Flight(1004, 12, LocalDateTime.now(ZoneOffset.of("+4")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Hong Kong", 120));
+        util.add(new Flight(1005, 13, LocalDateTime.now(ZoneOffset.of("+5")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Chengdu Shuangliu", 130));
+        util.add(new Flight(1006, 14, LocalDateTime.now(ZoneOffset.of("+6")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shantou Waisha", 140));
+        util.add(new Flight(1006, 15, LocalDateTime.now(ZoneOffset.of("+7")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Xi'an Xianyang", 150));
+        util.add(new Flight(1006, 16, LocalDateTime.now(ZoneOffset.of("+8")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Nanjing Lukou", 160));
     }
 
     @Test
-    public void CustomerTest(){
+    public void CustomerTest() {
         DataBaseUtil util = new CustomerUtil();
         util.removeAll();
         util.add(new Customer(1, "Chenyang He","140109200010204817","MEN"  ,"18636936796","3535103785@qq.com"));
@@ -75,14 +77,14 @@ public class DatabaseTest {
     public void OrderTest() {
         DataBaseUtil util = new OrderUtil();
         util.removeAll();
-        util.add(new Order(1000111,1,1,9, 3, 2));
-        util.add(new Order(1000222,1,2,11, 1, 0));
-        util.add(new Order(1000333,2,14,13, 2, 0));
-        util.add(new Order(1000444,3,1,15, 1, 1));
-        util.add(new Order(1000555,4,12,17, 3, 1));
-        util.add(new Order(1000666,5,2,19, 5, 3));
-        util.add(new Order(1000777,6,4,21, 4, 0));
-        util.add(new Order(1000888,7,7,23, 2, 1));
+        util.add(new Order("BJEV1RmqVm",1,1,9, 3, 2));
+        util.add(new Order("gCBlsM+AYu",1,2,11, 1, 0));
+        util.add(new Order("aHB9ZlCF9H",2,14,13, 2, 0));
+        util.add(new Order("ekk9mrVMBA",3,1,15, 1, 1));
+        util.add(new Order("80v5pZgbZM",4,12,17, 3, 1));
+        util.add(new Order("c6B9W+hYz6",5,2,19, 5, 3));
+        util.add(new Order("Hg1sAZQCTl",6,4,21, 4, 0));
+        util.add(new Order("d6YRzw6HOs",7,7,23, 2, 1));
     }
 
     @Test

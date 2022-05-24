@@ -25,11 +25,11 @@ public class ChooseOrder extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		ArrayList<Integer> orders = DAO.getCustomer().getOrder();
+		ArrayList<String> orders = DAO.getCustomer().getOrders();
 		textArea.setText("");
 		comboBox.removeAllItems();
 		comboBox.addItem("Choose order");
-		for (Integer order : orders) {
+		for (String order : orders) {
 			textArea.append(SERVICE.getOrder(order) + "\n");
 			comboBox.addItem("" + order);
 		}
@@ -60,7 +60,7 @@ public class ChooseOrder extends JPanel implements Page {
 			JOptionPane.showMessageDialog(this, "Please choose your order", "Prompt", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
-		DAO.setOrder(SERVICE.getOrder(Integer.parseInt((String) Objects.requireNonNull(comboBox.getSelectedItem()))));
+		DAO.setOrder(SERVICE.getOrder((String) Objects.requireNonNull(comboBox.getSelectedItem())));
 		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));
 		return true;
 	}

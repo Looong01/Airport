@@ -123,15 +123,15 @@ public class StaffServiceImpl implements StaffService {
     }
 
     // 查找flightId所对应的orderId
-    public int[] getOrderIds(int flightId) {
+    public String[] getOrderIds(int flightId) {
         List<Order> orderList = jsonO.readArray(Order.class);
-        List<Integer> orderIdList = new ArrayList<>();
+        List<String> orderIdList = new ArrayList<>();
         for (Order order : orderList) {
             if (order.getFlightId() == flightId) {
                 orderIdList.add(order.getOrderId());
             }
         }
-        int[] orderIds = new int[orderIdList.size()];
+        String[] orderIds = new String[orderIdList.size()];
         for (int i = 0; i < orderIdList.size(); i++) {
             orderIds[i] = orderIdList.get(i);
         }
@@ -139,15 +139,15 @@ public class StaffServiceImpl implements StaffService {
     }
 
     // 从jsonC中查找userid所对应的所有orderId
-    public int[] getOrderId(int userid) {
+    public String[] getOrderId(int userid) {
         List<Customer> customerList = jsonC.readArray(Customer.class);
-        List<Integer> orderIdList = new ArrayList<>();
+        List<String> orderIdList = new ArrayList<>();
         for (Customer customer : customerList) {
             if (customer.getUserId() == userid) {
-                orderIdList.addAll(customer.getOrder());
+                orderIdList.addAll(customer.getOrders());
             }
         }
-        int[] orderIds = new int[orderIdList.size()];
+        String[] orderIds = new String[orderIdList.size()];
         for (int i = 0; i < orderIdList.size(); i++) {
             orderIds[i] = orderIdList.get(i);
         }
@@ -156,17 +156,16 @@ public class StaffServiceImpl implements StaffService {
 
 
     // 从jsonO中查找orderId所对应的states
-    public String getStatus(int orderId) {
+    public String getStatus(String orderId) {
         List<Order> orderList = jsonO.readArray(Order.class);
         for (Order order : orderList) {
-            if (order.getOrderId() == orderId) {
+            if (order.getOrderId().equals(orderId))
                 return order.getStatus();
-            }
         }
         return null;
     }
     // 从jsonF中查找flightId所对应的customers
-    public int[] getuserIds(int flightId) {
+    public int[] getUserIds(int flightId) {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         List<Integer> customerIdList = new ArrayList<>();
         for (Flight flight : flightList) {
@@ -203,10 +202,10 @@ public class StaffServiceImpl implements StaffService {
         return null;
     }
     // 从jsonO中查找orderId所对应的flightId
-    public int getFlightId(int orderId) {
+    public int getFlightId(String orderId) {
         List<Order> orderList = jsonO.readArray(Order.class);
         for (Order order : orderList) {
-            if (order.getOrderId() == orderId) {
+            if (order.getOrderId().equals(orderId)) {
                 return order.getFlightId();
             }
         }
@@ -270,15 +269,15 @@ public class StaffServiceImpl implements StaffService {
         for (Order order : orderList) {
             if (order.getFlightId() == flightId) {
                 String food = order.getFood();
-                int orderid = order.getOrderId();
-                int seatid = order.getSeatId();
-                if (seatid == -1) {
+                String orderId = order.getOrderId();
+                int seatId = order.getSeatId();
+                if (seatId == -1) {
                     String seat = "Not chosen";
-                    foodList.add("\n\n\tThe Order ID: " + orderid + "\n\t\t—— The  Food: " + food
+                    foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
                             + "\n\t\t—— The Seat: " + seat);
                 } else {
-                    foodList.add("\n\n\tThe Order ID: " + orderid + "\n\t\t—— The  Food: " + food
-                            + "\n\t\t—— The Seat: " + seatid);
+                    foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
+                            + "\n\t\t—— The Seat: " + seatId);
                 }
             }
         }
@@ -302,13 +301,13 @@ public class StaffServiceImpl implements StaffService {
     // 返回所有order的orderid到string数组中
     public String[] getOrderId() {
         List<Order> orderList = jsonO.readArray(Order.class);
-        List<Integer> orderIdList = new ArrayList<>();
+        List<String> orderIdList = new ArrayList<>();
         for (Order order : orderList) {
             orderIdList.add(order.getOrderId());
         }
         String[] orderIds = new String[orderIdList.size()];
         for (int i = 0; i < orderIdList.size(); i++) {
-            orderIds[i] = String.valueOf(orderIdList.get(i));
+            orderIds[i] = orderIdList.get(i);
         }
         return orderIds;
     }

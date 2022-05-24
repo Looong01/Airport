@@ -52,10 +52,7 @@ public class Payment extends JPanel implements Page {
 		if (BANK.pay(Integer.parseInt(textField2.getText()), DAO.getDue())) {
 			JOptionPane.showMessageDialog(this, "Payment successful", "Prompt", JOptionPane.INFORMATION_MESSAGE);
 			// write CustomerDAO into json
-			SERVICE.chooseSeat(DAO.getOrder());
-			SERVICE.chooseFood(DAO.getOrder());
-
-			return true;
+			return SERVICE.chooseSeat(DAO.getOrder()) && SERVICE.chooseFood(DAO.getOrder());
 		}
 		JOptionPane.showMessageDialog(this, "Payment error! Please recheck your card ID", "Warning", JOptionPane.ERROR_MESSAGE);
 		return false;

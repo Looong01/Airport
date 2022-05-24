@@ -5,6 +5,7 @@ import util.database.DataBaseUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -22,13 +23,13 @@ public class OrderUtil extends DataBaseUtil {
     }
 
     @Override
-    public Object get(int orderId) {
+    public Object get(String orderId) {
         List<Order> orders=controller.readArray(Order.class);
         if(orders==null)
             fail("No order");
 
         for(Order o:orders){
-            if (o.getOrderId()==orderId)
+            if (Objects.equals(o.getOrderId(), orderId))
                 return o;
         }
         return null;

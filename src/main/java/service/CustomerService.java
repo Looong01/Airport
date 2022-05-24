@@ -30,7 +30,7 @@ public interface CustomerService {
      * @param orderId ID
      * @return order
      */
-    Order getOrder(int orderId);
+    Order getOrder(String orderId);
 
     /**
      * Find flight with ID
@@ -39,14 +39,6 @@ public interface CustomerService {
      * @return flight
      */
     Flight getFlight(int flightId);
-
-    /**
-     * The customer login by the orderId.
-     *
-     * @param orderId Order ID
-     * @return Order
-     */
-    Order LoginByOrderId(int orderId);
 
     /**
      * The customer login with the card ID.

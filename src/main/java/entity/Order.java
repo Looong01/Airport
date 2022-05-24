@@ -16,7 +16,7 @@ import java.io.Serializable;
  *
  */
 public class Order implements Serializable {
-    private int orderId;
+    private String orderId;
     private int userId;
     private String status;
     private int flightId;
@@ -45,7 +45,7 @@ public class Order implements Serializable {
      * @param carryOn The number of the carry on package
      * @param checkIn The number of the check in package
      */
-    public Order(int orderId, int userId, int flightId, int packageGate, int carryOn, int checkIn) {
+    public Order(String orderId, int userId, int flightId, int packageGate, int carryOn, int checkIn) {
         this.orderId = orderId;
         this.userId = userId;
         this.status = "C";
@@ -62,7 +62,7 @@ public class Order implements Serializable {
      *
      * @return orderId
      */
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
@@ -71,7 +71,7 @@ public class Order implements Serializable {
      *
      * @param orderId the ID of the order
      */
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
