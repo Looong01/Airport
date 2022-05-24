@@ -8,7 +8,7 @@ import java.io.Serializable;
  * This class defines airplane entity with planeID, seats, and seatNum.
  *
  * @author Ziyao Wang
- * @version 5.0
+ * @version 1.5
  *
  */
 

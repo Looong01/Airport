@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CustomerTest {
-    DataBaseUtil util=new DataBaseUtil();
-
     /*@Test
     public void scanDataTest(){
         Customer c1=new Customer(19, "Chenyang He","140109200010204817","MEN"  ,"18636936796",new ArrayList<Integer>(Arrays.asList(18)),"3535103785@qq.com");

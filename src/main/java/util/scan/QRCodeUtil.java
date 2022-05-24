@@ -15,7 +15,7 @@ import java.util.Hashtable;
 
 public class QRCodeUtil {
     private static final String CHARSET = "utf-8";
-    private static final String FORMAT_NAME = "JPG";
+    private static final String FORMAT_NAME = "jpg";
     // 二维码尺寸
     private static final int QRCODE_SIZE = 300;
     // LOGO宽度
@@ -137,8 +137,7 @@ public class QRCodeUtil {
         Hashtable hints = new Hashtable();
         hints.put(DecodeHintType.CHARACTER_SET, CHARSET);
         result = new MultiFormatReader().decode(bitmap, hints);
-        String resultStr = result.getText();
-        return resultStr;
+        return result.getText();
     }
 
     public static String decode(String path) throws Exception {

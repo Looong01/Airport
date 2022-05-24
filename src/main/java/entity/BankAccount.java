@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Chenyang He & Hao Sun
  * @author Ziyao Wang
- * @version 5.0
+ * @version 1.5
  *
  */
 public class BankAccount implements Serializable {

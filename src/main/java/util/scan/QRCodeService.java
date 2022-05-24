@@ -10,11 +10,11 @@ public class QRCodeService {
         CustomerService service=new CustomerServiceImpl();
         //String card=service.printCard(cardId);
         //System.out.println(card);
-        Customer c=service.getCustomerById(userId);
+        Customer c=service.getCustomer(userId);
         // 嵌入二维码的图片路径
-        String imgPath = "src/main/JPG/"+userId;
+        String imgPath = "src/main/jpg/"+userId;
         // 生成的二维码的路径及名称
-        String destPath = "src/main/resources/JPG/"+userId+".jpg";
+        String destPath = "src/main/resources/jpg/"+userId+".jpg";
         try{
             //生成二维码
             QRCodeUtil.encode(c.getCardId(), imgPath,destPath, true);
@@ -28,7 +28,7 @@ public class QRCodeService {
     public String analyseCode(int userId){
         String str="";
         // 生成的二维码的路径及名称
-        String destPath = "src/main/resources/JPG/"+userId+".jpg";
+        String destPath = "src/main/resources/jpg/"+userId+".jpg";
         try{
             // 解析二维码
             str = QRCodeUtil.decode(destPath);
