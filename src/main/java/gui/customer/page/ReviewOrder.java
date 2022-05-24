@@ -8,11 +8,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ChooseOrder extends JPanel implements Page {
+public class ReviewOrder extends JPanel implements Page {
 	private final JTextArea textArea;
 	private final JComboBox<String> comboBox;
 
-	public ChooseOrder() {
+	public ReviewOrder() {
 		this.setLayout(new GridLayout(2, 1));
 		textArea = new JTextArea();
 		textArea.setLineWrap(true);
@@ -42,7 +42,7 @@ public class ChooseOrder extends JPanel implements Page {
 
 	@Override
 	public String getLabel() {
-		return "Please choose an order to proceed";
+		return (DAO.getOrder() == null)? "Please choose an order to proceed": "Please review your order";
 	}
 
 	public String getCont() {
@@ -56,6 +56,9 @@ public class ChooseOrder extends JPanel implements Page {
 
 	@Override
 	public boolean cont() {
+		if (DAO.getOrder() != null)
+			return true;
+
 		if (comboBox.getSelectedIndex() == 0) {
 			JOptionPane.showMessageDialog(this, "Please choose your order", "Prompt", JOptionPane.ERROR_MESSAGE);
 			return false;

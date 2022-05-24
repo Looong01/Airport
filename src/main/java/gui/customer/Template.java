@@ -39,7 +39,7 @@ public class Template extends JFrame {
 		logout = new JButton("LOGOUT"); // (10,0) w2h1
 		nav = new JList<>(new String[]{
 				"Login",
-				"Choose Order",
+				"Review Order",
 				"Choose Seat",
 				"Choose Food",
 				"Payment",

@@ -22,7 +22,7 @@ public class CustomerGUI {
 		}
 
 		PAGES.add(new Login()); // P1
-		PAGES.add(new ChooseOrder()); // P2
+		PAGES.add(new ReviewOrder()); // P2
 		PAGES.add(new ChooseSeat());
 		PAGES.add(new ChooseFood());
 		PAGES.add(new Payment());

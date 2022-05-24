@@ -17,7 +17,10 @@ public class Login extends JPanel implements Page {
 
         JLabel label = new JLabel("Group 80 ☀ Kiosk Project", JLabel.CENTER);
 
-        comboBox.addActionListener(e -> Template.getInfoLabel().setText("Please input your " + ((JComboBox<?>) e.getSource()).getSelectedItem()));
+        comboBox.addActionListener(e -> {
+            Template.getInfoLabel().setText("Please input your " + comboBox.getSelectedItem());
+            textField.setText((comboBox.getSelectedIndex() == 0)? "140109200010204817" : "ekk9mrVMBA"); // TODO delete it
+        });
         panel.add(comboBox);
         panel.add(textField);
 
@@ -70,13 +73,16 @@ public class Login extends JPanel implements Page {
                 DAO.setCustomer(SERVICE.loginByCardId(textField.getText()));
                 if(DAO.getCustomer() == null)
                     JOptionPane.showMessageDialog(this, "Your card ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
-
                 return (DAO.getCustomer() != null);
             case 1: // orderId
                 DAO.setOrder(SERVICE.getOrder(textField.getText()));
-                if (DAO.getOrder() == null)
+                if (DAO.getOrder() == null) {
                     JOptionPane.showMessageDialog(this, "Your order ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
-                return (DAO.getOrder() != null);
+                    return false;
+                }
+                DAO.setCustomer(SERVICE.getCustomer(DAO.getOrder().getUserId()));
+                DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));
+                return true;
             default:
                 System.err.println("Fatal error");
                 return false;
