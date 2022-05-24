@@ -96,6 +96,11 @@ public class DatabaseTest {
         util.add(new BankAccount(2, 88888, "Hao Sun 2", 42));
     }
 
+    @Test
+    public void CustomerEmailScanTest(){
+
+    }
+
     /*@Test
     public void EmailTest() {
         EmailService emailService=new EmailService();

@@ -1,21 +1,11 @@
 package service;
 
-import entity.user.Customer;
 import org.junit.jupiter.api.Test;
 import service.impl.CustomerServiceImpl;
-import util.database.DataBaseUtil;
 import util.scan.PythonPhoto;
-import util.scan.QRCodeService;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CustomerTest {
-    /*@Test
-    public void scanDataTest(){
-        Customer c1=new Customer(19, "Chenyang He","140109200010204817","MEN"  ,"18636936796",new ArrayList<Integer>(Arrays.asList(18)),"3535103785@qq.com");
-        util.addCustomerWithOrderAndFlight(c1,12,1);
-    }*/
+    CustomerService service=new CustomerServiceImpl();
 
     @Test
     public void scanPhotoTest(){
@@ -30,6 +20,13 @@ public class CustomerTest {
         String cardId=service.analyseCode(19);
         System.out.println(cardId);
     }
+
+    @Test
+    public void logInByScan(){
+        //service.LoginByScanId();
+        System.out.println(service.LoginByScanId());
+    }
+
 
 }
 

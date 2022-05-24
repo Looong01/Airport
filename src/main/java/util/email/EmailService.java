@@ -1,7 +1,5 @@
 package util.email;
 
-import util.scan.QRCodeService;
-
 public class EmailService {
     public void sendEmail(int userId, String toEmail) {
         //先将二维码生成

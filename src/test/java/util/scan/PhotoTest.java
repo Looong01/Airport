@@ -34,7 +34,7 @@ public class PhotoTest {
 		grabber.close();
 
 		BufferedImage image = converter.convert(frame);
-		ImageIO.write(image,"png",new File("src/main/resources/PNG/1.png"));
+		ImageIO.write(image,"png",new File("src/main/resources/jpg/1.png"));
 
 	}
 }

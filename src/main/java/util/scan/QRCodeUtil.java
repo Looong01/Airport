@@ -125,23 +125,15 @@ public class QRCodeUtil {
         QRCodeUtil.encode(content, null, output, false);
     }
 
-    public static String decode(File file) throws Exception {
-        BufferedImage image;
-        image = ImageIO.read(file);
-        if (image == null) {
-            return null;
-        }
+    public static String decode(BufferedImage image) throws Exception{
         BufferedImageLuminanceSource source = new BufferedImageLuminanceSource(image);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
         Result result;
         Hashtable hints = new Hashtable();
         hints.put(DecodeHintType.CHARACTER_SET, CHARSET);
         result = new MultiFormatReader().decode(bitmap, hints);
+        if(result==null) return null;
         return result.getText();
-    }
-
-    public static String decode(String path) throws Exception {
-        return QRCodeUtil.decode(new File(path));
     }
 
 }

@@ -3,8 +3,14 @@ package service.impl;
 import entity.Flight;
 import entity.Order;
 import entity.user.Customer;
+import org.bytedeco.javacv.*;
+
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+
 import service.CustomerService;
 import util.file.JSONController;
+import util.scan.QRCodeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,8 +93,36 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer LoginByScanId() {
-        // TO DO implementation
-        return null;
+        OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
+        BufferedImage image = null;
+        String cardId = null;
+
+        try{
+            grabber.start();
+            CanvasFrame canvas = new CanvasFrame("Camera");
+            canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            canvas.toFront();
+
+
+            Java2DFrameConverter converter = new Java2DFrameConverter();
+            Frame frame = null;
+            while (canvas.isDisplayable()) {
+                frame = grabber.grab();
+                canvas.showImage(frame);
+
+                Thread.sleep(50);
+            }
+            grabber.close();
+            image = converter.convert(frame);
+            cardId = QRCodeUtil.decode(image);
+            if(cardId==null){
+                System.out.println("Please take photo again!");
+                return null;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return this.LoginByCardId(cardId);
     }
 
     @Override
