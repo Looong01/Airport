@@ -95,16 +95,4 @@ public class DatabaseTest {
         util.add(new BankAccount(2, 24680, "Hao Sun", 428972));
         util.add(new BankAccount(2, 88888, "Hao Sun 2", 42));
     }
-
-    @Test
-    public void CustomerEmailScanTest(){
-
-    }
-
-    /*@Test
-    public void EmailTest() {
-        EmailService emailService=new EmailService();
-        //将登机牌发送给用户邮箱
-        emailService.sendEmail(c.getUserId(), c.getEmail());
-    }*/
 }

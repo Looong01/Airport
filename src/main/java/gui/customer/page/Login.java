@@ -26,7 +26,8 @@ public class Login extends JPanel implements Page {
 
         JButton button = new JButton("Scan QR Code");
         button.addActionListener(e -> {
-            System.out.println("clicked");
+            DAO.setCustomer(SERVICE.loginByScanId());
+            Template.getCont().doClick();
         });
 
         this.add(label);
@@ -62,6 +63,10 @@ public class Login extends JPanel implements Page {
 
     @Override
     public boolean cont() {
+        // scan login
+        if (DAO.getCustomer() != null)
+            return true;
+
         // input validation
         if (textField.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please input your ID", "Prompt", JOptionPane.ERROR_MESSAGE);

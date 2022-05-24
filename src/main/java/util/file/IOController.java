@@ -1,6 +1,9 @@
 package util.file;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  *  Utility class {@code IOController}
@@ -33,7 +36,7 @@ public class IOController {
     public boolean directWrite(String data) {
         OutputStream os;
         try {
-            os = new FileOutputStream(filename);
+            os = Files.newOutputStream(Paths.get(filename));
             PrintWriter pw = new PrintWriter(os);
             pw.print(data);
             pw.close();
@@ -55,12 +58,12 @@ public class IOController {
         int iAvail;
         String ret=null;
         try {
-            InputStream is = new FileInputStream(filename);
+            InputStream is = Files.newInputStream(Paths.get(filename));
             iAvail = is.available();
             byte[] bytes = new byte[iAvail];
             is.read(bytes);
             is.close();
-            ret = new String(bytes, "UTF-8");
+            ret = new String(bytes, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }

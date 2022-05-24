@@ -45,8 +45,7 @@ public class JSONController {
      */
     public <T> List<T> readArray(Class<T> tClass) {
         String json=io.directRead();
-        List<T> ret = JSONArray.parseArray(json,tClass);
-        return ret;
+        return JSONArray.parseArray(json,tClass);
     }
 
     /**
@@ -55,7 +54,7 @@ public class JSONController {
      * @return Whether the write operation was successful
      */
     public boolean writeArray(List<?> objectList) {
-        String temp= (String) JSON.toJSONString(objectList);
+        String temp= JSON.toJSONString(objectList);
         return io.directWrite(temp);
     }
 
@@ -66,8 +65,7 @@ public class JSONController {
      */
     public Object read(Class<?> tClass) {
         String json=io.directRead();
-        Object ret = JSON.parseObject(json,tClass);
-        return ret;
+        return JSON.parseObject(json,tClass);
     }
 
     /**
@@ -76,7 +74,7 @@ public class JSONController {
      * @return Whether the write operation was successful
      */
     public boolean write(Object x) {
-        String temp= (String) JSON.toJSONString(x);
+        String temp= JSON.toJSONString(x);
         return io.directWrite(temp);
     }
 }

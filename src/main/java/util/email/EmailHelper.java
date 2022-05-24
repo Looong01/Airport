@@ -10,17 +10,17 @@ import java.util.Properties;
 
 public class EmailHelper {
 
-    private String host;
-    private String username;
-    private String password;
-    private String from;
+    private final String host;
+    private final String username;
+    private final String password;
+    private final String from;
 
     private String to;
     private String subject;
     private String htmlContent;
     private String imagePath;
 
-    public EmailHelper(String host, String username, String password, String from) throws AddressException, MessagingException{
+    public EmailHelper(String host, String username, String password, String from) {
         this.host = host;
         this.username = username;
         this.password = password;

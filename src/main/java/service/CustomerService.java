@@ -49,9 +49,9 @@ public interface CustomerService {
     Customer loginByCardId(String cardId);
 
     /**
-     * The customer login with the card ID,
-     * which will be scanned by the computer, the
-     * customer should enter their card ID.
+     * The customer login with received QR code
+     * that will be scanned by the computer and
+     * decoded for cardId.
      *
      * @return true if success, false if failed
      */

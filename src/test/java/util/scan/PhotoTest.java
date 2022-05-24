@@ -9,7 +9,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
- * 用法：运行弹窗，关闭窗口时拍照并保存
+ * The class tests photo-taking service via javacv and opencv-platform.
+ * Upon window closing, photo is taken and written as PNG.
+ *
+ * @author Ziyao Wang
+ * @version 1.5
  */
 public class PhotoTest {
 	@Test
@@ -28,13 +32,10 @@ public class PhotoTest {
 		while (canvas.isDisplayable()) {
 			frame = grabber.grab();
 			canvas.showImage(frame);
-
-			Thread.sleep(50);
 		}
 		grabber.close();
 
 		BufferedImage image = converter.convert(frame);
-		ImageIO.write(image,"png",new File("src/main/resources/jpg/1.png"));
-
+		ImageIO.write(image,"png",new File("src/main/resources/jpg/photo-test.png"));
 	}
 }

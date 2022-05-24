@@ -25,13 +25,19 @@ public class ReviewOrder extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		ArrayList<String> orders = DAO.getCustomer().getOrders();
-		textArea.setText("");
-		comboBox.removeAllItems();
-		comboBox.addItem("Choose order");
-		for (String order : orders) {
-			textArea.append(SERVICE.getOrder(order) + "\n");
-			comboBox.addItem("" + order);
+		if (DAO.getOrder() != null) {
+			textArea.setText("");
+			comboBox.setVisible(false);
+			textArea.append(DAO.getOrder() + "");
+		} else {
+			ArrayList<String> orders = DAO.getCustomer().getOrders();
+			textArea.setText("");
+			comboBox.removeAllItems();
+			comboBox.addItem("Choose order");
+			for (String order : orders) {
+				textArea.append(SERVICE.getOrder(order) + "\n");
+				comboBox.addItem("" + order);
+			}
 		}
 	}
 
@@ -42,7 +48,7 @@ public class ReviewOrder extends JPanel implements Page {
 
 	@Override
 	public String getLabel() {
-		return (DAO.getOrder() == null)? "Please choose an order to proceed": "Please review your order";
+		return (DAO.getOrder() == null)? "Please choose an order to proceed": "Please review your order to proceed";
 	}
 
 	public String getCont() {

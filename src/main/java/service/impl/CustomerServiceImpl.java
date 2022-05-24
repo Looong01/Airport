@@ -6,7 +6,6 @@ import entity.user.Customer;
 import org.bytedeco.javacv.*;
 
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 
 import service.CustomerService;
 import util.file.JSONController;
@@ -94,32 +93,28 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer loginByScanId() {
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
-        BufferedImage image = null;
+        Java2DFrameConverter converter = new Java2DFrameConverter();
+        CanvasFrame canvas;
+        Frame frame;
         String cardId = null;
 
         try{
             grabber.start();
-            CanvasFrame canvas = new CanvasFrame("Camera");
+            canvas = new CanvasFrame("Camera");
             canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             canvas.toFront();
 
-
-            Java2DFrameConverter converter = new Java2DFrameConverter();
-            Frame frame = null;
             while (canvas.isDisplayable()) {
                 frame = grabber.grab();
                 canvas.showImage(frame);
-
-                Thread.sleep(50);
+                cardId = QRCodeUtil.decode(converter.convert(frame));
+                if (cardId != null) {
+                    canvas.dispose();
+                    grabber.close();
+                    break;
+                }
             }
-            grabber.close();
-            image = converter.convert(frame);
-            cardId = QRCodeUtil.decode(image);
-            if(cardId==null){
-                System.out.println("Please take photo again!");
-                return null;
-            }
-        }catch (Exception e){
+        }catch (FrameGrabber.Exception e) {
             e.printStackTrace();
         }
         return this.loginByCardId(cardId);

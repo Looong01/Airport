@@ -83,5 +83,4 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
         int width = getWidth();
         return new BufferedImageLuminanceSource(rotatedImage, top, sourceWidth - (left + width), getHeight(), width);
     }
-
 }
