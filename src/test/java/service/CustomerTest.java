@@ -1,30 +1,62 @@
 package service;
 
+import entity.Order;
 import org.junit.jupiter.api.Test;
 import service.impl.CustomerServiceImpl;
-import util.scan.PythonPhoto;
+
 
 public class CustomerTest {
     CustomerService service=new CustomerServiceImpl();
 
+    static CustomerServiceImpl cs = new CustomerServiceImpl();
+
+    //Test for getCustomer(int userId)
     @Test
-    public void scanPhotoTest(){
-        PythonPhoto pythonPhoto=new PythonPhoto();
-        pythonPhoto.takePhoto("19");
+    public void testGetCustomer() {
+        System.out.println(cs.getCustomer(1));
     }
 
+    //Test for getOrder(String orderId)
     @Test
-    public void analyseDataTest(){
-        QRCodeService service=new QRCodeService();
-        //service.generateCode(4);
-        String cardId=service.analyseCode(19);
-        System.out.println(cardId);
+    public void testGetOrder() {
+        System.out.println(cs.getOrder("BJEV1RmqVm"));
+    }
+
+    //Test for getFlight(int flightId)
+    @Test
+    public void testGetFlight() {
+        System.out.println(cs.getFlight(1));
+    }
+
+    //Test for LoginByCardId(String cardId)
+    @Test
+    public void testLoginByCardId() {
+        System.out.println(cs.loginByCardId("140109200010204817"));
+    }
+
+    //Test for chooseSeat(Order order)
+    @Test
+    public void testChooseSeat() {
+        Order order = cs.getOrder("BJEV1RmqVm");
+        order.setSeatId(2);
+        System.out.println(cs.chooseSeat(order));
+        System.out.println(order);
+        System.out.println(cs.getFlight(1));
+    }
+
+    //Test for chooseFood(Order order)
+    @Test
+    public void testChooseFood() {
+        Order order = cs.getOrder("BJEV1RmqVm");
+        order.setFood("Standard");
+        System.out.println(cs.chooseFood(order));
+        System.out.println(order);
     }
 
     @Test
     public void logInByScan(){
         //service.LoginByScanId();
-        System.out.println(service.LoginByScanId());
+        System.out.println(service.loginByScanId());
     }
 
 

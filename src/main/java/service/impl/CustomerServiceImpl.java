@@ -78,7 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer LoginByCardId(String cardId) {
+    public Customer loginByCardId(String cardId) {
         List<Customer> customers = customerController.readArray(Customer.class);
         if(customers == null) {
             System.out.println("No customer exist!");
@@ -92,7 +92,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer LoginByScanId() {
+    public Customer loginByScanId() {
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
         BufferedImage image = null;
         String cardId = null;
@@ -122,7 +122,7 @@ public class CustomerServiceImpl implements CustomerService {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return this.LoginByCardId(cardId);
+        return this.loginByCardId(cardId);
     }
 
     @Override

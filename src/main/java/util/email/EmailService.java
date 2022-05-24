@@ -1,5 +1,7 @@
 package util.email;
 
+import util.scan.QRCodeService;
+
 public class EmailService {
     public void sendEmail(int userId, String toEmail) {
         //先将二维码生成
@@ -17,8 +19,8 @@ public class EmailService {
         try {
             EmailHelper emailHelper = new EmailHelper(host, username, password, from);
             emailHelper.setTo(to);
-            emailHelper.setSubject("领取您的登机牌");
-            emailHelper.setHtmlContent("<h1>欢迎使用机场自助值机</h1><br/><h2>您可以使用您的微信扫描二维码获取登机牌</h2><br>");
+            emailHelper.setSubject("Get your boarding pass");
+            emailHelper.setHtmlContent("<h1>Welcome to the airport self-service check-in</h1><br/><h2>You can use your wechat scanning QR code to get your boarding pass</h2><br>");
             emailHelper.setImagePath("src/main/resources/JPG/" + userId + ".jpg");
             emailHelper.sendWithImage();
 

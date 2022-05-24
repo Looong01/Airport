@@ -46,7 +46,7 @@ public interface CustomerService {
      * @param cardId Card ID
      * @return Customer
      */
-    Customer LoginByCardId(String cardId);
+    Customer loginByCardId(String cardId);
 
     /**
      * The customer login with the card ID,
@@ -55,7 +55,7 @@ public interface CustomerService {
      *
      * @return true if success, false if failed
      */
-    Customer LoginByScanId();
+    Customer loginByScanId();
 
     /**
      * The customer chooses the seat with his

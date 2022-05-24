@@ -67,7 +67,7 @@ public class Login extends JPanel implements Page {
 
         switch (comboBox.getSelectedIndex()) {
             case 0: // cardId
-                DAO.setCustomer(SERVICE.LoginByCardId(textField.getText()));
+                DAO.setCustomer(SERVICE.loginByCardId(textField.getText()));
                 if(DAO.getCustomer() == null)
                     JOptionPane.showMessageDialog(this, "Your card ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
 
