@@ -22,12 +22,12 @@ public class DatabaseTest {
     public void PlaneTest() {
         DataBaseUtil util = new PlaneUtil();
         util.removeAll();
-        util.add(new Plane(1001));
-        util.add(new Plane(1002));
-        util.add(new Plane(1003));
-        util.add(new Plane(1004));
-        util.add(new Plane(1005));
-        util.add(new Plane(1006));
+        util.add(new Plane("B-1001"));
+        util.add(new Plane("B-1002"));
+        util.add(new Plane("B-1003"));
+        util.add(new Plane("B-1004"));
+        util.add(new Plane("B-1005"));
+        util.add(new Plane("B-1006"));
     }
 
     @Test
@@ -42,22 +42,22 @@ public class DatabaseTest {
     public void FlightTest() {
         DataBaseUtil util = new FlightUtil();
         util.removeAll();
-        util.add(new Flight(1001, 1, LocalDateTime.now(ZoneOffset.of("-8")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Beijing Capital", 10));
-        util.add(new Flight(1001, 2, LocalDateTime.now(ZoneOffset.of("-7")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu","Shanghai Pudong", 20));
-        util.add(new Flight(1002, 3, LocalDateTime.now(ZoneOffset.of("-6")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Beijing Daxing", 30));
-        util.add(new Flight(1002, 4, LocalDateTime.now(ZoneOffset.of("-5")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Guangzhou Baiyun", 40));
-        util.add(new Flight(1002, 5, LocalDateTime.now(ZoneOffset.of("-4")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shanghai Hongqiao", 50));
-        util.add(new Flight(1002, 6, LocalDateTime.now(ZoneOffset.of("-3")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shenzhen Bao'an", 60));
-        util.add(new Flight(1003, 7, LocalDateTime.now(ZoneOffset.of("-2")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Macau", 70));
-        util.add(new Flight(1003, 8, LocalDateTime.now(ZoneOffset.of("-1")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Changsha Huanghua", 80));
-        util.add(new Flight(1004, 9, LocalDateTime.now(ZoneOffset.of("+1")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Kunming Wujiaba", 90));
-        util.add(new Flight(1004, 10, LocalDateTime.now(ZoneOffset.of("+2")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Hangzhou Xiaoshan", 100));
-        util.add(new Flight(1004, 11, LocalDateTime.now(ZoneOffset.of("+3")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Chongqing Jiangbei", 110));
-        util.add(new Flight(1004, 12, LocalDateTime.now(ZoneOffset.of("+4")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Hong Kong", 120));
-        util.add(new Flight(1005, 13, LocalDateTime.now(ZoneOffset.of("+5")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Chengdu Shuangliu", 130));
-        util.add(new Flight(1006, 14, LocalDateTime.now(ZoneOffset.of("+6")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shantou Waisha", 140));
-        util.add(new Flight(1006, 15, LocalDateTime.now(ZoneOffset.of("+7")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Xi'an Xianyang", 150));
-        util.add(new Flight(1006, 16, LocalDateTime.now(ZoneOffset.of("+8")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Nanjing Lukou", 160));
+        util.add(new Flight("B-1001", 1, LocalDateTime.now(ZoneOffset.of("-8")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Beijing Capital", 10));
+        util.add(new Flight("B-1001", 2, LocalDateTime.now(ZoneOffset.of("-7")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu","Shanghai Pudong", 20));
+        util.add(new Flight("B-1002", 3, LocalDateTime.now(ZoneOffset.of("-6")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Beijing Daxing", 30));
+        util.add(new Flight("B-1002", 4, LocalDateTime.now(ZoneOffset.of("-5")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Guangzhou Baiyun", 40));
+        util.add(new Flight("B-1002", 5, LocalDateTime.now(ZoneOffset.of("-4")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shanghai Hongqiao", 50));
+        util.add(new Flight("B-1002", 6, LocalDateTime.now(ZoneOffset.of("-3")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shenzhen Bao'an", 60));
+        util.add(new Flight("B-1003", 7, LocalDateTime.now(ZoneOffset.of("-2")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Macau", 70));
+        util.add(new Flight("B-1003", 8, LocalDateTime.now(ZoneOffset.of("-1")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Changsha Huanghua", 80));
+        util.add(new Flight("B-1004", 9, LocalDateTime.now(ZoneOffset.of("+1")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Kunming Wujiaba", 90));
+        util.add(new Flight("B-1004", 10, LocalDateTime.now(ZoneOffset.of("+2")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Hangzhou Xiaoshan", 100));
+        util.add(new Flight("B-1004", 11, LocalDateTime.now(ZoneOffset.of("+3")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Chongqing Jiangbei", 110));
+        util.add(new Flight("B-1004", 12, LocalDateTime.now(ZoneOffset.of("+4")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Hong Kong", 120));
+        util.add(new Flight("B-1005", 13, LocalDateTime.now(ZoneOffset.of("+5")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Chengdu Shuangliu", 130));
+        util.add(new Flight("B-1006", 14, LocalDateTime.now(ZoneOffset.of("+6")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Shantou Waisha", 140));
+        util.add(new Flight("B-1006", 15, LocalDateTime.now(ZoneOffset.of("+7")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Xi'an Xianyang", 150));
+        util.add(new Flight("B-1006", 16, LocalDateTime.now(ZoneOffset.of("+8")).format(DateTimeFormatter.ofPattern("EEE LLL dd HH:mm:ss")), "Taiyuan Wusu", "Nanjing Lukou", 160));
     }
 
     @Test

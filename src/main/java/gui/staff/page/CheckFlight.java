@@ -1,7 +1,6 @@
 package gui.staff.page;
 
 import gui.customer.Template;
-import gui.staff.dao.DAO;
 import gui.staff.Page;
 
 import javax.swing.*;
@@ -12,7 +11,7 @@ public class CheckFlight extends JPanel implements Page {
 		this.setLayout(new GridLayout(1, 1)); // 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
 
 		String[] columnNames = { "The flight ID", "The gate ID", "From which city", "The time of taking off", "To which city" };
-		int[] idInt = DAO.SERVICE.getFlightIds();
+		int[] idInt = SERVICE.getFlightIds();
 		Object[][] obj = new Object[idInt.length][5];
 		JTable table = new JTable(obj, columnNames);
 		table.setEnabled(false);
@@ -40,16 +39,16 @@ public class CheckFlight extends JPanel implements Page {
 						obj[i][j] = String.valueOf(idInt[i]);
 						break;
 					case 1:
-						obj[i][j] = String.valueOf(DAO.SERVICE.getGateId(idInt[i]));
+						obj[i][j] = String.valueOf(SERVICE.getGateId(idInt[i]));
 						break;
 					case 2:
-						obj[i][j] = DAO.SERVICE.getFromCity(idInt[i]);
+						obj[i][j] = SERVICE.getFromCity(idInt[i]);
 						break;
 					case 3:
-						obj[i][j] = DAO.SERVICE.getTime(idInt[i]);
+						obj[i][j] = SERVICE.getTime(idInt[i]);
 						break;
 					case 4:
-						obj[i][j] = DAO.SERVICE.getToCity(idInt[i]);
+						obj[i][j] = SERVICE.getToCity(idInt[i]);
 						break;
 				}
 			}
@@ -67,5 +66,20 @@ public class CheckFlight extends JPanel implements Page {
 	@Override
 	public String getLabel() {
 		return "Here is Flight information";
+	}
+
+	@Override
+	public boolean back() {
+		return true;
+	}
+
+	@Override
+	public boolean cont() {
+		return true;
+	}
+
+	@Override
+	public void syncPage() {
+
 	}
 }

@@ -14,10 +14,10 @@ public interface Page {
 	String getTitle();
 	String getLabel();
 	default String getBack() {
-		return "Back";
+		return "BACK";
 	}
 	default String getCont() {
-		return "Continue";
+		return "CONTINUE";
 	}
 	boolean back();
 	boolean cont();

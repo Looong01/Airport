@@ -3,12 +3,8 @@ package gui.staff;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import gui.staff.page.*;
-import gui.staff.dao.*;
 
 public class PageController implements ActionListener {
-	private Login loginPage;
-
 	/**
 	 * Constructor for PageController listening to logout, back, and continue
 	 * buttons
@@ -24,7 +20,7 @@ public class PageController implements ActionListener {
 		if (e.getSource() == Template.getLogout()) {
 			if (StaffGUI.getPageNum() == 1) {
 				JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Please Login", "Prompt", JOptionPane.INFORMATION_MESSAGE);
-			} else if (JOptionPane.showConfirmDialog(StaffGUI.WINDOW, "Logout and exit now?", "Confirmation",
+			} else if (JOptionPane.showConfirmDialog(StaffGUI.WINDOW, "Logout now?", "Confirmation",
 					JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 				StaffGUI.setPageNum(1);
 				repaintPage();
@@ -35,27 +31,15 @@ public class PageController implements ActionListener {
 			else if (StaffGUI.getPageNum() == 2) { // the first page
 				JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Already the first page", "Prompt",
 						JOptionPane.INFORMATION_MESSAGE);
-			} else {
+			} else if (((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).back()) {
 				StaffGUI.decreasePageNum();
 				repaintPage();
 			}
 		} else if (e.getSource() == Template.getCont()) {
-			if (StaffGUI.getPageNum() == 1) {// the last page
-				String cardId = loginPage.textField.getText();
-				String password = new String(loginPage.passwordField.getPassword());
-				boolean TorF = DAO.SERVICE.loginByPasswd(cardId, password);
-				if (TorF) {
-					JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Login successfully", "Prompt",
-							JOptionPane.INFORMATION_MESSAGE);
-					StaffGUI.increasePageNum();
-					repaintPage();
-				} else
-					JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Login failed", "Prompt",
-							JOptionPane.INFORMATION_MESSAGE);
-			} else if (StaffGUI.getPageNum() == 4) // the last page 之后去掉button
+			if (StaffGUI.getPageNum() == 4) // the last page
 				JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Already the last page", "Prompt",
 						JOptionPane.INFORMATION_MESSAGE);
-			else {
+			else if (((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).cont()) {
 				StaffGUI.increasePageNum();
 				repaintPage();
 			}
@@ -76,12 +60,9 @@ public class PageController implements ActionListener {
 		Template.LAYOUT.setConstraints(Template.getPage(), Template.CONSTRAINTS);
 		StaffGUI.WINDOW.add(Template.getPage());
 
+		((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).syncPage();
+
 		StaffGUI.WINDOW.repaint();
 		StaffGUI.WINDOW.revalidate(); // repack
 	}
-
-	public void setLoginPage(Login loginpage) {
-		this.loginPage = loginpage;
-	}
-
 }

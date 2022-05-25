@@ -1,6 +1,7 @@
 package gui.staff;
 
 import gui.staff.page.*;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -22,12 +23,8 @@ public class StaffGUI {
 
 		PAGES.add(new Login()); // P1
 		PAGES.add(new CheckFlight()); // P2
-		PAGES.add(new CheckUser());
-		PAGES.add(new CheckOrder());
-
-		Login login = (Login) PAGES.get(0);
-		// login PageController
-		CONTROLLER.setLoginPage(login);
+		PAGES.add(new CheckUser()); // P3
+		PAGES.add(new CheckOrder()); // P4
 
 		// login page
 		CONTROLLER.repaintPage();

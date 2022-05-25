@@ -234,8 +234,7 @@ public class ChooseSeat extends JPanel implements Page {
 
 		seatClass.setFixedCellHeight((int) (200 * Template.getP())); // 600 / 3 = 200
 		seatClass.setSelectedIndex(0);
-
-		Display.setPageFont(this);
+		seatClass.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (30 * Template.getP())));
 	}
 
 	private class JSeat extends JRadioButton {
@@ -249,28 +248,20 @@ public class ChooseSeat extends JPanel implements Page {
 			this.setRolloverIcon(new ImageIcon(rSeatTranscoder.getImage()));
 			this.setSelectedIcon(new ImageIcon(cSeatTranscoder.getImage()));
 			this.addActionListener(e -> { // actionListener cannot capture deselection from buttongroup
-				if (seatId <= 8) { // first class
-					DAO.setSeatClass("First");
+				if (seatId <= 8) // first class
 					DAO.setDue(200);
-				} else if (seatId <= 14) { // extra legroom
-					DAO.setSeatClass("Extra");
+				else if (seatId <= 14) // extra legroom
 					DAO.setDue(50);
-				} else {
-					DAO.setSeatClass("Economy");
+				else // economy class
 					DAO.setDue(0);
-				}
-				Template.getCont().setText("Due $" + DAO.getDue());
+				Template.getCont().setText("DUE $" + DAO.getDue());
 			});
 		}
 	}
 
 	@Override
 	public void syncPage() {
-		/*ArrayList<Integer> seats = (ArrayList<Integer>) IntStream.rangeClosed(1, 50).boxed().collect(Collectors.toList()); // create integer array easily!
-		List<Component> seats = Arrays.stream(panel1.getComponents()).filter(component -> component instanceof JSeat).collect(Collectors.toList()); // first class
-		seats.addAll(Arrays.stream(panel3.getComponents()).filter(component -> component instanceof JSeat).collect(Collectors.toList())); // extra legroom
-		seats.addAll(Arrays.stream(panel2.getComponents()).filter(component -> component instanceof JSeat).collect(Collectors.toList())); // economy class*/
-		Template.getCont().setText("Due $0");
+		Template.getCont().setText("DUE $0");
 		ArrayList<Integer> occupiedSeats = DAO.getFlight().getOccupiedSeats();
 		group.clearSelection();
 		Enumeration<AbstractButton> seats = group.getElements();
@@ -306,23 +297,6 @@ public class ChooseSeat extends JPanel implements Page {
 				return true;
 			}
 		}
-
-
-		/*if (comboBox1.getSelectedIndex() == 0 || comboBox2.getSelectedIndex() == 0) {
-			JOptionPane.showMessageDialog(this, "Please choose your seat and food", "Prompt", JOptionPane.ERROR_MESSAGE);
-		} else {
-			DAO.getOrder().setSeatId(Integer.parseInt((String) Objects.requireNonNull(comboBox1.getSelectedItem())));
-			DAO.getOrder().setFood((String) Objects.requireNonNull(comboBox2.getSelectedItem()));
-
-			if (SERVICE.chooseSeat(DAO.getOrder())) {
-				if (JOptionPane.showConfirmDialog(this, "Confirm your choice?",
-						"Confirmation", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-					SERVICE.chooseFood(DAO.getOrder());
-					return true;
-				}
-			} else
-				JOptionPane.showMessageDialog(this, "The seat have been selected", "Invalid Selection", JOptionPane.ERROR_MESSAGE);
-		}*/
 
 		JOptionPane.showMessageDialog(this, "Please choose your seat", "Prompt", JOptionPane.ERROR_MESSAGE);
 		return false;

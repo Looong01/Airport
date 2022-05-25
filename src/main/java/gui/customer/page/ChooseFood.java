@@ -61,14 +61,14 @@ public class ChooseFood extends JPanel implements Page {
 			this.addActionListener(e -> { // actionListener cannot capture deselection from buttongroup
 				selectedFood = this.getText().split("\\+")[0].trim();
 				due = Integer.parseInt(this.getText().split("\\$")[1]);
-				Template.getCont().setText("Due $" + (DAO.getDue() + due));
+				Template.getCont().setText("DUE $" + (DAO.getDue() + due));
 			});
 		}
 	}
 
 	@Override
 	public void syncPage() {
-		Template.getCont().setText("Due $" + DAO.getDue());
+		Template.getCont().setText("DUE $" + DAO.getDue());
 	}
 
 	@Override

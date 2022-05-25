@@ -1,7 +1,6 @@
 package gui.staff.page;
 
 import gui.customer.Template;
-import gui.staff.dao.DAO;
 import gui.staff.Page;
 
 import javax.swing.*;
@@ -13,8 +12,8 @@ public class CheckOrder extends JPanel implements Page {
 		this.setLayout(new GridLayout(1, 1)); // 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
 		String[] columnNames = { "Order ID", "Flight ID", "Seat", "Food",
 		};
-		int a = DAO.SERVICE.getOrderNum();
-		Object[][] obj = new Object[DAO.SERVICE.getOrderNum()][4];
+		int a = SERVICE.getOrderNum();
+		Object[][] obj = new Object[SERVICE.getOrderNum()][4];
 		JTable table = new JTable(obj, columnNames);
 		table.setEnabled(false);
 
@@ -26,9 +25,9 @@ public class CheckOrder extends JPanel implements Page {
 		
 		int columnwidth = (int) (900 * Template.getP())/(table.getColumnCount() + 1);
 
-		table.getColumnModel().getColumn(0).setPreferredWidth((int) (174 * Template.getP()));
+		table.getColumnModel().getColumn(0).setPreferredWidth((int) (225 * Template.getP()));
 		table.getColumnModel().getColumn(1).setPreferredWidth((int) (174 * Template.getP()));
-		table.getColumnModel().getColumn(2).setPreferredWidth((int) (225 * Template.getP()));
+		table.getColumnModel().getColumn(2).setPreferredWidth((int) (174 * Template.getP()));
 		table.getColumnModel().getColumn(3).setPreferredWidth((int) (325 * Template.getP()));
 
 		table.setRowHeight((int) (530 * Template.getP() / table.getRowCount())); // 这里指定表格的行高，600P是容器高度，用行数来平均分，+1算入了表头行
@@ -36,10 +35,10 @@ public class CheckOrder extends JPanel implements Page {
 		JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-		String[] flightIds = DAO.SERVICE.getFlightId();
-		String[] orderIds = DAO.SERVICE.getOrderId();
-		String[] seats = DAO.SERVICE.getSeat();
-		String[] foods = DAO.SERVICE.getFood();
+		String[] flightIds = SERVICE.getFlightId();
+		String[] orderIds = SERVICE.getOrderId();
+		String[] seats = SERVICE.getSeat();
+		String[] foods = SERVICE.getFood();
 
 		for (int i = 0; i < a; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -72,5 +71,20 @@ public class CheckOrder extends JPanel implements Page {
 	@Override
 	public String getLabel() {
 		return "Here is Order information";
+	}
+
+	@Override
+	public boolean back() {
+		return true;
+	}
+
+	@Override
+	public boolean cont() {
+		return true;
+	}
+
+	@Override
+	public void syncPage() {
+
 	}
 }

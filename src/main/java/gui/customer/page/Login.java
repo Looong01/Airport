@@ -12,17 +12,18 @@ public class Login extends JPanel implements Page {
     private final JTextField textField = new JTextField();
 
     public Login() {
-        this.setLayout(new GridLayout(3,1));
-        JPanel panel = new JPanel(new GridLayout(1,2));
+        this.setLayout(new GridLayout(2,1));
+        JPanel panel = new JPanel(new BorderLayout());
+        JPanel inputPanel = new JPanel(new GridLayout(1,2));
 
         JLabel label = new JLabel("Group 80 ☀ Kiosk Project", JLabel.CENTER);
 
         comboBox.addActionListener(e -> {
             Template.getInfoLabel().setText("Please input your " + comboBox.getSelectedItem());
-            textField.setText((comboBox.getSelectedIndex() == 0)? "140109200010204817" : "ekk9mrVMBA"); // TODO delete it
+            textField.setText((comboBox.getSelectedIndex() == 0)? "140109200010204817" : "BJEV1RmqVm"); // TODO delete it
         });
-        panel.add(comboBox);
-        panel.add(textField);
+        inputPanel.add(comboBox);
+        inputPanel.add(textField);
 
         JButton button = new JButton("Scan QR Code");
         button.addActionListener(e -> {
@@ -30,14 +31,18 @@ public class Login extends JPanel implements Page {
             Template.getCont().doClick();
         });
 
+        panel.add(inputPanel, BorderLayout.CENTER);
+        panel.add(button, BorderLayout.SOUTH);
+
         this.add(label);
         this.add(panel);
-        this.add(button);
-        Display.setPageFont(this);
+        Display.setPageFont(this, 40);
+        label.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (70 * Template.getP())));
     }
 
     @Override
     public void syncPage() {
+        comboBox.setSelectedIndex(0);
         textField.setText("140109200010204817");
     }
 
@@ -53,7 +58,7 @@ public class Login extends JPanel implements Page {
 
     @Override
     public String getCont() {
-        return "Login";
+        return "LOGIN";
     }
 
     @Override
@@ -87,6 +92,7 @@ public class Login extends JPanel implements Page {
                 }
                 DAO.setCustomer(SERVICE.getCustomer(DAO.getOrder().getUserId()));
                 DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));
+                DAO.setCardLogin(false);
                 return true;
             default:
                 System.err.println("Fatal error");

@@ -124,18 +124,24 @@ public class BoardingPass extends JPanel implements Page {
 	public void syncPage() {
 		/*DAO.setCustomer(SERVICE.LoginByCardId("140109200010204817"));
 		DAO.setOrder(SERVICE.getOrder(1000111));
-		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));
-		DAO.setSeatClass("First");*/
+		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));*/ // TODO delete it
 		String[] dates = DAO.getFlight().getTime().split(" ");
 		String[] times = dates[3].split(":");
 		String[] names = DAO.getCustomer().getName().split(" ");
 
 		infoLabel.setText(DAO.getFlight().getFromCity() + " Airport");
-		flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / " + DAO.getSeatClass());
+
+		if (DAO.getOrder().getSeatId() <= 8) // first class
+			flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / First");
+		else if (DAO.getOrder().getSeatId() <= 14) // extra legroom
+			flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / Legroom");
+		else // economy class
+			flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / Economy");
+
 		name.setText(DAO.getCustomer().getName());
 		cityLabel.setText("From " + DAO.getFlight().getFromCity() + " To " + DAO.getFlight().getToCity());
 		gate.setText(DAO.getFlight().getGateId() + "");
-		boardingTime.setText(times[0] + times[1]); // TO DO 向前提前30分钟
+		boardingTime.setText(times[0] + times[1]); // TODO 向前提前30分钟
 		seatNo.setText(DAO.getOrder().getSeatId() + "");
 
 		sideFlight.setText("" + DAO.getFlight().getFlightId());
@@ -157,7 +163,7 @@ public class BoardingPass extends JPanel implements Page {
 
 	@Override
 	public String getCont() {
-		return "Exit";
+		return "EXIT";
 	}
 
 	@Override

@@ -42,8 +42,9 @@ public class Display {
 	/**
 	 * The method sets fonts for JPanel
 	 * @param page one of six customer pages
+	 * @param size size of font with proportion 1
 	 */
-	public static void setPageFont(JPanel page) {
+	public static void setPageFont(JPanel page, int size) {
 		Component[] components = page.getComponents();
 		for (Component component : components) {
 			if (component instanceof JPanel) {
@@ -52,10 +53,18 @@ public class Display {
 					if (comp instanceof JPanel) {
 						Component[] cs = ((JPanel) comp).getComponents();
 						for (Component c : cs)
-							c.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
-					} else comp.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
+							c.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (size * Template.getP())));
+					} else comp.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (size * Template.getP())));
 				}
-			} else component.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
+			} else component.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (size * Template.getP())));
 		}
+	}
+
+	/**
+	 * The method sets fonts for JPanel with default size = 30
+	 * @param page one of six customer pages
+	 */
+	public static void setPageFont(JPanel page) {
+		setPageFont(page, 30);
 	}
 }

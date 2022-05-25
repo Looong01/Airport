@@ -59,4 +59,30 @@ public class Login extends JPanel implements Page {
     public String getLabel() {
         return "Welcome to Staff System!";
     }
+
+    @Override
+    public boolean back() {
+        return true;
+    }
+
+    @Override
+    public boolean cont() {
+        String cardId = textField.getText();
+        String password = new String(passwordField.getPassword());
+        boolean TorF = SERVICE.loginByPasswd(cardId, password);
+        if (TorF) {
+            JOptionPane.showMessageDialog(this, "Login successfully", "Prompt",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return true;
+        }
+        JOptionPane.showMessageDialog(this, "Login failed", "Prompt",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        return false;
+    }
+
+    @Override
+    public void syncPage() {
+
+    }
 }

@@ -2,7 +2,6 @@ package gui.staff.page;
 
 import gui.customer.Template;
 import gui.staff.Page;
-import gui.staff.dao.DAO;
 import util.gui.Display;
 
 import javax.swing.*;
@@ -43,7 +42,7 @@ public class CheckUser extends JPanel implements Page {
         label2.setBounds((int) (301 * Template.getP()), (int) (51 * Template.getP()), (int) (600 * Template.getP()),
                 (int) (50 * Template.getP()));
 
-        int[] idInt = DAO.SERVICE.getFlightIds();
+        int[] idInt = SERVICE.getFlightIds();
         // 新建comboBox,放入flightid
         JComboBox<String> comboBox = new JComboBox<>();
         for (int j : idInt) {
@@ -87,9 +86,24 @@ public class CheckUser extends JPanel implements Page {
         return null;
     }
 
+    @Override
+    public boolean back() {
+        return true;
+    }
+
+    @Override
+    public boolean cont() {
+        return true;
+    }
+
+    @Override
+    public void syncPage() {
+
+    }
+
     private class table2 extends JPanel implements Page {
-        int[] idInt = DAO.SERVICE.getFlightIds();
-        int[] statusInt = DAO.SERVICE.checkFlight(idInt[0]);
+        int[] idInt = SERVICE.getFlightIds();
+        int[] statusInt = SERVICE.checkFlight(idInt[0]);
         String s1 = Integer.toString(statusInt[0]);
         String s2 = Integer.toString(statusInt[1]);
         String s3 = Integer.toString(statusInt[2]);
@@ -132,7 +146,7 @@ public class CheckUser extends JPanel implements Page {
 
         public void setdata(int id) {// 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
 
-            int[] statusInt = DAO.SERVICE.checkFlight(id);
+            int[] statusInt = SERVICE.checkFlight(id);
             String s1 = Integer.toString(statusInt[0]);
             String s2 = Integer.toString(statusInt[1]);
             String s3 = Integer.toString(statusInt[2]);
@@ -178,11 +192,26 @@ public class CheckUser extends JPanel implements Page {
         public String getLabel() {
             return null;
         }
+
+        @Override
+        public boolean back() {
+            return true;
+        }
+
+        @Override
+        public boolean cont() {
+            return true;
+        }
+
+        @Override
+        public void syncPage() {
+
+        }
     }
 
     private class table3 extends JPanel implements Page {
-        int[] idInt = DAO.SERVICE.getFlightIds();
-        int[] userId = DAO.SERVICE.getUserIds(idInt[0]);
+        int[] idInt = SERVICE.getFlightIds();
+        int[] userId = SERVICE.getUserIds(idInt[0]);
         Object[][] obj2 = new Object[userId.length][3];
         JTable table = new JTable(obj2, new String[] { "Name", "CardID", "Status" });
 
@@ -193,9 +222,9 @@ public class CheckUser extends JPanel implements Page {
             // 查找userid对应的所有orderid
             String[] orderids = new String[userId.length];
             for (int m = 0; m < userId.length; m++) {
-                String[] orderid = DAO.SERVICE.getOrderId(userId[m]);
+                String[] orderid = SERVICE.getOrderId(userId[m]);
                 for (String i : orderid) {
-                    if (DAO.SERVICE.getFlightId(i) == idInt[0]) {
+                    if (SERVICE.getFlightId(i) == idInt[0]) {
                         orderids[m] = i;
                         break;
                     }
@@ -204,18 +233,18 @@ public class CheckUser extends JPanel implements Page {
             String[] name = new String[userId.length];
             // 遍历userid数组 找出乘客名字
             for (int flag = 0; flag < userId.length; flag++) {
-                name[flag] = DAO.SERVICE.getName(userId[flag]);
+                name[flag] = SERVICE.getName(userId[flag]);
             }
 
             String[] card = new String[userId.length];
             // 遍历userid数组 找出乘客cardid
             for (int flag2 = 0; flag2 < userId.length; flag2++) {
-                card[flag2] = DAO.SERVICE.getCardId(userId[flag2]);
+                card[flag2] = SERVICE.getCardId(userId[flag2]);
             }
             String[] status = new String[orderids.length];
             // 遍历orderids数组 找出乘客状态
             for (int flag3 = 0; flag3 < orderids.length; flag3++) {
-                status[flag3] = DAO.SERVICE.getStatus(orderids[flag3]);
+                status[flag3] = SERVICE.getStatus(orderids[flag3]);
             }
             // 将name,card,status放入表格
             for (int i = 0; i < userId.length; i++) {
@@ -245,15 +274,15 @@ public class CheckUser extends JPanel implements Page {
         }
 
         public void setdata(int id) {
-            userId = DAO.SERVICE.getUserIds(id);
+            userId = SERVICE.getUserIds(id);
             obj2 = new Object[userId.length][3];
 
             // 查找userid对应的所有oderid
             String[] orderids = new String[userId.length];
             for (int m = 0; m < userId.length; m++) {
-                String[] orderid = DAO.SERVICE.getOrderId(userId[m]);
+                String[] orderid = SERVICE.getOrderId(userId[m]);
                 for (String i : orderid) {
-                    if (DAO.SERVICE.getFlightId(i) == id) {
+                    if (SERVICE.getFlightId(i) == id) {
                         orderids[m] = i;
                         break;
                     }
@@ -262,18 +291,18 @@ public class CheckUser extends JPanel implements Page {
             String[] name = new String[userId.length];
             // 遍历userid数组 找出乘客名字
             for (int flag = 0; flag < userId.length; flag++) {
-                name[flag] = DAO.SERVICE.getName(userId[flag]);
+                name[flag] = SERVICE.getName(userId[flag]);
             }
 
             String[] card = new String[userId.length];
             // 遍历userid数组 找出乘客cardid
             for (int flag2 = 0; flag2 < userId.length; flag2++) {
-                card[flag2] = DAO.SERVICE.getCardId(userId[flag2]);
+                card[flag2] = SERVICE.getCardId(userId[flag2]);
             }
             String[] status = new String[orderids.length];
             // 遍历orderids数组 找出乘客状态
             for (int flag3 = 0; flag3 < orderids.length; flag3++) {
-                status[flag3] = DAO.SERVICE.getStatus(orderids[flag3]);
+                status[flag3] = SERVICE.getStatus(orderids[flag3]);
             }
             // 将name,card,status放入表格
             for (int i = 0; i < userId.length; i++) {
@@ -312,6 +341,21 @@ public class CheckUser extends JPanel implements Page {
         @Override
         public String getLabel() {
             return "Here is User information";
+        }
+
+        @Override
+        public boolean back() {
+            return true;
+        }
+
+        @Override
+        public boolean cont() {
+            return true;
+        }
+
+        @Override
+        public void syncPage() {
+
         }
     }
 }

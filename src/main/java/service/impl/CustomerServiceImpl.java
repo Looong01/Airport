@@ -11,6 +11,9 @@ import service.CustomerService;
 import util.file.JSONController;
 import util.scan.QRCodeUtil;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

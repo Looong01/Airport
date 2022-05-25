@@ -15,18 +15,18 @@ public class Payment extends JPanel implements Page {
 	public Payment() {
 		this.setLayout(new GridLayout(3, 2));
 		// cardId, name, tel
-		this.add(new JLabel("Name"));
+		this.add(new JLabel("Full Name"));
 		this.add(textField1);
-		this.add(new JLabel("Card ID"));
+		this.add(new JLabel("Credit Card"));
 		this.add(textField2);
-		this.add(new JLabel("Tel"));
+		this.add(new JLabel("Telephone"));
 		this.add(textField3);
-		Display.setPageFont(this);
+		Display.setPageFont(this, 50);
 	}
 
 	@Override
 	public void syncPage() {
-		Template.getCont().setText("Pay $" + DAO.getDue());
+		Template.getCont().setText("PAY $" + DAO.getDue());
 		textField1.setText("User A");
 		textField2.setText("13579");
 		textField3.setText("12345678901");
@@ -39,7 +39,7 @@ public class Payment extends JPanel implements Page {
 
 	@Override
 	public String getLabel() {
-		return "Please input your credit card ID to pay";
+		return "Please input your payment information";
 	}
 
 	@Override

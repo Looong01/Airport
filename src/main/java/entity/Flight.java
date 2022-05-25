@@ -41,7 +41,7 @@ public class Flight extends Plane {
      * @param toCity The destination
      * @param gateId The ID of the gate
      */
-    public Flight(int planeID, int flightId, String time, String fromCity, String toCity, int gateId) {
+    public Flight(String planeID, int flightId, String time, String fromCity, String toCity, int gateId) {
         super(planeID);
         this.flightId = flightId;
         this.time = time;

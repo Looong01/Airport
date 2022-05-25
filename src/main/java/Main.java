@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Entry point for the whole project, provide options to choose CUSTOMER / STAFF
  * @author wzy
- * @version 3.0
+ * @version 1.5
  */
 public class Main extends JFrame {
 
@@ -24,8 +24,8 @@ public class Main extends JFrame {
 
 		JButton button1 = new JButton("Customer");
 		JButton button2 = new JButton("Staff");
-		button1.setFont(new Font("", Font.ITALIC, 90));
-		button2.setFont(new Font("", Font.ITALIC, 90));
+		button1.setFont(new Font(Font.SERIF, Font.ITALIC, 100));
+		button2.setFont(new Font(Font.SERIF, Font.ITALIC, 100));
 
 		button1.addActionListener(e -> {
 			CustomerGUI.getWindow().setVisible(true);
@@ -39,7 +39,7 @@ public class Main extends JFrame {
 
 		this.add(button1);
 		this.add(button2);
-		this.setSize(600,400);
+		this.setSize(600,450);
 		this.setLocationRelativeTo(null);
 	}
 

@@ -20,28 +20,27 @@ public class PageController implements ActionListener {
 			if (CustomerGUI.getPageNum() == 1) // the first page
 				JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Please Login", "Prompt", JOptionPane.INFORMATION_MESSAGE);
 			else if (JOptionPane.showConfirmDialog(CustomerGUI.WINDOW, "Logout now?", "Confirmation", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+				Page.DAO.reset();
 				CustomerGUI.setPageNum(1);
 				repaintPage();
 			}
 		} else if (e.getSource() == Template.getBack()) {
 			if (CustomerGUI.getPageNum() == 1) // the first page
 				JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Already the first page", "Prompt", JOptionPane.INFORMATION_MESSAGE);
-			else {
-				if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).back()) {
+			else if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).back()) {
 					CustomerGUI.decreasePageNum();
 					repaintPage();
-				}
 			}
 		} else if (e.getSource() == Template.getCont()) {
 			if (CustomerGUI.getPageNum() == 6) {
 				if (JOptionPane.showConfirmDialog(CustomerGUI.WINDOW, "Exit now?", "Confirmation", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
 					System.exit(0);
-			}
-			else {
-				if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).cont()) {
-					CustomerGUI.increasePageNum();
-					repaintPage();
-				}
+			} else if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).cont()) {
+				CustomerGUI.increasePageNum();
+				repaintPage();
+			} else if (CustomerGUI.getPageNum() == 2 && Page.DAO.getOrder() != null && Page.DAO.getOrder().getStatus().equals("W")) {
+				CustomerGUI.setPageNum(6);
+				repaintPage();
 			}
 		} else
 			System.err.println("Unhandled action performed");

@@ -27,7 +27,7 @@ public class PlaneUtil extends DataBaseUtil {
         if(planes == null)
             fail("No plane");
         for(Plane a : planes){
-            if(a.getPlaneId() == Integer.parseInt(planeId))
+            if(a.getPlaneId().equals(planeId))
                 return a;
         }
         return null;

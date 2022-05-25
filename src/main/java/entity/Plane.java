@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 
 public class Plane implements Serializable {
-    int planeId;
+    String planeId;
     public final static int seatNum = 50;
 
     /**
@@ -23,7 +23,7 @@ public class Plane implements Serializable {
 
     }
 
-    public Plane(int planeId) {
+    public Plane(String planeId) {
         this.planeId = planeId;
     }
 
@@ -31,7 +31,7 @@ public class Plane implements Serializable {
      * Get the plane ID
      * @return planeID
      */
-    public int getPlaneId() {
+    public String getPlaneId() {
         return planeId;
     }
 
@@ -39,7 +39,7 @@ public class Plane implements Serializable {
      * Set the plane ID
      * @param planeId plane ID
      */
-    public void setPlaneId(int planeId) {
+    public void setPlaneId(String planeId) {
         this.planeId = planeId;
     }
 

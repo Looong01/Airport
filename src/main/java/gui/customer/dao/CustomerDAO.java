@@ -6,12 +6,18 @@ import entity.user.Customer;
 
 import java.io.Serializable;
 
+/**
+ * GUI storage for temporary changes by user
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class CustomerDAO implements Serializable {
 	private Customer customer;
 	private Order order;
 	private Flight flight;
 	private int due = 0;
-	private String seatClass;
+	private boolean cardLogin = true;
 
 	public Customer getCustomer() {
 		return customer;
@@ -45,11 +51,19 @@ public class CustomerDAO implements Serializable {
 		this.due = due;
 	}
 
-	public String getSeatClass() {
-		return seatClass;
+	public boolean isCardLogin() {
+		return cardLogin;
 	}
 
-	public void setSeatClass(String seatClass) {
-		this.seatClass = seatClass;
+	public void setCardLogin(boolean cardLogin) {
+		this.cardLogin = cardLogin;
+	}
+
+	public void reset() {
+		customer = null;
+		order = null;
+		flight = null;
+		due = 0;
+		cardLogin = true;
 	}
 }

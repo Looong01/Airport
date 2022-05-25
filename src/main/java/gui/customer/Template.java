@@ -13,9 +13,7 @@ public class Template extends JFrame {
 	// GridBagLayout
 	static final GridBagLayout LAYOUT = new GridBagLayout();
 	static final GridBagLayoutConstraints CONSTRAINTS = new GridBagLayoutConstraints();
-
 	private static final float P = Display.getProp();
-
 	private static JPanel page;
 	private static JLabel infoLabel;
 	private static JButton logout, back, cont;
@@ -31,9 +29,8 @@ public class Template extends JFrame {
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // confirmation needed
 
 		// instantiate components
-//		String bank = System.getProperty("user.dir") + "/src/main/resources/svg/bank.svg";
 		String bank = "src/main/resources/svg/bank.svg";
-		BufferedImageTranscoder bit = new BufferedImageTranscoder(bank,40 * P,40 * P);
+		BufferedImageTranscoder bit = new BufferedImageTranscoder(bank,80 * P,80 * P);
 		JLabel iconLabel = new JLabel(new ImageIcon(bit.getImage())); // (0,0) w3h1
 		infoLabel = new JLabel("template label"); // (3,0) w7h1
 		logout = new JButton("LOGOUT"); // (10,0) w2h1
@@ -102,6 +99,13 @@ public class Template extends JFrame {
 			}
 		});
 
+		// scaling font
+		infoLabel.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (40 * P)));
+		logout.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
+		nav.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (40 * P)));
+		back.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
+		cont.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
+
 		// scaling window
 		iconLabel.setPreferredSize(new Dimension((int) (300 * P), (int) (100 * P)));
 		infoLabel.setPreferredSize(new Dimension((int) (700 * P), (int) (100 * P)));
@@ -110,19 +114,12 @@ public class Template extends JFrame {
 		page.setPreferredSize(new Dimension((int) (900 * P), (int) (600 * P)));
 		back.setPreferredSize(new Dimension((int) (600 * P), (int) (100 * P)));
 
-		iconLabel.setFont(new Font("", Font.ITALIC, (int) (30 * P)));
-		infoLabel.setFont(new Font("", Font.ITALIC, (int) (30 * P)));
-		logout.setFont(new Font("", Font.ITALIC, (int) (30 * P)));
-		nav.setFont(new Font("", Font.ITALIC, (int) (30 * P)));
-		back.setFont(new Font("", Font.ITALIC, (int) (30 * P)));
-		cont.setFont(new Font("", Font.ITALIC, (int) (30 * P)));
-
 		nav.setFixedCellHeight((int) (100 * P)); // 600 / 6 = 100
 
 		this.pack(); // pack() overrides weightx, weighty
-//		this.setResizable(false);
+		this.setResizable(false);
 
-		// for scale testing
+		// TODO delete it
 		/*System.out.println("P = " + P);
 		System.out.println("DefaultLayoutSize (P=1): 1200 * 800");
 		System.out.println("PreferredLayoutSize: " + (int) LAYOUT.preferredLayoutSize(this).getWidth() + " * " + (int) LAYOUT.preferredLayoutSize(this).getHeight());
