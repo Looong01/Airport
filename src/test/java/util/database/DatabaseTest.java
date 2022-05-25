@@ -78,7 +78,7 @@ public class DatabaseTest {
         DataBaseUtil util = new OrderUtil();
         util.removeAll();
         util.add(new Order("BJEV1RmqVm",1,"MH1001",9, 3, 2));
-        util.add(new Order("gCBlsM+AYu",1,"MH1002",11, 1, 0));
+        util.add(new Order("gCBlsM+AYu",1,"MH1002",11, 1, 1));
         util.add(new Order("aHB9ZlCF9H",2,"MH1004",13, 2, 0));
         util.add(new Order("ekk9mrVMBA",3,"MH1001",9, 1, 1));
         util.add(new Order("80v5pZgbZM",4,"MH1003",17, 3, 1));

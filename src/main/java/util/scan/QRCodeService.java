@@ -29,7 +29,7 @@ public class QRCodeService {
         String destPath = "src/main/resources/jpg/"+userId+".jpg";
         try{
             //生成二维码
-            QRCodeUtil.encode(c.getCardId(), imgPath,destPath, true);
+            QRCodeUtil.encode(c.getCardId(), destPath);
             return true;
         }catch (Exception e){
             e.printStackTrace();

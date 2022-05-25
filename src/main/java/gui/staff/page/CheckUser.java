@@ -57,7 +57,7 @@ public class CheckUser extends JPanel implements Page {
         this.add(panel3);
         this.add(label1);
         this.add(label2);
-        Display.setPageFont(this);
+        Display.setPanelFont(this);
 
         // comboBox.addItemListener(new ItemListener() {
         // @Override

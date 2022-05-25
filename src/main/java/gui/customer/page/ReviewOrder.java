@@ -25,7 +25,7 @@ public class ReviewOrder extends JPanel implements Page {
 		this.add(scrollPane, BorderLayout.CENTER);
 		comboBox = new JComboBox<>();
 		this.add(comboBox, BorderLayout.SOUTH);
-		Display.setPageFont(this);
+		Display.setPanelFont(this);
 		textArea.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (30 * Template.getP())));
 	}
 

@@ -32,10 +32,7 @@ public class PageController implements ActionListener {
 					repaintPage();
 			}
 		} else if (e.getSource() == Template.getCont()) {
-			if (CustomerGUI.getPageNum() == 6) {
-				if (JOptionPane.showConfirmDialog(CustomerGUI.WINDOW, "Exit now?", "Confirmation", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-					System.exit(0);
-			} else if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).cont()) {
+			if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).cont()) {
 				CustomerGUI.increasePageNum();
 				repaintPage();
 			} else if (CustomerGUI.getPageNum() == 2 && Page.DAO.getOrder() != null && Page.DAO.getOrder().getStatus().equals("W")) {

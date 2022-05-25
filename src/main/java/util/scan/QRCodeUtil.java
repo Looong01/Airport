@@ -14,21 +14,15 @@ import java.util.Hashtable;
 public class QRCodeUtil {
     private static final String CHARSET = "utf-8";
     private static final String FORMAT_NAME = "jpg";
-    // 二维码尺寸
-    private static final int QRCODE_SIZE = 300;
-    // LOGO宽度
-    private static final int WIDTH = 60;
-    // LOGO高度
-    private static final int HEIGHT = 60;
 
-    private static BufferedImage createImage(String content, String imgPath, boolean needCompress) {
+    public static BufferedImage createImage(String content, int size) {
         Hashtable hints = new Hashtable();
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
         hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
         hints.put(EncodeHintType.MARGIN, 1);
         BitMatrix bitMatrix = null;
         try {
-            bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, QRCODE_SIZE, QRCODE_SIZE, hints);
+            bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, size, size, hints);
         } catch (WriterException e) {
             e.printStackTrace();
         }
@@ -44,10 +38,10 @@ public class QRCodeUtil {
         return image;
     }
 
-    public static void encode(String content, String imgPath, String destPath, boolean needCompress) {
+    public static void encode(String content, String destPath) {
         BufferedImage image;
         try {
-            image = QRCodeUtil.createImage(content, imgPath, needCompress);
+            image = QRCodeUtil.createImage(content, 300);
             mkdirs(destPath);
             ImageIO.write(image, FORMAT_NAME, new File(destPath));
         } catch (Exception e) {

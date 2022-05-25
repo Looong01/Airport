@@ -5,6 +5,8 @@ import gui.customer.Template;
 import util.gui.BufferedImageTranscoder;
 import util.gui.Display;
 import util.gui.GridBagLayoutConstraints;
+import util.string.MessageSHA256;
+import util.scan.QRCodeUtil;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -23,6 +25,8 @@ public class BoardingPass extends JPanel implements Page {
 	private final JLabel sideTo = new JLabel();
 	private final JLabel sideDate = new JLabel();
 	private final JLabel sideSeatNo = new JLabel();
+	private JFrame tagFrame;
+	private JFrame ticketFrame;
 
 	public BoardingPass() {
 		GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
@@ -120,7 +124,7 @@ public class BoardingPass extends JPanel implements Page {
 		name.setPreferredSize(new Dimension((int) (250 * Template.getP()), (int) (100 * Template.getP())));
 		sidePanel.setPreferredSize(new Dimension((int) (150 * Template.getP()), (int) (600 * Template.getP())));
 
-		Display.setPageFont(this);
+		Display.setPanelFont(this);
 	}
 
 	@Override
@@ -166,18 +170,79 @@ public class BoardingPass extends JPanel implements Page {
 	}
 
 	@Override
+	public String getBack() {
+		return "TAG";
+	}
+
+	@Override
 	public String getCont() {
-		return "EXIT";
+		return "TICKET";
 	}
 
 	@Override
 	public boolean back() {
-		JOptionPane.showMessageDialog(this, "You have already checked in", "Prompt", JOptionPane.ERROR_MESSAGE);
+		if (DAO.getOrder().getCarryOn() == 0) {
+			JOptionPane.showMessageDialog(this, "No carry-on baggage", "Prompt", JOptionPane.INFORMATION_MESSAGE);
+			return false;
+		}
+		if (tagFrame != null)
+			tagFrame.dispose();
+		tagFrame = generateFrame("Carry-on Baggage Tag");
+		tagFrame.setVisible(true);
 		return false;
 	}
 
 	@Override
 	public boolean cont() {
-		return true;
+		if (DAO.getOrder().getCheckIn() == 0) {
+			JOptionPane.showMessageDialog(this, "No check-in baggage", "Prompt", JOptionPane.INFORMATION_MESSAGE);
+			return false;
+		}
+		if (ticketFrame != null)
+			ticketFrame.dispose();
+		ticketFrame = generateFrame("Check-in Bag Drop Ticket");
+		ticketFrame.setVisible(true);
+		return false;
+	}
+
+	private JFrame generateFrame(String title) {
+		JFrame frame = new JFrame(title);
+		JPanel south = new JPanel(new BorderLayout());
+		JLabel label = new JLabel(DAO.getFlight().getFromCity() + " Airport", JLabel.CENTER);
+
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+
+		String[] dates = DAO.getFlight().getTime().split(" ");
+		if (title.contains("Tag")) { // carry-on
+			textArea.append("CARRY-ON_BAG " + DAO.getOrder().getCarryOn() + "\t" + DAO.getFlight().getFlightId() + "\n");
+			textArea.append("SEAT " + DAO.getOrder().getSeatId() + "\t");
+		} else { // check-in
+			textArea.append("CHECK-IN_BAG " + DAO.getOrder().getCheckIn() + "\t" + DAO.getFlight().getFlightId() + "\n");
+			textArea.append("COUNTER " + DAO.getOrder().getPackageGate());
+		}
+		textArea.append("\t" + dates[2] + dates[1] + "\nTO " + DAO.getFlight().getToCity());
+
+		MessageSHA256 sha256 = new MessageSHA256();
+		String code = sha256.encode(DAO.getOrder().getOrderId());
+		JLabel label1 = new JLabel(sha256.encode(textArea.getText()), JLabel.CENTER);
+		JLabel label2 = new JLabel(code, JLabel.CENTER);
+		south.add(label1, BorderLayout.NORTH);
+		south.add(new JLabel(new ImageIcon(QRCodeUtil.createImage(code, (int) (575 * Template.getP())))), BorderLayout.CENTER);
+		south.add(label2, BorderLayout.SOUTH);
+
+		frame.add(label, BorderLayout.NORTH);
+		frame.add(textArea, BorderLayout.CENTER);
+		frame.add(south, BorderLayout.SOUTH);
+
+		Display.setFrameFont(frame);
+		label.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (60 * Template.getP())));
+		label1.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) (15 * Template.getP())));
+		label2.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) (15 * Template.getP())));
+
+		frame.pack();
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		return frame;
 	}
 }

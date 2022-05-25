@@ -47,7 +47,7 @@ public class Login extends JPanel implements Page {
         gbc4.gridy = 1;
         this.add(passwordField, gbc4);
 
-        Display.setPageFont(this);
+        Display.setPanelFont(this);
     }
 
     @Override

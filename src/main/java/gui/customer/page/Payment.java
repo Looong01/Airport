@@ -21,7 +21,7 @@ public class Payment extends JPanel implements Page {
 		this.add(textField2);
 		this.add(new JLabel("Telephone"));
 		this.add(textField3);
-		Display.setPageFont(this, 50);
+		Display.setPanelFont(this, 50);
 	}
 
 	@Override

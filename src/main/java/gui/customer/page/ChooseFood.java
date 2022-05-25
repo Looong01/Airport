@@ -47,7 +47,7 @@ public class ChooseFood extends JPanel implements Page {
 		this.add(food5);
 		this.add(food6);
 
-		Display.setPageFont(this);
+		Display.setPanelFont(this);
 	}
 
 	private class JFood extends JRadioButton {
