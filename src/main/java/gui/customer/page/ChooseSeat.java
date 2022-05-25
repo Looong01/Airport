@@ -17,7 +17,6 @@ public class ChooseSeat extends JPanel implements Page {
 	private final BufferedImageTranscoder rSeatTranscoder = new BufferedImageTranscoder(seatSVG + "-rollover.svg",60 * Template.getP(),60 * Template.getP());
 	private final BufferedImageTranscoder cSeatTranscoder = new BufferedImageTranscoder(seatSVG + "-chosen.svg",60 * Template.getP(),60 * Template.getP());
 	private final ButtonGroup group = new ButtonGroup();
-	private boolean seatSelected = false;
 
 	public ChooseSeat() {
 		GridBagLayout layout = new GridBagLayout();
@@ -261,7 +260,7 @@ public class ChooseSeat extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		if (!seatSelected) { // initialization
+		if (!DAO.isSeatSelected()) { // initialization
 			ArrayList<Integer> occupiedSeats = DAO.getFlight().getOccupiedSeats();
 			group.clearSelection();
 			Enumeration<AbstractButton> seats = group.getElements();
@@ -295,7 +294,7 @@ public class ChooseSeat extends JPanel implements Page {
 			abstractButton = seats.nextElement();
 			if (abstractButton.isSelected()) {
 				DAO.getOrder().setSeatId(((JSeat) abstractButton).seatId);
-				seatSelected = true;
+				DAO.setSeatSelected(true);
 				return true;
 			}
 		}

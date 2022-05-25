@@ -59,6 +59,7 @@ public class ChooseFood extends JPanel implements Page {
 			this.setSelectedIcon(new ImageIcon(fFoodTranscoder.getImage()));
 			this.addActionListener(e -> { // actionListener cannot capture deselection from buttongroup
 				selectedFood = this.getText().split("\\+")[0].trim();
+				DAO.setFoodSelected(true);
 				DAO.setFoodDue(Integer.parseInt(this.getText().split("\\$")[1]));
 				Template.getCont().setText("DUE $" + (DAO.getSeatDue() + DAO.getFoodDue()));
 			});
@@ -67,6 +68,8 @@ public class ChooseFood extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
+		if (!DAO.isFoodSelected())
+			group.clearSelection();
 		Template.getCont().setText("DUE $" + (DAO.getSeatDue() + DAO.getFoodDue()));
 	}
 
