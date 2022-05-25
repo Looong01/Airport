@@ -10,8 +10,6 @@ import java.awt.*;
  * @version 1.5
  */
 public class Main extends JFrame {
-
-
 	public Main() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

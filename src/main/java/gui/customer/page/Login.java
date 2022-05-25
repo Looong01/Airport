@@ -27,8 +27,10 @@ public class Login extends JPanel implements Page {
 
         JButton button = new JButton("Scan QR Code");
         button.addActionListener(e -> {
-            DAO.setCustomer(SERVICE.loginByScanId());
-            Template.getCont().doClick();
+            if (JOptionPane.showConfirmDialog(this, "1. Your computer must have a camera.\n2. The scanner won't terminate unless QR code is identified.", "Requirements", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                DAO.setCustomer(SERVICE.loginByScanId());
+                Template.getCont().doClick();
+            }
         });
 
         panel.add(inputPanel, BorderLayout.CENTER);
