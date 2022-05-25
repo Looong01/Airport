@@ -7,7 +7,6 @@ import org.apache.batik.transcoder.image.ImageTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 
 public class BufferedImageTranscoder extends ImageTranscoder {
 	private BufferedImage image;
@@ -33,8 +32,7 @@ public class BufferedImageTranscoder extends ImageTranscoder {
 
 	@Override
 	public BufferedImage createImage(int w, int h) {
-		BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-		return bi;
+		return new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 	}
 
 	@Override

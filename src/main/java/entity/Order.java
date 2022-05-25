@@ -19,7 +19,7 @@ public class Order implements Serializable {
     private String orderId;
     private int userId;
     private String status;
-    private int flightId;
+    private String flightId;
     private int seatId;
     private String food;
     private int packageGate;
@@ -45,7 +45,7 @@ public class Order implements Serializable {
      * @param carryOn The number of the carry on package
      * @param checkIn The number of the check in package
      */
-    public Order(String orderId, int userId, int flightId, int packageGate, int carryOn, int checkIn) {
+    public Order(String orderId, int userId, String flightId, int packageGate, int carryOn, int checkIn) {
         this.orderId = orderId;
         this.userId = userId;
         this.status = "C";
@@ -124,7 +124,7 @@ public class Order implements Serializable {
      *
      * @return flightId
      */
-    public int getFlightId() {
+    public String getFlightId() {
         return flightId;
     }
 
@@ -133,7 +133,7 @@ public class Order implements Serializable {
      *
      * @param flightId the ID of the flight
      */
-    public void setFlightId(int flightId) {
+    public void setFlightId(String flightId) {
         this.flightId = flightId;
     }
 

@@ -49,7 +49,7 @@ public class CustomerUtil extends DataBaseUtil {
 
     /**
      * Update the order list of the customer with specified userId
-     * If exist, then delete; if not exist, then append
+     * If exists, then delete; if not exist, then append
      */
     void updateCustomerOrder(int userId, String order) {
         List<Customer> customers = controller.readArray(Customer.class);

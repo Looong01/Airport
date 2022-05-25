@@ -16,11 +16,11 @@ public interface StaffService {
 
     boolean loginByPasswd(String cardId,String passwd);
 
-    boolean checkUser(String cardId, int flightId);
+    boolean checkUser(String cardId, String flightId);
 
-    int[] checkFlight(int flightId);
+    int[] checkFlight(String flightId);
 
-    ArrayList<String> checkOrder(int flightId);
+    ArrayList<String> checkOrder(String flightId);
 
     void logout();
 }

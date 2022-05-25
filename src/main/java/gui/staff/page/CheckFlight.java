@@ -11,7 +11,7 @@ public class CheckFlight extends JPanel implements Page {
 		this.setLayout(new GridLayout(1, 1)); // 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
 
 		String[] columnNames = { "The flight ID", "The gate ID", "From which city", "The time of taking off", "To which city" };
-		int[] idInt = SERVICE.getFlightIds();
+		String[] idInt = SERVICE.getFlightIds();
 		Object[][] obj = new Object[idInt.length][5];
 		JTable table = new JTable(obj, columnNames);
 		table.setEnabled(false);

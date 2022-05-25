@@ -7,6 +7,7 @@ import util.gui.Display;
 import util.gui.GridBagLayoutConstraints;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 
 public class BoardingPass extends JPanel implements Page {
@@ -30,6 +31,7 @@ public class BoardingPass extends JPanel implements Page {
 
 		JPanel mainPanel = new JPanel(new GridLayout(6,1));
 		JPanel sidePanel = new JPanel(new GridLayout(6,1));
+		sidePanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 
 		constraints.setConstraints(0,0,5,4);
 		layout.setConstraints(mainPanel, constraints);
@@ -46,7 +48,7 @@ public class BoardingPass extends JPanel implements Page {
 		JPanel boardingPanel = new JPanel(new GridLayout(1,3));
 
 		// titlePanel
-		BufferedImageTranscoder iconTranscoder = new BufferedImageTranscoder("src/main/resources/svg/apple.svg",60 * Template.getP(),60 * Template.getP());
+		BufferedImageTranscoder iconTranscoder = new BufferedImageTranscoder("src/main/resources/svg/apple.svg",80 * Template.getP(),80 * Template.getP());
 		JLabel iconLabel = new JLabel(new ImageIcon(iconTranscoder.getImage()));
 
 		constraints.setConstraints(0,0,3,2);
@@ -79,11 +81,14 @@ public class BoardingPass extends JPanel implements Page {
 		flightPanel.add(name);
 
 		// boardingTitlePanel
-		boardingTitlePanel.add(new JLabel("Gate"));
-		boardingTitlePanel.add(new JLabel("Boarding Time"));
-		boardingTitlePanel.add(new JLabel("Seat No."));
+		boardingTitlePanel.add(new JLabel("Gate", JLabel.CENTER));
+		boardingTitlePanel.add(new JLabel("Boarding Time", JLabel.CENTER));
+		boardingTitlePanel.add(new JLabel("Seat No.", JLabel.CENTER));
 
 		// boardingPanel
+		gate.setHorizontalAlignment(JLabel.CENTER);
+		boardingTime.setHorizontalAlignment(JLabel.CENTER);
+		seatNo.setHorizontalAlignment(JLabel.CENTER);
 		boardingPanel.add(gate);
 		boardingPanel.add(boardingTime);
 		boardingPanel.add(seatNo);
@@ -103,8 +108,6 @@ public class BoardingPass extends JPanel implements Page {
 		sidePanel.add(sideDate);
 		sidePanel.add(sideSeatNo);
 
-		// TO DO JLabelel.CENTER全局化，可以@Override JLabelel类
-
 		this.add(mainPanel);
 		this.add(sidePanel);
 
@@ -122,9 +125,10 @@ public class BoardingPass extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		/*DAO.setCustomer(SERVICE.LoginByCardId("140109200010204817"));
-		DAO.setOrder(SERVICE.getOrder(1000111));
-		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));*/ // TODO delete it
+		/*DAO.setCustomer(SERVICE.loginByCardId("140109200010204817"));
+		DAO.setOrder(SERVICE.getOrder("gCBlsM+AYu"));
+		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));*/
+
 		String[] dates = DAO.getFlight().getTime().split(" ");
 		String[] times = dates[3].split(":");
 		String[] names = DAO.getCustomer().getName().split(" ");
@@ -168,7 +172,8 @@ public class BoardingPass extends JPanel implements Page {
 
 	@Override
 	public boolean back() {
-		return true;
+		JOptionPane.showMessageDialog(this, "You have already checked in", "Prompt", JOptionPane.ERROR_MESSAGE);
+		return false;
 	}
 
 	@Override

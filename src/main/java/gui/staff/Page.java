@@ -1,6 +1,5 @@
 package gui.staff;
 
-import service.StaffService;
 import service.impl.StaffServiceImpl;
 
 public interface Page {

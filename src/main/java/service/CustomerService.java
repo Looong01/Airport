@@ -38,7 +38,7 @@ public interface CustomerService {
      * @param flightId ID
      * @return flight
      */
-    Flight getFlight(int flightId);
+    Flight getFlight(String flightId);
 
     /**
      * The customer login with the card ID.

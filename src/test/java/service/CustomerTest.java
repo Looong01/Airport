@@ -25,7 +25,7 @@ public class CustomerTest {
     //Test for getFlight(int flightId)
     @Test
     public void testGetFlight() {
-        System.out.println(cs.getFlight(1));
+        System.out.println(cs.getFlight("MH1001"));
     }
 
     //Test for LoginByCardId(String cardId)
@@ -34,17 +34,17 @@ public class CustomerTest {
         System.out.println(cs.loginByCardId("140109200010204817"));
     }
 
-    //Test for chooseSeat(Order order)
+    //Test for chooseSeat()
     @Test
     public void testChooseSeat() {
         Order order = cs.getOrder("BJEV1RmqVm");
         order.setSeatId(2);
         System.out.println(cs.chooseSeat(order));
         System.out.println(order);
-        System.out.println(cs.getFlight(1));
+        System.out.println(cs.getFlight("MH1001"));
     }
 
-    //Test for chooseFood(Order order)
+    //Test for chooseFood()
     @Test
     public void testChooseFood() {
         Order order = cs.getOrder("BJEV1RmqVm");

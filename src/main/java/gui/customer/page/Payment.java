@@ -26,10 +26,10 @@ public class Payment extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		Template.getCont().setText("PAY $" + DAO.getDue());
+		Template.getCont().setText("PAY $" + (DAO.getSeatDue() + DAO.getFoodDue()));
 		textField1.setText("User A");
 		textField2.setText("13579");
-		textField3.setText("12345678901");
+		textField3.setText("12345678901"); // TODO delete it
 	}
 
 	@Override
@@ -44,12 +44,15 @@ public class Payment extends JPanel implements Page {
 
 	@Override
 	public boolean back() {
+		textField1.setText("");
+		textField2.setText("");
+		textField3.setText("");
 		return true;
 	}
 
 	@Override
 	public boolean cont() {
-		if (BANK.pay(Integer.parseInt(textField2.getText()), DAO.getDue())) {
+		if (BANK.pay(Integer.parseInt(textField2.getText()), DAO.getSeatDue() + DAO.getFoodDue())) {
 			JOptionPane.showMessageDialog(this, "Payment successful", "Prompt", JOptionPane.INFORMATION_MESSAGE);
 			// write CustomerDAO into json
 			return SERVICE.chooseSeat(DAO.getOrder()) && SERVICE.chooseFood(DAO.getOrder());

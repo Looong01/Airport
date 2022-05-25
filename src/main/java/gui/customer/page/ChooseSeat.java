@@ -3,7 +3,6 @@ package gui.customer.page;
 import gui.customer.Page;
 import gui.customer.Template;
 import util.gui.BufferedImageTranscoder;
-import util.gui.Display;
 import util.gui.GridBagLayoutConstraints;
 
 import javax.swing.*;
@@ -18,6 +17,7 @@ public class ChooseSeat extends JPanel implements Page {
 	private final BufferedImageTranscoder rSeatTranscoder = new BufferedImageTranscoder(seatSVG + "-rollover.svg",60 * Template.getP(),60 * Template.getP());
 	private final BufferedImageTranscoder cSeatTranscoder = new BufferedImageTranscoder(seatSVG + "-chosen.svg",60 * Template.getP(),60 * Template.getP());
 	private final ButtonGroup group = new ButtonGroup();
+	private boolean seatSelected = false;
 
 	public ChooseSeat() {
 		GridBagLayout layout = new GridBagLayout();
@@ -249,26 +249,27 @@ public class ChooseSeat extends JPanel implements Page {
 			this.setSelectedIcon(new ImageIcon(cSeatTranscoder.getImage()));
 			this.addActionListener(e -> { // actionListener cannot capture deselection from buttongroup
 				if (seatId <= 8) // first class
-					DAO.setDue(200);
+					DAO.setSeatDue(200);
 				else if (seatId <= 14) // extra legroom
-					DAO.setDue(50);
+					DAO.setSeatDue(50);
 				else // economy class
-					DAO.setDue(0);
-				Template.getCont().setText("DUE $" + DAO.getDue());
+					DAO.setSeatDue(0);
+				Template.getCont().setText("DUE $" + DAO.getSeatDue());
 			});
 		}
 	}
 
 	@Override
 	public void syncPage() {
-		Template.getCont().setText("DUE $0");
-		ArrayList<Integer> occupiedSeats = DAO.getFlight().getOccupiedSeats();
-		group.clearSelection();
-		Enumeration<AbstractButton> seats = group.getElements();
+		if (!seatSelected) { // initialization
+			ArrayList<Integer> occupiedSeats = DAO.getFlight().getOccupiedSeats();
+			group.clearSelection();
+			Enumeration<AbstractButton> seats = group.getElements();
 
-		for (int i = 1; i <= 50 && seats.hasMoreElements(); ++i)
-			seats.nextElement().setEnabled(!occupiedSeats.contains(i));
-
+			for (int i = 1; i <= 50 && seats.hasMoreElements(); ++i)
+				seats.nextElement().setEnabled(!occupiedSeats.contains(i));
+		}
+		Template.getCont().setText("DUE $" + DAO.getSeatDue());
 	}
 
 	@Override
@@ -294,6 +295,7 @@ public class ChooseSeat extends JPanel implements Page {
 			abstractButton = seats.nextElement();
 			if (abstractButton.isSelected()) {
 				DAO.getOrder().setSeatId(((JSeat) abstractButton).seatId);
+				seatSelected = true;
 				return true;
 			}
 		}

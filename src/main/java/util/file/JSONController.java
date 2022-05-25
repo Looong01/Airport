@@ -19,7 +19,7 @@ import java.util.List;
  *  @version 1.0
  */
 public class JSONController {
-    IOController io;
+    final IOController io;
 
     /** Constructor of CSVController
      * @param filename the name of the CSV file which needs to be I/O.

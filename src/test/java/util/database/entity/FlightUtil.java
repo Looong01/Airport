@@ -5,6 +5,7 @@ import util.database.DataBaseUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -28,7 +29,7 @@ public class FlightUtil extends DataBaseUtil {
             fail("No flight");
 
         for(Flight f:flights){
-            if(f.getFlightId() == Integer.parseInt(flightId))
+            if(f.getFlightId().equals(flightId))
                 return f;
         }
         return null;
@@ -49,17 +50,17 @@ public class FlightUtil extends DataBaseUtil {
     /**
      * update method
      * <p>The method updates customers for flight with specified ID</p>
-     * If exist, then delete; if not exist, then append
+     * If exists, then delete; if not exist, then append
      * @param flightId flight ID
      * @param customer customer's user ID
      */
-    void updateFlightCustomers(int flightId, int customer) {
+    void updateFlightCustomers(String flightId, int customer) {
         List<Flight> flights = controller.readArray(Flight.class);
         if(flights == null){
             fail("No flight");
         }
         for (Flight f : flights) {
-            if (f.getFlightId() == flightId) {
+            if (Objects.equals(f.getFlightId(), flightId)) {
                 ArrayList<Integer> customers = f.getCustomers();
                 for (Integer c : customers) {
                     if (c == customer) { // delete customer
@@ -85,7 +86,7 @@ public class FlightUtil extends DataBaseUtil {
      * @param flightId flight ID
      * @param seatId seat ID
      */
-    void updateFlightOccupiedSeat(int flightId, int seatId) {
+    void updateFlightOccupiedSeat(String flightId, int seatId) {
         if (seatId == -1)
             return;
         List<Flight> flights = controller.readArray(Flight.class);
@@ -93,7 +94,7 @@ public class FlightUtil extends DataBaseUtil {
             fail("No flight");
         }
         for (Flight flight : flights) {
-            if (flight.getFlightId() == flightId) {
+            if (Objects.equals(flight.getFlightId(), flightId)) {
                 ArrayList<Integer> occupiedSeats = flight.getOccupiedSeats();
                 occupiedSeats.add(seatId);
                 flight.setOccupiedSeats(occupiedSeats);

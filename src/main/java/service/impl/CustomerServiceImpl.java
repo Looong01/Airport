@@ -11,9 +11,6 @@ import service.CustomerService;
 import util.file.JSONController;
 import util.scan.QRCodeUtil;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowStateListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -66,14 +63,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Flight getFlight(int flightId) {
+    public Flight getFlight(String flightId) {
         List<Flight> flights = flightController.readArray(Flight.class);
         if(flights == null) {
             System.out.println("No flight");
             return null;
         }
         for(Flight flight : flights) {
-            if(flight.getFlightId() == flightId)
+            if(Objects.equals(flight.getFlightId(), flightId))
                 return flight;
         }
         return null;
@@ -133,7 +130,7 @@ public class CustomerServiceImpl implements CustomerService {
             return false;
         }
         for (Flight flight : flights) {
-            if (flight.getFlightId() == order.getFlightId()) {
+            if (Objects.equals(flight.getFlightId(), order.getFlightId())) {
                 ArrayList<Integer> occupiedSeats = flight.getOccupiedSeats();
                 occupiedSeats.add(order.getSeatId());
                 flight.setOccupiedSeats(occupiedSeats);

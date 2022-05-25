@@ -15,8 +15,8 @@ import java.awt.*;
  */
 
 public class ChooseFood extends JPanel implements Page {
+	private final ButtonGroup group = new ButtonGroup();
 	private String selectedFood;
-	private int due = 0;
 	private final String foodSVG = "src/main/resources/svg/egg";
 	private final BufferedImageTranscoder foodTranscoder = new BufferedImageTranscoder(foodSVG + ".svg",60 * Template.getP(),60 * Template.getP());
 	private final BufferedImageTranscoder sFoodTranscoder = new BufferedImageTranscoder(foodSVG + "-solid.svg",60 * Template.getP(),60 * Template.getP());
@@ -33,7 +33,6 @@ public class ChooseFood extends JPanel implements Page {
 		JFood food6 = new JFood("Chef's Special +$20");
 
 		// buttonGroup
-		ButtonGroup group = new ButtonGroup();
 		group.add(food1);
 		group.add(food2);
 		group.add(food3);
@@ -60,15 +59,15 @@ public class ChooseFood extends JPanel implements Page {
 			this.setSelectedIcon(new ImageIcon(fFoodTranscoder.getImage()));
 			this.addActionListener(e -> { // actionListener cannot capture deselection from buttongroup
 				selectedFood = this.getText().split("\\+")[0].trim();
-				due = Integer.parseInt(this.getText().split("\\$")[1]);
-				Template.getCont().setText("DUE $" + (DAO.getDue() + due));
+				DAO.setFoodDue(Integer.parseInt(this.getText().split("\\$")[1]));
+				Template.getCont().setText("DUE $" + (DAO.getSeatDue() + DAO.getFoodDue()));
 			});
 		}
 	}
 
 	@Override
 	public void syncPage() {
-		Template.getCont().setText("DUE $" + DAO.getDue());
+		Template.getCont().setText("DUE $" + (DAO.getSeatDue() + DAO.getFoodDue()));
 	}
 
 	@Override
@@ -88,8 +87,12 @@ public class ChooseFood extends JPanel implements Page {
 
 	@Override
 	public boolean cont() {
+		if (group.getSelection() == null) {
+			JOptionPane.showMessageDialog(this, "Please choose your food", "Prompt", JOptionPane.INFORMATION_MESSAGE);
+			return false;
+		}
+
 		DAO.getOrder().setFood(selectedFood);
-		DAO.setDue(DAO.getDue() + due);
 		return true;
 	}
 }

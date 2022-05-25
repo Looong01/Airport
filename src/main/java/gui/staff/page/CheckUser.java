@@ -42,10 +42,10 @@ public class CheckUser extends JPanel implements Page {
         label2.setBounds((int) (301 * Template.getP()), (int) (51 * Template.getP()), (int) (600 * Template.getP()),
                 (int) (50 * Template.getP()));
 
-        int[] idInt = SERVICE.getFlightIds();
+        String[] idInt = SERVICE.getFlightIds();
         // 新建comboBox,放入flightid
         JComboBox<String> comboBox = new JComboBox<>();
-        for (int j : idInt) {
+        for (String j : idInt) {
             comboBox.addItem(String.valueOf(j));
         }
         comboBox.setPreferredSize(new Dimension((int) (200 * Template.getP()), (int) (35 * Template.getP())));
@@ -70,7 +70,7 @@ public class CheckUser extends JPanel implements Page {
         // });
 
         comboBox.addItemListener(e -> {
-            int id = Integer.parseInt((String) Objects.requireNonNull(comboBox.getSelectedItem()));
+            String id = (String) Objects.requireNonNull(comboBox.getSelectedItem());
             panel2.setdata(id);
             panel3.setdata(id);
         });
@@ -101,8 +101,8 @@ public class CheckUser extends JPanel implements Page {
 
     }
 
-    private class table2 extends JPanel implements Page {
-        int[] idInt = SERVICE.getFlightIds();
+    private static class table2 extends JPanel implements Page {
+        String[] idInt = SERVICE.getFlightIds();
         int[] statusInt = SERVICE.checkFlight(idInt[0]);
         String s1 = Integer.toString(statusInt[0]);
         String s2 = Integer.toString(statusInt[1]);
@@ -144,7 +144,7 @@ public class CheckUser extends JPanel implements Page {
 
         }
 
-        public void setdata(int id) {// 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
+        public void setdata(String id) {// 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
 
             int[] statusInt = SERVICE.checkFlight(id);
             String s1 = Integer.toString(statusInt[0]);
@@ -209,8 +209,8 @@ public class CheckUser extends JPanel implements Page {
         }
     }
 
-    private class table3 extends JPanel implements Page {
-        int[] idInt = SERVICE.getFlightIds();
+    private static class table3 extends JPanel implements Page {
+        String[] idInt = SERVICE.getFlightIds();
         int[] userId = SERVICE.getUserIds(idInt[0]);
         Object[][] obj2 = new Object[userId.length][3];
         JTable table = new JTable(obj2, new String[] { "Name", "CardID", "Status" });
@@ -224,7 +224,7 @@ public class CheckUser extends JPanel implements Page {
             for (int m = 0; m < userId.length; m++) {
                 String[] orderid = SERVICE.getOrderId(userId[m]);
                 for (String i : orderid) {
-                    if (SERVICE.getFlightId(i) == idInt[0]) {
+                    if (Objects.equals(SERVICE.getFlightId(i), idInt[0])) {
                         orderids[m] = i;
                         break;
                     }
@@ -273,7 +273,7 @@ public class CheckUser extends JPanel implements Page {
             this.add(scrollPane);
         }
 
-        public void setdata(int id) {
+        public void setdata(String id) {
             userId = SERVICE.getUserIds(id);
             obj2 = new Object[userId.length][3];
 
@@ -282,7 +282,7 @@ public class CheckUser extends JPanel implements Page {
             for (int m = 0; m < userId.length; m++) {
                 String[] orderid = SERVICE.getOrderId(userId[m]);
                 for (String i : orderid) {
-                    if (SERVICE.getFlightId(i) == id) {
+                    if (Objects.equals(SERVICE.getFlightId(i), id)) {
                         orderids[m] = i;
                         break;
                     }

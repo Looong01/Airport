@@ -17,7 +17,7 @@ import java.util.Arrays;
  *
  */
 public class Flight extends Plane {
-    private int flightId;
+    private String flightId;
     private String time;
     private String fromCity;
     private String toCity;
@@ -41,7 +41,7 @@ public class Flight extends Plane {
      * @param toCity The destination
      * @param gateId The ID of the gate
      */
-    public Flight(String planeID, int flightId, String time, String fromCity, String toCity, int gateId) {
+    public Flight(String planeID, String flightId, String time, String fromCity, String toCity, int gateId) {
         super(planeID);
         this.flightId = flightId;
         this.time = time;
@@ -55,7 +55,7 @@ public class Flight extends Plane {
      *
      * @return flightId
      */
-    public int getFlightId() {
+    public String getFlightId() {
         return flightId;
     }
 
@@ -64,7 +64,7 @@ public class Flight extends Plane {
      *
      * @param flightId the ID of the flight
      */
-    public void setFlightId(int flightId) {
+    public void setFlightId(String flightId) {
         this.flightId = flightId;
     }
 

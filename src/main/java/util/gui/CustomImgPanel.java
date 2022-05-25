@@ -11,9 +11,9 @@ import java.awt.Image;
  * @author waitatlee@163.com
  */
 public class CustomImgPanel extends JPanel{
-    private int width = 0;
-    private int height = 0;
-    private String imgPath = "";
+    private final int width;
+    private final int height;
+    private final String imgPath;
     /**
      *
      * @param _width 整型,窗口的宽度

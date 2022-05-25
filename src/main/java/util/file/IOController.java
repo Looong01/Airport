@@ -30,7 +30,7 @@ public class IOController {
     }
 
     /** write data to the file.
-     * @param data the data needed to be write
+     * @param data the data needed to be written
      * @return Whether it was written successfully or not
      */
     public boolean directWrite(String data) {

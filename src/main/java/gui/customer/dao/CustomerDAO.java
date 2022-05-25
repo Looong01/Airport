@@ -16,7 +16,8 @@ public class CustomerDAO implements Serializable {
 	private Customer customer;
 	private Order order;
 	private Flight flight;
-	private int due = 0;
+	private int seatDue = 0;
+	private int foodDue = 0;
 	private boolean cardLogin = true;
 
 	public Customer getCustomer() {
@@ -43,12 +44,20 @@ public class CustomerDAO implements Serializable {
 		this.flight = flight;
 	}
 
-	public int getDue() {
-		return due;
+	public int getSeatDue() {
+		return seatDue;
 	}
 
-	public void setDue(int due) {
-		this.due = due;
+	public void setSeatDue(int seatDue) {
+		this.seatDue = seatDue;
+	}
+
+	public int getFoodDue() {
+		return foodDue;
+	}
+
+	public void setFoodDue(int foodDue) {
+		this.foodDue = foodDue;
 	}
 
 	public boolean isCardLogin() {
@@ -63,7 +72,8 @@ public class CustomerDAO implements Serializable {
 		customer = null;
 		order = null;
 		flight = null;
-		due = 0;
+		seatDue = 0;
+		foodDue = 0;
 		cardLogin = true;
 	}
 }
