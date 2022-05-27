@@ -6,7 +6,7 @@
 
     <groupId>org.bupt</groupId>
     <artifactId>Airport</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -50,7 +50,7 @@
             <artifactId>commons-email</artifactId>
             <version>1.5</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv-platform -->
+        <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv -->
         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>javacv</artifactId>

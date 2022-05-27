@@ -224,11 +224,12 @@ public class BoardingPass extends JPanel implements Page {
 		textArea.append("\t" + dates[2] + dates[1] + "\nTO " + DAO.getFlight().getToCity());
 
 		MessageSHA256 sha256 = new MessageSHA256();
-		String code = sha256.encode(DAO.getOrder().getOrderId());
-		JLabel label1 = new JLabel(sha256.encode(textArea.getText()), JLabel.CENTER);
-		JLabel label2 = new JLabel(code, JLabel.CENTER);
+		String textAreaHash = sha256.encode(textArea.getText());
+		String orderIdHash = sha256.encode(DAO.getOrder().getOrderId());
+		JLabel label1 = new JLabel(textAreaHash, JLabel.CENTER);
+		JLabel label2 = new JLabel(orderIdHash, JLabel.CENTER);
 		south.add(label1, BorderLayout.NORTH);
-		south.add(new JLabel(new ImageIcon(QRCodeUtil.createImage(code, (int) (575 * Template.getP())))), BorderLayout.CENTER);
+		south.add(new JLabel(new ImageIcon(QRCodeUtil.createImage(textAreaHash + "\n" + orderIdHash, (int) (575 * Template.getP())))), BorderLayout.CENTER);
 		south.add(label2, BorderLayout.SOUTH);
 
 		frame.add(label, BorderLayout.NORTH);

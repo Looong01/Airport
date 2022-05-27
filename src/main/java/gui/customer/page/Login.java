@@ -16,7 +16,7 @@ public class Login extends JPanel implements Page {
         JPanel panel = new JPanel(new BorderLayout());
         JPanel inputPanel = new JPanel(new GridLayout(1,2));
 
-        JLabel label = new JLabel("Group 80 ☀ Kiosk Project", JLabel.CENTER);
+        JLabel label = new JLabel("Group 79 ☀ Kiosk Project", JLabel.CENTER);
 
         comboBox.addActionListener(e -> {
             Template.getInfoLabel().setText("Please input your " + comboBox.getSelectedItem());
@@ -27,7 +27,7 @@ public class Login extends JPanel implements Page {
 
         JButton button = new JButton("Scan QR Code");
         button.addActionListener(e -> {
-            if (JOptionPane.showConfirmDialog(this, "1. Your computer must have a camera.\n2. The scanner won't terminate unless QR code is identified.", "Requirements", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(this, "1. Your computer must have a camera.\n2. The scanner won't terminate unless QR code is identified.", "Prompt", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 DAO.setCustomer(SERVICE.loginByScanId());
                 Template.getCont().doClick();
             }
