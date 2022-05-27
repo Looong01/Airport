@@ -26,7 +26,7 @@ public class Login extends JPanel implements Page {
 
         comboBox.addActionListener(e -> {
             Template.getInfoLabel().setText("Please input your " + comboBox.getSelectedItem());
-            textField.setText((comboBox.getSelectedIndex() == 0)? "140109200010204817" : "BJEV1RmqVm"); // TODO delete it
+            textField.setText((comboBox.getSelectedIndex() == 0)? "140109200010204817" : "BJEV1RmqVm");
         });
         inputPanel.add(comboBox);
         inputPanel.add(textField);

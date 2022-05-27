@@ -65,7 +65,6 @@ public class StaffServiceImpl implements StaffService {
             }
         }
         assert currentFlight != null;
-        // TODO: 2022/3/27 要修改
         return false;
     }
 

@@ -92,14 +92,14 @@ public class ReviewOrder extends JPanel implements Page {
 		return (DAO.isCardLogin())? "Please choose an order": "Please review your order";
 	}
 
-	@Override
-	public String getBack() {
-		return "LOGOUT";
-	}
+	// @Override
+	// public String getBack() {
+	// 	return "BACK";
+	// }
 
-	public String getCont() {
-		return "CONFIRM";
-	}
+	// public String getCont() {
+	// 	return "CONFIRM";
+	// }
 
 	@Override
 	public boolean back() {

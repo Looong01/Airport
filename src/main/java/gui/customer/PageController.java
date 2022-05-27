@@ -31,9 +31,14 @@ public class PageController implements ActionListener {
 				repaintPage();
 			}
 		} else if (e.getSource() == Template.getBack()) {
-			if (CustomerGUI.getPageNum() == 1) // the first page
-				JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Already the first page", "Prompt", JOptionPane.INFORMATION_MESSAGE);
-			else if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).back()) {
+			if (CustomerGUI.getPageNum() == 1) // login page
+				JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Please Login", "Prompt", JOptionPane.INFORMATION_MESSAGE);
+			else if (CustomerGUI.getPageNum() == 2) { // the first page
+				JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Already the first page", "Prompt",
+						JOptionPane.INFORMATION_MESSAGE);
+			// if (CustomerGUI.getPageNum() == 1) // the first page
+			// 	JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Already the first page", "Prompt", JOptionPane.INFORMATION_MESSAGE);
+			}else if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).back()) {
 					CustomerGUI.decreasePageNum();
 					repaintPage();
 			}
