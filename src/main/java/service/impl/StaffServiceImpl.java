@@ -47,171 +47,7 @@ public class StaffServiceImpl implements StaffService {
 
     }
 
-    /**
-     * This method helps to check whether the user is the customer of current
-     * flight.
-     *
-     * @param cardId   The card ID of the customer.
-     * @param flightId The ID of current flight.
-     * @return Whether the user is the customer of current flight.
-     */
-    @Override
-    public boolean checkUser(String cardId, String flightId) {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        Flight currentFlight = null;
-        for (Flight flight : flightList) {
-            if (Objects.equals(flight.getFlightId(), flightId)) {
-                currentFlight = flight;
-            }
-        }
-        assert currentFlight != null;
-        return false;
-    }
-
-    // 遍历fightid
-    public String[] getFlightIds() {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        String[] flightIds = new String[flightList.size()];
-        for (int i = 0; i < flightList.size(); i++) {
-            flightIds[i] = flightList.get(i).getFlightId();
-        }
-        return flightIds;
-    }
-
-    // 查找flightid所对应的gateid
-    public int getGateId(String flightId) {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        for (Flight flight : flightList) {
-            if (Objects.equals(flight.getFlightId(), flightId)) {
-                return flight.getGateId();
-            }
-        }
-        return -1;
-    }
-
-    // 查找flightid所对应的fromCity
-    public String getFromCity(String flightId) {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        for (Flight flight : flightList) {
-            if (Objects.equals(flight.getFlightId(), flightId)) {
-                return flight.getFromCity();
-            }
-        }
-        return null;
-    }
-
-    // 查找flightid所对应的toCity
-    public String getToCity(String flightId) {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        for (Flight flight : flightList) {
-            if (Objects.equals(flight.getFlightId(), flightId)) {
-                return flight.getToCity();
-            }
-        }
-        return null;
-    }
-
-    // 查找flightid所对应的time
-    public String getTime(String flightId) {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        for (Flight flight : flightList) {
-            if (Objects.equals(flight.getFlightId(), flightId)) {
-                return flight.getTime();
-            }
-        }
-        return null;
-    }
-
-    // 查找flightId所对应的orderId
-    public String[] getOrderIds(String flightId) {
-        List<Order> orderList = jsonO.readArray(Order.class);
-        List<String> orderIdList = new ArrayList<>();
-        for (Order order : orderList) {
-            if (Objects.equals(order.getFlightId(), flightId)) {
-                orderIdList.add(order.getOrderId());
-            }
-        }
-        String[] orderIds = new String[orderIdList.size()];
-        for (int i = 0; i < orderIdList.size(); i++) {
-            orderIds[i] = orderIdList.get(i);
-        }
-        return orderIds;
-    }
-
-    // 从jsonC中查找userid所对应的所有orderId
-    public String[] getOrderId(int userid) {
-        List<Customer> customerList = jsonC.readArray(Customer.class);
-        List<String> orderIdList = new ArrayList<>();
-        for (Customer customer : customerList) {
-            if (customer.getUserId() == userid) {
-                orderIdList.addAll(customer.getOrders());
-            }
-        }
-        String[] orderIds = new String[orderIdList.size()];
-        for (int i = 0; i < orderIdList.size(); i++) {
-            orderIds[i] = orderIdList.get(i);
-        }
-        return orderIds;
-    }
-
-
-    // 从jsonO中查找orderId所对应的states
-    public String getStatus(String orderId) {
-        List<Order> orderList = jsonO.readArray(Order.class);
-        for (Order order : orderList) {
-            if (order.getOrderId().equals(orderId))
-                return order.getStatus();
-        }
-        return null;
-    }
-    // 从jsonF中查找flightId所对应的customers
-    public int[] getUserIds(String flightId) {
-        List<Flight> flightList = jsonF.readArray(Flight.class);
-        List<Integer> customerIdList = new ArrayList<>();
-        for (Flight flight : flightList) {
-            if (Objects.equals(flight.getFlightId(), flightId)) {
-                customerIdList = flight.getCustomers();
-            }
-        }
-        int[] userIds = new int[customerIdList.size()];
-        for (int i = 0; i < customerIdList.size(); i++) {
-            userIds[i] = customerIdList.get(i);
-        }
-        return userIds;
-    }
-
-    // 从jsonC中查找userId所对应的cardId
-    public String getCardId(int userId) {
-        List<Customer> customerList = jsonC.readArray(Customer.class);
-        for (Customer customer : customerList) {
-            if (customer.getUserId() == userId) {
-                return customer.getCardId();
-            }
-        }
-        return null;
-    }
-
-    // 从jsonC中查找userId所对应的name
-    public String getName(int userId) {
-        List<Customer> customerList = jsonC.readArray(Customer.class);
-        for (Customer customer : customerList) {
-            if (customer.getUserId() == userId) {
-                return customer.getName();
-            }
-        }
-        return null;
-    }
-    // 从jsonO中查找orderId所对应的flightId
-    public String getFlightId(String orderId) {
-        List<Order> orderList = jsonO.readArray(Order.class);
-        for (Order order : orderList) {
-            if (order.getOrderId().equals(orderId)) {
-                return order.getFlightId();
-            }
-        }
-        return null;
-    }
-
+    
     /**
      * This method helps to check customers' status.
      * 
@@ -254,37 +90,269 @@ public class StaffServiceImpl implements StaffService {
         return new int[] { a, b, c, all };
     }
 
+    // /**
+    //  * This method helps to check whether the user is the customer of current
+    //  * flight.
+    //  *
+    //  * @param cardId   The card ID of the customer.
+    //  * @param flightId The ID of current flight.
+    //  * @return Whether the user is the customer of current flight.
+    //  */
+    // @Override
+    // public boolean checkUser(String cardId, String flightId) {
+    //     List<Flight> flightList = jsonF.readArray(Flight.class);
+    //     Flight currentFlight = null;
+    //     for (Flight flight : flightList) {
+    //         if (Objects.equals(flight.getFlightId(), flightId)) {
+    //             currentFlight = flight;
+    //         }
+    //     }
+    //     assert currentFlight != null;
+    //     return false;
+    // }
+
     /**
-     * This method is to check the food which customers choose.
-     * We only need to return a list of food.
-     * If counter is needed, it will be implemented in the controller class.
-     * 
-     * @param flightId The ID of current flight.
-     * @return foodList: An arraylist contains the food selected by each customer.
+     * This method helps to find the flight ID from the flight list.
+     *
+     * @return All the flight ID in the flight list.
      */
-    @Override
-    public ArrayList<String> checkOrder(String flightId) {
-        ArrayList<String> foodList = new ArrayList<>();
-        List<Order> orderList = jsonO.readArray(Order.class);
-        for (Order order : orderList) {
-            if (Objects.equals(order.getFlightId(), flightId)) {
-                String food = order.getFood();
-                String orderId = order.getOrderId();
-                int seatId = order.getSeatId();
-                if (seatId == -1) {
-                    String seat = "Not chosen";
-                    foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
-                            + "\n\t\t—— The Seat: " + seat);
-                } else {
-                    foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
-                            + "\n\t\t—— The Seat: " + seatId);
-                }
-            }
+    public String[] getFlightIds() {
+        List<Flight> flightList = jsonF.readArray(Flight.class);
+        String[] flightIds = new String[flightList.size()];
+        for (int i = 0; i < flightList.size(); i++) {
+            flightIds[i] = flightList.get(i).getFlightId();
         }
-        return foodList;
+        return flightIds;
     }
 
-    // 返回所有order的flightid到string数组中
+    /**
+    *This method helps to find the gate ID.
+    *
+    * @param flightId The ID of current flight.
+    * @return The gate ID of current flight.
+     */
+    public int getGateId(String flightId) {
+        List<Flight> flightList = jsonF.readArray(Flight.class);
+        for (Flight flight : flightList) {
+            if (Objects.equals(flight.getFlightId(), flightId)) {
+                return flight.getGateId();
+            }
+        }
+        return -1;
+    }
+
+    /**
+    *This method helps to find the FromCity.
+    *
+    * @param flightId The ID of current flight.
+    * @return The FromCity of current flight.
+     */
+    public String getFromCity(String flightId) {
+        List<Flight> flightList = jsonF.readArray(Flight.class);
+        for (Flight flight : flightList) {
+            if (Objects.equals(flight.getFlightId(), flightId)) {
+                return flight.getFromCity();
+            }
+        }
+        return null;
+    }
+
+    /**
+    *This method helps to find the ToCity.
+    *
+    * @param flightId The ID of current flight.
+    * @return The ToCity of current flight.
+     */
+    public String getToCity(String flightId) {
+        List<Flight> flightList = jsonF.readArray(Flight.class);
+        for (Flight flight : flightList) {
+            if (Objects.equals(flight.getFlightId(), flightId)) {
+                return flight.getToCity();
+            }
+        }
+        return null;
+    }
+
+    /**
+    *This method helps to find the departure time.
+    *
+    * @param flightId The ID of current flight.
+    * @return The departure time of current flight.
+     */
+    public String getTime(String flightId) {
+        List<Flight> flightList = jsonF.readArray(Flight.class);
+        for (Flight flight : flightList) {
+            if (Objects.equals(flight.getFlightId(), flightId)) {
+                return flight.getTime();
+            }
+        }
+        return null;
+    }
+
+    // /**
+    // *This method helps to find the orderIds
+    // *
+    // * @param flightId The ID of current flight.
+    // * @return The orderIds of current flight.
+    //  */
+    // public String[] getOrderIds(String flightId) {
+    //     List<Order> orderList = jsonO.readArray(Order.class);
+    //     List<String> orderIdList = new ArrayList<>();
+    //     for (Order order : orderList) {
+    //         if (Objects.equals(order.getFlightId(), flightId)) {
+    //             orderIdList.add(order.getOrderId());
+    //         }
+    //     }
+    //     String[] orderIds = new String[orderIdList.size()];
+    //     for (int i = 0; i < orderIdList.size(); i++) {
+    //         orderIds[i] = orderIdList.get(i);
+    //     }
+    //     return orderIds;
+    // }
+
+    /**
+    *This method helps to find the orderId
+    *
+    * @param the user Id.
+    * @return The orderId of current flight.    
+     */
+    public String[] getOrderId(int userid) {
+        List<Customer> customerList = jsonC.readArray(Customer.class);
+        List<String> orderIdList = new ArrayList<>();
+        for (Customer customer : customerList) {
+            if (customer.getUserId() == userid) {
+                orderIdList.addAll(customer.getOrders());
+            }
+        }
+        String[] orderIds = new String[orderIdList.size()];
+        for (int i = 0; i < orderIdList.size(); i++) {
+            orderIds[i] = orderIdList.get(i);
+        }
+        return orderIds;
+    }
+
+
+    /**
+    *This method helps to find the status
+    *
+    * @param the orderId.
+    * @return The status of current flight.
+     */
+    public String getStatus(String orderId) {
+        List<Order> orderList = jsonO.readArray(Order.class);
+        for (Order order : orderList) {
+            if (order.getOrderId().equals(orderId))
+                return order.getStatus();
+        }
+        return null;
+    }
+ 
+    /**
+    *This method helps to find the flightId
+    *
+    * @param the flightId.
+    * @return The all userIds of this flight.
+     */
+
+    public int[] getUserIds(String flightId) {
+        List<Flight> flightList = jsonF.readArray(Flight.class);
+        List<Integer> customerIdList = new ArrayList<>();
+        for (Flight flight : flightList) {
+            if (Objects.equals(flight.getFlightId(), flightId)) {
+                customerIdList = flight.getCustomers();
+            }
+        }
+        int[] userIds = new int[customerIdList.size()];
+        for (int i = 0; i < customerIdList.size(); i++) {
+            userIds[i] = customerIdList.get(i);
+        }
+        return userIds;
+    }
+
+    /**
+    *This method helps to find the cardId
+    *
+    * @param the userId.
+    * @return The cardId of this user.
+     */
+    public String getCardId(int userId) {
+        List<Customer> customerList = jsonC.readArray(Customer.class);
+        for (Customer customer : customerList) {
+            if (customer.getUserId() == userId) {
+                return customer.getCardId();
+            }
+        }
+        return null;
+    }
+
+    /**
+    *This method helps to find the user's name
+    *
+    * @param the userId.
+    * @return The name of this user.
+     */
+    public String getName(int userId) {
+        List<Customer> customerList = jsonC.readArray(Customer.class);
+        for (Customer customer : customerList) {
+            if (customer.getUserId() == userId) {
+                return customer.getName();
+            }
+        }
+        return null;
+    }
+
+    /**
+    *This method helps to find flightId from the orderId
+    *
+    * @param the orderId.
+    * @return The flightId of this order.
+     */
+    public String getFlightId(String orderId) {
+        List<Order> orderList = jsonO.readArray(Order.class);
+        for (Order order : orderList) {
+            if (order.getOrderId().equals(orderId)) {
+                return order.getFlightId();
+            }
+        }
+        return null;
+    }
+
+
+    // /**
+    //  * This method is to check the food which customers choose.
+    //  * We only need to return a list of food.
+    //  * If counter is needed, it will be implemented in the controller class.
+    //  * 
+    //  * @param flightId The ID of current flight.
+    //  * @return foodList: An arraylist contains the food selected by each customer.
+    //  */
+    // @Override
+    // public ArrayList<String> checkOrder(String flightId) {
+    //     ArrayList<String> foodList = new ArrayList<>();
+    //     List<Order> orderList = jsonO.readArray(Order.class);
+    //     for (Order order : orderList) {
+    //         if (Objects.equals(order.getFlightId(), flightId)) {
+    //             String food = order.getFood();
+    //             String orderId = order.getOrderId();
+    //             int seatId = order.getSeatId();
+    //             if (seatId == -1) {
+    //                 String seat = "Not chosen";
+    //                 foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
+    //                         + "\n\t\t—— The Seat: " + seat);
+    //             } else {
+    //                 foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
+    //                         + "\n\t\t—— The Seat: " + seatId);
+    //             }
+    //         }
+    //     }
+    //     return foodList;
+    // }
+
+    /**
+     * This method is to find all the flightIds
+     * 
+     * @return flightIds
+     */
     public String[] getFlightId() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<String> flightIdList = new ArrayList<>();
@@ -298,7 +366,11 @@ public class StaffServiceImpl implements StaffService {
         return flightIds;
     }
 
-    // 返回所有order的orderid到string数组中
+    /**
+        * This method is to find all the orderIds
+        *
+        * @return orderIds
+     */
     public String[] getOrderId() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<String> orderIdList = new ArrayList<>();
@@ -312,7 +384,12 @@ public class StaffServiceImpl implements StaffService {
         return orderIds;
     }
 
-    // 返回所有order的seat到string数组中
+    /**
+        * This method is to find all the seats
+        *
+        * @return seats
+     */
+
     public String[] getSeat() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<Integer> seatList = new ArrayList<>();
@@ -331,7 +408,11 @@ public class StaffServiceImpl implements StaffService {
         return seats;
     }
 
-    // 返回所有order的food到string数组中
+    /**
+        * This method is to find all the food
+        *
+        * @return food
+     */
     public String[] getFood() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<String> foodList = new ArrayList<>();
@@ -345,7 +426,12 @@ public class StaffServiceImpl implements StaffService {
         return foods;
     }
 
-    // 返回所有order的总数
+    /**
+        * This method is to find the total num of orders
+        *
+        * @return orderNum
+     */
+    
     public int getOrderNum() {
         List<Order> orderList = jsonO.readArray(Order.class);
         return orderList.size();
