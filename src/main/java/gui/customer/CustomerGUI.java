@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class CustomerGUI {
 	static final ArrayList<JPanel> PAGES = new ArrayList<>();
 	static final Template WINDOW = new Template();
-	private static int pageNum = 6;
+	private static int pageNum = 1;
 	private static final PageController CONTROLLER = new PageController();
 
 	static {
