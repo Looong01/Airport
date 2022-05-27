@@ -85,8 +85,8 @@
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>windows-x86</classifier>
-        </dependency> -->
-        <!-- <dependency>
+        </dependency>
+        <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
@@ -98,8 +98,8 @@
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>linux-x86_64</classifier>
-        </dependency> -->
-        <!-- <dependency>
+        </dependency>
+        <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
@@ -111,8 +111,8 @@
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>linux-x86</classifier>
-        </dependency> -->
-        <!-- <dependency>
+        </dependency>
+        <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
@@ -137,14 +137,14 @@
             <artifactId>opencv-platform</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>macosx-arm64</classifier>
-        </dependency>
-        <dependency>
+        </dependency> -->
+        <!-- <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>macosx-arm64</classifier>
 		</dependency> -->
-        
+
     </dependencies>
     <build>
       <plugins>
