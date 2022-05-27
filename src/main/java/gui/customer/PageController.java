@@ -56,7 +56,7 @@ public class PageController implements ActionListener {
 		Template.getNav().setSelectedIndex(CustomerGUI.getPageNum() - 1); // set navigation
 		CustomerGUI.WINDOW.remove(Template.getPage());
 
-		Template.setPage(CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)); // 数组从0开始
+		Template.setPage(CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1));
 
 		CustomerGUI.WINDOW.setTitle(((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).getTitle());
 		Template.getInfoLabel().setText(((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).getLabel());
