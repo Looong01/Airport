@@ -22,15 +22,17 @@ public class ReviewOrder extends JPanel implements Page {
 	private final JComboBox<String> comboBox;
 
 	public ReviewOrder() {
-		this.setLayout(new BorderLayout());
+		this.setLayout(null);
 		textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setEditable(false);
 		JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		this.add(scrollPane, BorderLayout.CENTER);
 		comboBox = new JComboBox<>();
-		this.add(comboBox, BorderLayout.SOUTH);
+		scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (550 * Template.getP()));
+		comboBox.setBounds(0, (int) (550 * Template.getP()), (int) (900 * Template.getP()), (int) (50 * Template.getP()));
+		this.add(scrollPane);
+		this.add(comboBox);
 		Display.setPanelFont(this);
 		textArea.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (30 * Template.getP())));
 	}
@@ -91,15 +93,6 @@ public class ReviewOrder extends JPanel implements Page {
 	public String getLabel() {
 		return (DAO.isCardLogin())? "Please choose an order": "Please review your order";
 	}
-
-	// @Override
-	// public String getBack() {
-	// 	return "BACK";
-	// }
-
-	// public String getCont() {
-	// 	return "CONFIRM";
-	// }
 
 	@Override
 	public boolean back() {
