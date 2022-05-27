@@ -9,6 +9,12 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Template for staff pages
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class Template extends JFrame {
 	// GridBagLayout
 	static final GridBagLayout LAYOUT = new GridBagLayout();

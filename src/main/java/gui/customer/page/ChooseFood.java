@@ -9,11 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * This class displays a GUI for customer to choose extra options like special seats or gourmet menu
- * @author wzy
- * @version 3.0
+ * Choose food page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
  */
-
 public class ChooseFood extends JPanel implements Page {
 	private final ButtonGroup group = new ButtonGroup();
 	private String selectedFood;

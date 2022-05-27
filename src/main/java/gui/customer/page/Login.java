@@ -7,6 +7,12 @@ import util.gui.Display;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Login page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class Login extends JPanel implements Page {
     private final JComboBox<String> comboBox = new JComboBox<>(new String[]{"Card ID", "Order ID"});
     private final JTextField textField = new JTextField();

@@ -7,7 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * 直接使用local variable，实现ArrayList<JPanel>，下同
+ * Login page
+ *
+ * @author Zelong Li & Shuzhou Zhao
+ * @version 1.5
  */
 public class Login extends JPanel implements Page {
     // 添加两个文本输入框，并加入this

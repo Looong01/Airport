@@ -12,6 +12,12 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import java.awt.*;
 
+/**
+ * Boarding pass page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class BoardingPass extends JPanel implements Page {
 	private final JLabel infoLabel = new JLabel();
 	private final JLabel cityLabel = new JLabel();

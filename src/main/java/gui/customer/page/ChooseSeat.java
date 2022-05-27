@@ -10,6 +10,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
+/**
+ * Choose seat page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class ChooseSeat extends JPanel implements Page {
 	private final String seatSVG = "src/main/resources/svg/seat"; // cannot use absolute path for BufferedImageTranscoder
 	private final BufferedImageTranscoder seatTranscoder = new BufferedImageTranscoder(seatSVG + ".svg",60 * Template.getP(),60 * Template.getP());

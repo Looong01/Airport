@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * controller for customer page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class PageController implements ActionListener {
 	/**
 	 * Constructor for PageController listening to logout, back, and continue buttons

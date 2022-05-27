@@ -7,6 +7,12 @@ import util.gui.Display;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Payment page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class Payment extends JPanel implements Page {
 	private final JTextField textField1 = new JTextField();
 	private final JTextField textField2 = new JTextField();

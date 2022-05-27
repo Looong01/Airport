@@ -6,6 +6,12 @@ import gui.staff.Page;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Check order page
+ *
+ * @author Zelong Li & Shuzhou Zhao
+ * @version 1.5
+ */
 public class CheckOrder extends JPanel implements Page {
 	public CheckOrder() {
 

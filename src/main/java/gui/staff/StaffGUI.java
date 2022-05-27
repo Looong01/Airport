@@ -5,6 +5,12 @@ import gui.staff.page.*;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * The class holds staff pages and controller
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class StaffGUI {
 	static final ArrayList<JPanel> PAGES = new ArrayList<>();
 	static final Template WINDOW = new Template();

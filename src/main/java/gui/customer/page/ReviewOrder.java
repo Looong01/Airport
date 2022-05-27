@@ -11,6 +11,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Review order page
+ *
+ * @author Ziyao Wang
+ * @version 1.5
+ */
 public class ReviewOrder extends JPanel implements Page {
 	private final JTextArea textArea;
 	private final JComboBox<String> comboBox;
@@ -83,7 +89,7 @@ public class ReviewOrder extends JPanel implements Page {
 
 	@Override
 	public String getLabel() {
-		return (DAO.isCardLogin())? "Please choose an order to proceed": "Please review your order to proceed";
+		return (DAO.isCardLogin())? "Please choose an order": "Please review your order";
 	}
 
 	@Override

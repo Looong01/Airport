@@ -18,11 +18,7 @@ public class BankAccount implements Serializable {
     private int accNo;
     private String accName;
     private double balance;
-
-    /** The account has not been overdrawn by default {@value} */
     boolean flagOverdraft = false;
-
-    /** This account has default overdraft  {@value} */
     private final double overdraft = 500.0;
 
     /**

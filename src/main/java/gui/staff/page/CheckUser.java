@@ -13,6 +13,12 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.util.Objects;
 
+/**
+ * Check user page
+ *
+ * @author Zelong Li & Shuzhou Zhao
+ * @version 1.5
+ */
 public class CheckUser extends JPanel implements Page {
 
     public JTextField textField1 = new JTextField();

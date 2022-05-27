@@ -6,6 +6,12 @@ import gui.staff.Page;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Check flight page
+ *
+ * @author Zelong Li & Shuzhou Zhao
+ * @version 1.5
+ */
 public class CheckFlight extends JPanel implements Page {
 	public CheckFlight() {
 		this.setLayout(new GridLayout(1, 1)); // 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
