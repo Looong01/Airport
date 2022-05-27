@@ -62,97 +62,88 @@
             <artifactId>javacv</artifactId>
             <version>1.5.7</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
+        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
+
+<!-- For windows-x86_64-->
         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>windows-x86_64</classifier>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
-        <!-- <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>opencv</artifactId>
-            <version>4.5.5-1.5.7</version>
-            <classifier>windows-x86</classifier>
-        </dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
-        <!-- <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>opencv</artifactId>
-            <version>4.5.5-1.5.7</version>
-            <classifier>linux-x86_64</classifier>
-        </dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
-        <!-- <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>opencv</artifactId>
-            <version>4.5.5-1.5.7</version>
-            <classifier>linux-x86</classifier>
-        </dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
-        <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>opencv</artifactId>
-            <version>4.5.5-1.5.7</version>
-            <classifier>macosx-x86_64</classifier>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
-        <!-- <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>opencv-platform</artifactId>
-            <version>4.5.5-1.5.7</version>
-            <classifier>macosx-arm64</classifier>
-        </dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
         <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>windows-x86_64</classifier>
 		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
+<!-- For windows-x86-->
+        <!-- <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>windows-x86</classifier>
+        </dependency> -->
         <!-- <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>windows-x86</classifier>
 		</dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
+<!-- For linux-x86_64-->
+        <!-- <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>linux-x86_64</classifier>
+        </dependency> -->
         <!-- <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
             <classifier>linux-x86_64</classifier>
 		</dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
+<!-- For linux-x86-->
+        <!-- <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>linux-x86</classifier>
+        </dependency> -->
         <!-- <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
             <classifier>linux-x86</classifier>
 		</dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
+<!-- For macosx-x86_64-->
+        <!-- <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>macosx-x86_64</classifier>
+        </dependency>
         <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>macosx-x86_64</classifier>
-		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
+		</dependency> -->
+<!-- For macosx-arm64-->
+        <!-- <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv-platform</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>macosx-arm64</classifier>
+        </dependency>
         <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>macosx-arm64</classifier>
-		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/ffmpeg -->
-        <!-- <dependency>
-            <groupId>org.bytedeco</groupId>
-            <artifactId>ffmpeg</artifactId>
-            <version>5.0-1.5.7</version>
-            <classifier>windows-x86_64</classifier>
-        </dependency> -->
+		</dependency> -->
         
     </dependencies>
     <build>
