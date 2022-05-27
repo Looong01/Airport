@@ -19,6 +19,7 @@ import java.util.Objects;
  */
 public class ReviewOrder extends JPanel implements Page {
 	private final JTextArea textArea;
+	private final JScrollPane scrollPane;
 	private final JComboBox<String> comboBox;
 
 	public ReviewOrder() {
@@ -27,9 +28,9 @@ public class ReviewOrder extends JPanel implements Page {
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setEditable(false);
-		JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		comboBox = new JComboBox<>();
-		scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (550 * Template.getP()));
+		// scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (550 * Template.getP()));
 		comboBox.setBounds(0, (int) (550 * Template.getP()), (int) (900 * Template.getP()), (int) (50 * Template.getP()));
 		this.add(scrollPane);
 		this.add(comboBox);
@@ -40,6 +41,7 @@ public class ReviewOrder extends JPanel implements Page {
 	@Override
 	public void syncPage() {
 		if (!DAO.isCardLogin()) {
+			scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (600 * Template.getP()));
 			Flight flight = SERVICE.getFlight(DAO.getOrder().getFlightId());
 			textArea.setText("> Order " + DAO.getOrder().getOrderId() + "\n");
 			if (DAO.getOrder().getStatus().equals("C")) {
@@ -57,6 +59,7 @@ public class ReviewOrder extends JPanel implements Page {
 			// hide comboBox
 			comboBox.setVisible(false);
 		} else {
+			scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (550 * Template.getP()));
 			ArrayList<String> orders = DAO.getCustomer().getOrders();
 			textArea.setText("");
 			comboBox.removeAllItems();
