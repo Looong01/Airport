@@ -149,7 +149,7 @@ public class BoardingPass extends JPanel implements Page {
 		name.setText(DAO.getCustomer().getName());
 		cityLabel.setText("From " + DAO.getFlight().getFromCity() + " To " + DAO.getFlight().getToCity());
 		gate.setText(DAO.getFlight().getGateId() + "");
-		boardingTime.setText(times[0] + times[1]); // TODO 向前提前30分钟
+		boardingTime.setText(times[0] + times[1]);
 		seatNo.setText(DAO.getOrder().getSeatId() + "");
 
 		sideFlight.setText("" + DAO.getFlight().getFlightId());

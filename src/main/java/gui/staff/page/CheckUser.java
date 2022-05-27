@@ -78,12 +78,12 @@ public class CheckUser extends JPanel implements Page {
 
     @Override
     public String getTitle() {
-        return null;
+        return "User Information";
     }
 
     @Override
     public String getLabel() {
-        return null;
+        return "Here is User information";
     }
 
     @Override
@@ -335,12 +335,12 @@ public class CheckUser extends JPanel implements Page {
 
         @Override
         public String getTitle() {
-            return "User Information";
+            return null;
         }
     
         @Override
         public String getLabel() {
-            return "Here is User information";
+            return null;
         }
 
         @Override

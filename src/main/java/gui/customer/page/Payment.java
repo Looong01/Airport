@@ -29,7 +29,7 @@ public class Payment extends JPanel implements Page {
 		Template.getCont().setText("PAY $" + (DAO.getSeatDue() + DAO.getFoodDue()));
 		textField1.setText("Chenyang He");
 		textField2.setText("13579");
-		textField3.setText("18636936796"); // TODO delete it
+		textField3.setText("18636936796");
 	}
 
 	@Override

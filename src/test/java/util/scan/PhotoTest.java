@@ -26,16 +26,19 @@ public class PhotoTest {
 		canvas.toFront();
 //		canvas.setAlwaysOnTop(true);
 
-		Java2DFrameConverter converter = new Java2DFrameConverter();
-		Frame frame = null;
+		try (Java2DFrameConverter converter = new Java2DFrameConverter()) {
+			Frame frame = null;
 
-		while (canvas.isDisplayable()) {
-			frame = grabber.grab();
-			canvas.showImage(frame);
+			while (canvas.isDisplayable()) {
+				frame = grabber.grab();
+				canvas.showImage(frame);
+			}
+			grabber.close();
+
+			BufferedImage image = converter.convert(frame);
+			ImageIO.write(image,"png",new File("src/main/resources/jpg/photo-test.png"));
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
-		grabber.close();
-
-		BufferedImage image = converter.convert(frame);
-		ImageIO.write(image,"png",new File("src/main/resources/jpg/photo-test.png"));
 	}
 }
