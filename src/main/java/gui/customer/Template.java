@@ -124,13 +124,6 @@ public class Template extends JFrame {
 
 		this.pack(); // pack() overrides weightx, weighty
 		this.setResizable(false);
-
-		/*System.out.println("P = " + P);
-		System.out.println("DefaultLayoutSize (P=1): 1200 * 800");
-		System.out.println("PreferredLayoutSize: " + (int) LAYOUT.preferredLayoutSize(this).getWidth() + " * " + (int) LAYOUT.preferredLayoutSize(this).getHeight());
-		System.out.println("WindowSize: " + this.getWidth() + " * " + this.getHeight());
-		System.out.println("DefaultFontSize (P=1): 30");
-		System.out.println("FontSize: " + nav.getFont().getSize());*/
 	}
 
 	public static float getP() {

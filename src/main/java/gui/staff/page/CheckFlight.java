@@ -14,7 +14,7 @@ import java.awt.*;
  */
 public class CheckFlight extends JPanel implements Page {
 	public CheckFlight() {
-		this.setLayout(new GridLayout(1, 1)); // 用1*1的网格布局，可以让scrollpane自动适应父元素的大小，不必使用setBounds()
+		this.setLayout(new GridLayout(1, 1));
 
 		String[] columnNames = { "The flight ID", "The gate ID", "From which city", "The time of taking off", "To which city" };
 		String[] idInt = SERVICE.getFlightIds();
@@ -22,11 +22,10 @@ public class CheckFlight extends JPanel implements Page {
 		JTable table = new JTable(obj, columnNames);
 		table.setEnabled(false);
 
-		// 表头和内容的字体大小要分别设置
 		table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
 		table.getTableHeader().setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
 
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // 必须禁止table自适应大小，不然table默认会适应scrollpane的宽度，就用不了滚动条了
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
 		table.getColumnModel().getColumn(0).setPreferredWidth((int) (200 * Template.getP()));
 		table.getColumnModel().getColumn(1).setPreferredWidth((int) (200 * Template.getP()));
@@ -34,7 +33,7 @@ public class CheckFlight extends JPanel implements Page {
 		table.getColumnModel().getColumn(3).setPreferredWidth((int) (450 * Template.getP()));
 		table.getColumnModel().getColumn(4).setPreferredWidth((int) (550 * Template.getP()));
 
-		table.setRowHeight((int) (530 * Template.getP() / (table.getRowCount()))); // 这里指定表格的行高，600P是容器高度，用行数来平均分，+1算入了表头行
+		table.setRowHeight((int) (530 * Template.getP() / (table.getRowCount())));
 
 		JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 

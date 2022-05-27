@@ -55,7 +55,6 @@ public class CustomerTest {
 
     @Test
     public void logInByScan(){
-        //service.LoginByScanId();
         System.out.println(service.loginByScanId());
     }
 

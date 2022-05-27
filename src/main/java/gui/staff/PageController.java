@@ -11,10 +11,7 @@ import java.awt.event.ActionListener;
  * @version 1.5
  */
 public class PageController implements ActionListener {
-	/**
-	 * Constructor for PageController listening to logout, back, and continue
-	 * buttons
-	 */
+	
 	public PageController() {
 		Template.getLogout().addActionListener(this);
 		Template.getBack().addActionListener(this);
@@ -32,9 +29,9 @@ public class PageController implements ActionListener {
 				repaintPage();
 			}
 		} else if (e.getSource() == Template.getBack()) {
-			if (StaffGUI.getPageNum() == 1) // login page
+			if (StaffGUI.getPageNum() == 1) 
 				JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Please Login", "Prompt", JOptionPane.INFORMATION_MESSAGE);
-			else if (StaffGUI.getPageNum() == 2) { // the first page
+			else if (StaffGUI.getPageNum() == 2) { 
 				JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Already the first page", "Prompt",
 						JOptionPane.INFORMATION_MESSAGE);
 			} else if (((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).back()) {
@@ -42,7 +39,7 @@ public class PageController implements ActionListener {
 				repaintPage();
 			}
 		} else if (e.getSource() == Template.getCont()) {
-			if (StaffGUI.getPageNum() == 4) // the last page
+			if (StaffGUI.getPageNum() == 4) 
 				JOptionPane.showMessageDialog(StaffGUI.WINDOW, "Already the last page", "Prompt",
 						JOptionPane.INFORMATION_MESSAGE);
 			else if (((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).cont()) {
@@ -54,10 +51,10 @@ public class PageController implements ActionListener {
 	}
 
 	void repaintPage() {
-		Template.getNav().setSelectedIndex(StaffGUI.getPageNum() - 1); // set navigation
+		Template.getNav().setSelectedIndex(StaffGUI.getPageNum() - 1); 
 		StaffGUI.WINDOW.remove(Template.getPage());
 
-		Template.setPage(StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)); // 数组从0开始
+		Template.setPage(StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)); 
 
 		StaffGUI.WINDOW.setTitle(((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).getTitle());
 		Template.getInfoLabel().setText(((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).getLabel());

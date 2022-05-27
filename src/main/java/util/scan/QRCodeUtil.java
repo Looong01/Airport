@@ -51,7 +51,6 @@ public class QRCodeUtil {
 
     public static void mkdirs(String destPath) {
         File file = new File(destPath);
-        // 当文件夹不存在时，mkdirs会自动创建多层目录，区别于mkdir．(mkdir如果父目录不存在则会抛出异常)
         if (!file.exists() && !file.isDirectory())
             file.mkdirs();
     }
@@ -65,7 +64,6 @@ public class QRCodeUtil {
         try {
             result = new MultiFormatReader().decode(bitmap, hints);
         } catch (NotFoundException e) {
-//            System.out.println("Recognizing QR code ...");
         }
         return result == null? null : result.getText();
     }

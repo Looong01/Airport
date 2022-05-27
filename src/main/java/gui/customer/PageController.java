@@ -36,8 +36,6 @@ public class PageController implements ActionListener {
 			else if (CustomerGUI.getPageNum() == 2) { // the first page
 				JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Already the first page", "Prompt",
 						JOptionPane.INFORMATION_MESSAGE);
-			// if (CustomerGUI.getPageNum() == 1) // the first page
-			// 	JOptionPane.showMessageDialog(CustomerGUI.WINDOW, "Already the first page", "Prompt", JOptionPane.INFORMATION_MESSAGE);
 			}else if (((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).back()) {
 					CustomerGUI.decreasePageNum();
 					repaintPage();
@@ -69,7 +67,7 @@ public class PageController implements ActionListener {
 		Template.LAYOUT.setConstraints(Template.getPage(), Template.CONSTRAINTS);
 		CustomerGUI.WINDOW.add(Template.getPage());
 
-		((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).syncPage(); // 从CustomerDAO更新page的内容
+		((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).syncPage();
 
 		CustomerGUI.WINDOW.repaint();
 		CustomerGUI.WINDOW.revalidate(); // repack

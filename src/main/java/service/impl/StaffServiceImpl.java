@@ -89,28 +89,6 @@ public class StaffServiceImpl implements StaffService {
         }
         return new int[] { a, b, c, all };
     }
-
-    // /**
-    //  * This method helps to check whether the user is the customer of current
-    //  * flight.
-    //  *
-    //  * @param cardId   The card ID of the customer.
-    //  * @param flightId The ID of current flight.
-    //  * @return Whether the user is the customer of current flight.
-    //  */
-    // @Override
-    // public boolean checkUser(String cardId, String flightId) {
-    //     List<Flight> flightList = jsonF.readArray(Flight.class);
-    //     Flight currentFlight = null;
-    //     for (Flight flight : flightList) {
-    //         if (Objects.equals(flight.getFlightId(), flightId)) {
-    //             currentFlight = flight;
-    //         }
-    //     }
-    //     assert currentFlight != null;
-    //     return false;
-    // }
-
     /**
      * This method helps to find the flight ID from the flight list.
      *
@@ -188,28 +166,6 @@ public class StaffServiceImpl implements StaffService {
         }
         return null;
     }
-
-    // /**
-    // *This method helps to find the orderIds
-    // *
-    // * @param flightId The ID of current flight.
-    // * @return The orderIds of current flight.
-    //  */
-    // public String[] getOrderIds(String flightId) {
-    //     List<Order> orderList = jsonO.readArray(Order.class);
-    //     List<String> orderIdList = new ArrayList<>();
-    //     for (Order order : orderList) {
-    //         if (Objects.equals(order.getFlightId(), flightId)) {
-    //             orderIdList.add(order.getOrderId());
-    //         }
-    //     }
-    //     String[] orderIds = new String[orderIdList.size()];
-    //     for (int i = 0; i < orderIdList.size(); i++) {
-    //         orderIds[i] = orderIdList.get(i);
-    //     }
-    //     return orderIds;
-    // }
-
     /**
     *This method helps to find the orderId
     *
@@ -316,38 +272,6 @@ public class StaffServiceImpl implements StaffService {
         }
         return null;
     }
-
-
-    // /**
-    //  * This method is to check the food which customers choose.
-    //  * We only need to return a list of food.
-    //  * If counter is needed, it will be implemented in the controller class.
-    //  * 
-    //  * @param flightId The ID of current flight.
-    //  * @return foodList: An arraylist contains the food selected by each customer.
-    //  */
-    // @Override
-    // public ArrayList<String> checkOrder(String flightId) {
-    //     ArrayList<String> foodList = new ArrayList<>();
-    //     List<Order> orderList = jsonO.readArray(Order.class);
-    //     for (Order order : orderList) {
-    //         if (Objects.equals(order.getFlightId(), flightId)) {
-    //             String food = order.getFood();
-    //             String orderId = order.getOrderId();
-    //             int seatId = order.getSeatId();
-    //             if (seatId == -1) {
-    //                 String seat = "Not chosen";
-    //                 foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
-    //                         + "\n\t\t—— The Seat: " + seat);
-    //             } else {
-    //                 foodList.add("\n\n\tThe Order ID: " + orderId + "\n\t\t—— The  Food: " + food
-    //                         + "\n\t\t—— The Seat: " + seatId);
-    //             }
-    //         }
-    //     }
-    //     return foodList;
-    // }
-
     /**
      * This method is to find all the flightIds
      * 
@@ -397,7 +321,6 @@ public class StaffServiceImpl implements StaffService {
             seatList.add(order.getSeatId());
         }
         String[] seats = new String[seatList.size()];
-        // 如果seat为-1，则显示Not chosen
         for (int i = 0; i < seatList.size(); i++) {
             if (seatList.get(i) == -1) {
                 seats[i] = "Not chosen";

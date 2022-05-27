@@ -4,11 +4,9 @@ import util.scan.QRCodeService;
 
 public class EmailService {
     public void sendEmail(int userId, String toEmail) {
-        //先将二维码生成
         QRCodeService qrService=new QRCodeService();
         qrService.generateCode(userId);
 
-        //封装成邮件发送
         String host = "smtp.qq.com";
 
         final String username = "2482522606@qq.com"; // use your username

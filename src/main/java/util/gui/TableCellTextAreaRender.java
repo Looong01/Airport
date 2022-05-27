@@ -13,8 +13,7 @@ public class TableCellTextAreaRender extends JTextArea implements TableCellRende
     }
 
     public Component getTableCellRendererComponent(JTable table, Object value, 
-            boolean isSelected, boolean hasFocus, int row, int column) { 
-        // 计算当下行的最佳高度 
+            boolean isSelected, boolean hasFocus, int row, int column) {
         int maxPreferredHeight = 0; 
         for (int i = 0; i < table.getColumnCount(); i++) { 
             setText("" + table.getValueAt(row, i)); 
@@ -24,15 +23,14 @@ public class TableCellTextAreaRender extends JTextArea implements TableCellRende
         }
         
         table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
-        // table.getTableHeader().setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
 
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // 必须禁止table自适应大小，不然table默认会适应scrollpane的宽度，就用不了滚动条了
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         table.getColumnModel().getColumn(0).setPreferredWidth((int) (250 * Template.getP()));
         table.getColumnModel().getColumn(1).setPreferredWidth((int) (150 * Template.getP()));
 
-        if (table.getRowHeight(row) != maxPreferredHeight)  // 少了这行则处理器瞎忙 
-            table.setRowHeight((int) (478 * Template.getP() / (table.getRowCount()))); // 这里指定表格的行高，600P是容器高度，用行数来平均分，+1算入了表头行
+        if (table.getRowHeight(row) != maxPreferredHeight)
+            table.setRowHeight((int) (478 * Template.getP() / (table.getRowCount())));
             
 
         setText(value == null ? "" : value.toString()); 

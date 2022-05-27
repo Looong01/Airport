@@ -30,7 +30,6 @@ public class ReviewOrder extends JPanel implements Page {
 		textArea.setEditable(false);
 		scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		comboBox = new JComboBox<>();
-		// scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (550 * Template.getP()));
 		comboBox.setBounds(0, (int) (550 * Template.getP()), (int) (900 * Template.getP()), (int) (50 * Template.getP()));
 		this.add(scrollPane);
 		this.add(comboBox);

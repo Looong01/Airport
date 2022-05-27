@@ -64,7 +64,7 @@ public class FlightUtil extends DataBaseUtil {
                 ArrayList<Integer> customers = f.getCustomers();
                 for (Integer c : customers) {
                     if (c == customer) { // delete customer
-                        customers.remove(c); // 可能有index/Object判别问题
+                        customers.remove(c);
                         f.setCustomers(customers);
                         controller.writeArray(flights);
                         return;

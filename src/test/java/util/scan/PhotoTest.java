@@ -24,7 +24,6 @@ public class PhotoTest {
 		CanvasFrame canvas = new CanvasFrame("Camera");
 		canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		canvas.toFront();
-//		canvas.setAlwaysOnTop(true);
 
 		try (Java2DFrameConverter converter = new Java2DFrameConverter()) {
 			Frame frame = null;

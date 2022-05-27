@@ -37,7 +37,6 @@ public class StaffGUI {
 
 		// centered display
 		WINDOW.setLocationRelativeTo(null);
-//		WINDOW.setVisible(true);
 	}
 
 	public static int getPageNum() {

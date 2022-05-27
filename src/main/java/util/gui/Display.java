@@ -5,17 +5,6 @@ import gui.customer.Template;
 import javax.swing.*;
 import java.awt.*;
 
-/*// scaling JCheckBox icon
-if (comp instanceof JCheckBox) {
-	String square = System.getProperty("user.dir") + "/src/main/resources/square.svg";
-	String checkedSquare = System.getProperty("user.dir") + "/src/main/resources/check-square-fill.svg";
-	BufferedImageTranscoder bit0 = new BufferedImageTranscoder(square, fontSize * propX, fontSize * propY);
-	BufferedImageTranscoder bit1 = new BufferedImageTranscoder(checkedSquare, fontSize * propX, fontSize * propY);
-
-	((JCheckBox) comp).setIcon(new ImageIcon(bit0.getImage()));
-	((JCheckBox) comp).setSelectedIcon(new ImageIcon(bit1.getImage()));
-}*/
-
 /**
  * The class achieves proper display of customer GUI
  * @author wzy
@@ -27,7 +16,7 @@ public class Display {
 	 * @return Proportion for scaling GUI
 	 */
 	public static float getProp() {
-		// GraphicDevice获取物理分辨率而非系统分辨率，在Mac OS X上例外
+
 
 		Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets((new JFrame()).getGraphicsConfiguration()); // screen border information
 		int screenHeight = (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() - screenInsets.top - screenInsets.bottom); // available screen height without borders

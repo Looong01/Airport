@@ -93,31 +93,35 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer loginByScanId() {
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
-        Java2DFrameConverter converter = new Java2DFrameConverter();
-        CanvasFrame canvas;
-        Frame frame;
-        String cardId = null;
+        try (Java2DFrameConverter converter = new Java2DFrameConverter()) {
+            CanvasFrame canvas;
+            Frame frame;
+            String cardId = null;
 
-        try{
-            grabber.start();
-            canvas = new CanvasFrame("Camera");
-            canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            canvas.toFront();
+            try{
+                grabber.start();
+                canvas = new CanvasFrame("Camera");
+                canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                canvas.toFront();
 
-            while (canvas.isDisplayable()) {
-                frame = grabber.grab();
-                canvas.showImage(frame);
-                cardId = QRCodeUtil.decode(converter.convert(frame));
-                if (cardId != null) {
-                    canvas.dispose();
-                    grabber.close();
-                    break;
+                while (canvas.isDisplayable()) {
+                    frame = grabber.grab();
+                    canvas.showImage(frame);
+                    cardId = QRCodeUtil.decode(converter.convert(frame));
+                    if (cardId != null) {
+                        canvas.dispose();
+                        grabber.close();
+                        break;
+                    }
                 }
+            }catch (FrameGrabber.Exception e) {
+                e.printStackTrace();
             }
-        }catch (FrameGrabber.Exception e) {
+            return this.loginByCardId(cardId);
+        }catch (Exception e) {
             e.printStackTrace();
         }
-        return this.loginByCardId(cardId);
+        return null;
     }
 
     @Override
