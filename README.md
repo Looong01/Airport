@@ -13,5 +13,5 @@ Windows: PowerShell
 Linux: Bash 或 Mac: Terminal
 
 ```
-打开Bash或者Terminal，输入`sh ./LinuxMac.sh`，回车。
+打开Bash或者Terminal，输入`sh ./Unix.sh`，回车。
 ```
