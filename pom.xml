@@ -134,7 +134,7 @@
 <!-- For macosx-arm64-->
         <!-- <dependency>
             <groupId>org.bytedeco</groupId>
-            <artifactId>opencv-platform</artifactId>
+            <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>macosx-arm64</classifier>
         </dependency> -->
