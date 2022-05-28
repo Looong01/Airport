@@ -6,8 +6,8 @@ package service;
  * <p> This class provides an interface for methods required for staff side actions.
  * The function of these methods is described in detail in this interface's implement, class StaffServiceImpl
  *
- * @author Hao Sun & Chenyang He
- * @version 1.1
+ * @author Zelong Le & Shuzhou Zhao
+ * @version 1.2
  *
  */
 

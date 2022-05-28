@@ -16,7 +16,7 @@ import java.util.Objects;
  * <p>
  * This class provides implements for methods required for staff side actions.
  *
- * @author Loong Lee & Shuzhou Zhao
+ * @author Zelong Le & Shuzhou Zhao
  * @version 1.2
  *
  */
