@@ -14,8 +14,8 @@ import java.nio.file.Paths;
  *  @version 1.0
  */
 public class IOController {
-    private String filename;
-    private File file;
+    private final String filename;
+    private final File file;
 
     /** Constructor of IOController.
      * @param filename the name of the file which needs to be I/O.
@@ -68,41 +68,5 @@ public class IOController {
             e.printStackTrace();
         }
         return ret;
-    }
-
-
-    /**
-     * get the file name.
-     * @return the filename
-     */
-    public String getFilename() {
-        return filename;
-    }
-
-
-    /**
-     * set the file name.
-     * @param filename the filename to set
-     */
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-
-    /**
-     * get the file object.
-     * @return the file
-     */
-    public File getFile() {
-        return file;
-    }
-
-
-    /**
-     * set the file object
-     * @param file the file to set
-     */
-    public void setFile(File file) {
-        this.file = file;
     }
 }

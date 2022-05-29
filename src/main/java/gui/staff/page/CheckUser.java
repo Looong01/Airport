@@ -16,26 +16,27 @@ import java.util.Objects;
 /**
  * Check user page
  *
- * @author Zelong Li & Shuzhou Zhao
+ * @author Zelong Li
+ * @author Shuzhou Zhao
  * @version 1.5
  */
 public class CheckUser extends JPanel implements Page {
-
-    public JTextField textField1 = new JTextField();
-    public JTextField textField2 = new JTextField();
     JPanel panel1 = new JPanel();
-    table2 panel2 = new table2();
-    table3 panel3 = new table3();
+    Table1 panel2 = new Table1();
+    Table2 panel3 = new Table2();
     JLabel label1 = new JLabel("Information", JLabel.CENTER);
     JLabel label2 = new JLabel("All passengers", JLabel.CENTER);
     JLabel label3 = new JLabel("Choose one flight:    ");
 
+    /**
+     * constructor for check user
+     */
     public CheckUser() {
         this.setLayout(null);
-        Border blackline = BorderFactory.createLineBorder(Color.black); 
-        label1.setBorder(blackline);
-        label2.setBorder(blackline);
-        panel1.setBorder(blackline);
+        Border blackBorder = BorderFactory.createLineBorder(Color.black);
+        label1.setBorder(blackBorder);
+        label2.setBorder(blackBorder);
+        panel1.setBorder(blackBorder);
         label3.setBounds(0, 0, 800, 30);
         panel1.setBounds(0, 0, (int) (900 * Template.getP()), (int) (50 * Template.getP()));
         panel2.setBounds(0, (int) (101 * Template.getP()), (int) (300 * Template.getP()), (int) (500 * Template.getP()));
@@ -58,8 +59,8 @@ public class CheckUser extends JPanel implements Page {
         Display.setPanelFont(this);
         comboBox.addItemListener(e -> {
             String id = (String) Objects.requireNonNull(comboBox.getSelectedItem());
-            panel2.setdata(id);
-            panel3.setdata(id);
+            panel2.setData(id);
+            panel3.setData(id);
         });
     }
 
@@ -87,19 +88,26 @@ public class CheckUser extends JPanel implements Page {
     public void syncPage() {
 
     }
-    private static class table2 extends JPanel implements Page {
-        String[] idInt = SERVICE.getFlightIds();
-        int[] statusInt = SERVICE.checkFlight(idInt[0]);
-        String s1 = Integer.toString(statusInt[0]);
-        String s2 = Integer.toString(statusInt[1]);
-        String s3 = Integer.toString(statusInt[2]);
-        String s4 = Integer.toString(statusInt[3]);
-        Object[][] obj = { { "Not check-in", s1 }, { "Not boarded", s2 }, { "Finished boarding", s3 },
-                { "Total", s4 } };
-        TableModel model = new DefaultTableModel(obj, new String[] { "", "" });
-        JTable table = new JTable(model);
-        table2() {
+
+    /**
+     * Table1
+     */
+    private static class Table1 extends JPanel implements Page {
+        /**
+         * constructor for Table1
+         */
+        Table1() {
             this.setLayout(new GridLayout(1, 1));
+            String[] idInt = SERVICE.getFlightIds();
+            int[] statusInt = SERVICE.checkFlight(idInt[0]);
+            String s4 = Integer.toString(statusInt[3]);
+            String s3 = Integer.toString(statusInt[2]);
+            String s2 = Integer.toString(statusInt[1]);
+            String s1 = Integer.toString(statusInt[0]);
+            Object[][] obj = {{"Not check-in", s1}, {"Not boarded", s2}, {"Finished boarding", s3},
+                    {"Total", s4}};
+            TableModel model = new DefaultTableModel(obj, new String[]{"", ""});
+            JTable table = new JTable(model);
             table.setEnabled(false);
             table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -114,7 +122,11 @@ public class CheckUser extends JPanel implements Page {
             this.add(scrollPane);
         }
 
-        public void setdata(String id) {
+        /**
+         * set data
+         * @param id ID
+         */
+        private void setData(String id) {
             int[] statusInt = SERVICE.checkFlight(id);
             String s1 = Integer.toString(statusInt[0]);
             String s2 = Integer.toString(statusInt[1]);
@@ -166,14 +178,19 @@ public class CheckUser extends JPanel implements Page {
         }
     }
 
-    private static class table3 extends JPanel implements Page {
-        String[] idInt = SERVICE.getFlightIds();
-        int[] userId = SERVICE.getUserIds(idInt[0]);
-        Object[][] obj2 = new Object[userId.length][3];
-        JTable table = new JTable(obj2, new String[] { "Name", "CardID", "Status" });
+    /**
+     * Table2
+     */
+    private static class Table2 extends JPanel implements Page {
+        private final String[] idInt = SERVICE.getFlightIds();
+        private int[] userId = SERVICE.getUserIds(idInt[0]);
+        private Object[][] obj2 = new Object[userId.length][3];
+        private JTable table = new JTable(obj2, new String[] { "Name", "CardID", "Status" });
 
-        table3() {
-
+        /**
+         * constructor for Table2
+         */
+        Table2() {
             this.setLayout(new GridLayout(1, 1));
             String[] orderids = new String[userId.length];
             for (int m = 0; m < userId.length; m++) {
@@ -221,7 +238,11 @@ public class CheckUser extends JPanel implements Page {
             this.add(scrollPane);
         }
 
-        public void setdata(String id) {
+        /**
+         * set data
+         * @param id ID
+         */
+        private void setData(String id) {
             userId = SERVICE.getUserIds(id);
             obj2 = new Object[userId.length][3];
             String[] orderids = new String[userId.length];

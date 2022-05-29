@@ -10,7 +10,8 @@ import java.util.ArrayList;
  * <p> This class provides the entity about customers' basic information.
  * Class {@code User} is the parent of this class.
  *
- * @author Loong Lee & Shuzhou Zhao
+ * @author Loong Lee
+ * @author Shuzhou Zhao
  * @version 1.1
  *
  */
@@ -117,7 +118,11 @@ public class Customer extends User {
     public void setOrders(ArrayList<String> orders) {
         this.orders = orders;
     }
-    // get userId
+
+    /**
+     * get user ID
+     * @return int
+     */
     public int getUserId() {
         return userId;
     }

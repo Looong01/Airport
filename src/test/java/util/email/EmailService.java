@@ -17,7 +17,7 @@ public class EmailService {
             EmailHelper emailHelper = new EmailHelper(host, username, password, from);
             emailHelper.setTo(toEmail);
             emailHelper.setSubject("Get your boarding pass");
-            emailHelper.setHtmlContent("<h1>Welcome to the airport self-service check-in</h1><br/><h2>You can use your wechat scanning QR code to get your boarding pass</h2><br>");
+            emailHelper.setHtmlContent("<h1>Welcome to the airport self-service check-in</h1><br/><h2>You can scan the QR code to check in</h2><br>");
             emailHelper.setImagePath("src/main/resources/jpg/" + userId + ".jpg");
             emailHelper.sendWithImage();
 

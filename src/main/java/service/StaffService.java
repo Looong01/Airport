@@ -6,7 +6,8 @@ package service;
  * <p> This class provides an interface for methods required for staff side actions.
  * The function of these methods is described in detail in this interface's implement, class StaffServiceImpl
  *
- * @author Zelong Le & Shuzhou Zhao
+ * @author Zelong Le
+ * @author Shuzhou Zhao
  * @version 1.2
  *
  */
@@ -80,7 +81,7 @@ public interface StaffService {
     /**
     *This method helps to find the orderId
     *
-    * @param the user Id.
+    * @param userid the user Id.
     * @return The orderId of current user.    
      */
     String[] getOrderId(int userid);
@@ -88,7 +89,7 @@ public interface StaffService {
  /**
     *This method helps to find the status
     *
-    * @param the orderId.
+    * @param orderId the orderId.
     * @return The status of current flight.
      */
     String getStatus(String orderId);
@@ -96,7 +97,7 @@ public interface StaffService {
     /**
     *This method helps to find the flightId
     *
-    * @param the flightId.
+    * @param flightId the flightId.
     * @return The all userIds of this flight.
      */
     int[] getUserIds(String flightId);
@@ -104,7 +105,7 @@ public interface StaffService {
     /**
     *This method helps to find the cardId
     *
-    * @param the userId.
+    * @param userId the userId.
     * @return The cardId of this user.
      */
     String getCardId(int userId);
@@ -112,7 +113,7 @@ public interface StaffService {
     /**
     *This method helps to find the user's name
     *
-    * @param the userId.
+    * @param userId the userId.
     * @return The name of this user.
      */
     String getName(int userId);
@@ -120,7 +121,7 @@ public interface StaffService {
     /**
     *This method helps to find flightId from the orderId
     *
-    * @param the orderId.
+    * @param orderId the orderId.
     * @return The flightId of this order.
      */
     String getFlightId(String orderId);
@@ -133,35 +134,30 @@ public interface StaffService {
     String[] getFlightId();
 
     /**
-        * This method is to find all the orderIds
-        *
-        * @return orderIds
+    * This method is to find all the orderIds
+    *
+    * @return orderIds
      */
     String[] getOrderId();
 
     /**
-        * This method is to find all the seats
-        *
-        * @return seats
+    * This method is to find all the seats
+    *
+    * @return seats
      */
     String[] getSeat();
 
     /**
-        * This method is to find all the food
-        *
-        * @return food
+    * This method is to find all the food
+    *
+    * @return food
      */
     String[] getFood();
 
     /**
-        * This method is to find the total num of orders
-        *
-        * @return orderNum
+    * This method is to find the total num of orders
+    *
+    * @return orderNum
      */
     int getOrderNum();
-
-    /**
-     * This method is to log out and close the system.
-     */
-    void logout();
 }

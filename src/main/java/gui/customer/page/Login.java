@@ -17,6 +17,9 @@ public class Login extends JPanel implements Page {
     private final JComboBox<String> comboBox = new JComboBox<>(new String[]{"Card ID", "Order ID"});
     private final JTextField textField = new JTextField();
 
+    /**
+     * constructor for login
+     */
     public Login() {
         this.setLayout(new GridLayout(2,1));
         JPanel panel = new JPanel(new BorderLayout());

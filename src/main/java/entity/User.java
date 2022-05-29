@@ -10,11 +10,12 @@ import java.io.Serializable;
  * User is the parent class of these two classes
  * Customer's type is 1, and Staff's type is 2
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @version 1.0
  *
  */
-public class User implements Serializable {
+public abstract class User implements Serializable {
     protected int userId;
     protected String name;
     protected int type;
@@ -83,10 +84,18 @@ public class User implements Serializable {
         System.out.println("Invalid type of user.");
     }
 
+    /**
+     * get email
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * set email
+     * @param email String
+     */
     public void setEmail(String email) {
         this.email = email;
     }

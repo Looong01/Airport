@@ -13,12 +13,13 @@ import java.util.List;
  *
  * <p> This class will simulate the bank's actions
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @version 1.4
  *
  */
 public class BankServiceImpl implements BankService {
-    private final JSONController json = new JSONController("src/main/resources/json/Bank.json");
+    private final JSONController bankController = new JSONController("src/main/resources/json/Bank.json");
 
     /**
      * This method helps to check the bank account.
@@ -28,7 +29,7 @@ public class BankServiceImpl implements BankService {
      */
     @Override
     public boolean checkBankCard(int cardId) {
-        List<BankAccount> bankAccounts= json.readArray(BankAccount.class);
+        List<BankAccount> bankAccounts= bankController.readArray(BankAccount.class);
         for(BankAccount b : bankAccounts) {
             if(b.getAccNo()==cardId)
                 return true;
@@ -49,11 +50,11 @@ public class BankServiceImpl implements BankService {
             System.out.println("The account does not exist.");
             return false;
         }
-        List<BankAccount> bankAccounts= json.readArray(BankAccount.class);
+        List<BankAccount> bankAccounts= bankController.readArray(BankAccount.class);
         for(BankAccount b:bankAccounts){
             if(b.getAccNo()==cardId){
                 if(b.withdraw(balance)){
-                    json.writeArray(bankAccounts);
+                    bankController.writeArray(bankAccounts);
                     return true;
                 }
             }

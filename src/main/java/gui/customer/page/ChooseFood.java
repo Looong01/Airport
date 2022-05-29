@@ -22,6 +22,9 @@ public class ChooseFood extends JPanel implements Page {
 	private final BufferedImageTranscoder sFoodTranscoder = new BufferedImageTranscoder(foodSVG + "-solid.svg",60 * Template.getP(),60 * Template.getP());
 	private final BufferedImageTranscoder fFoodTranscoder = new BufferedImageTranscoder(foodSVG + "-fried.svg",60 * Template.getP(),60 * Template.getP());
 
+	/**
+	 * constructor for choose food
+	 */
 	public ChooseFood() {
 		this.setLayout(new GridLayout(3, 2));
 
@@ -50,7 +53,14 @@ public class ChooseFood extends JPanel implements Page {
 		Display.setPanelFont(this);
 	}
 
+	/**
+	 * JFood extends JRadioButton
+	 */
 	private class JFood extends JRadioButton {
+		/**
+		 * constructor for JFood
+		 * @param food name of food
+		 */
 		public JFood(String food) {
 			super();
 			this.setText(food);

@@ -10,6 +10,9 @@ import java.awt.*;
  * @version 1.6
  */
 public class Main extends JFrame {
+	/**
+	 * constructor for main method
+	 */
 	public Main() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -41,6 +44,10 @@ public class Main extends JFrame {
 		this.setLocationRelativeTo(null);
 	}
 
+	/**
+	 * main method
+	 * @param args input arguments
+	 */
 	public static void main(String[] args) {
 		Main gui = new Main();
 		gui.setVisible(true);

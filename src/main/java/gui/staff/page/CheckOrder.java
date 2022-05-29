@@ -9,10 +9,14 @@ import java.awt.*;
 /**
  * Check order page
  *
- * @author Zelong Li & Shuzhou Zhao
+ * @author Zelong Li
+ * @author Shuzhou Zhao
  * @version 1.5
  */
 public class CheckOrder extends JPanel implements Page {
+	/**
+	 * constructor for check order
+	 */
 	public CheckOrder() {
 
 		this.setLayout(new GridLayout(1, 1));

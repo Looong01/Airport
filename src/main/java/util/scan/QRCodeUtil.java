@@ -11,10 +11,22 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
 
+/**
+ * Util class for QR code encoding and decoding
+ *
+ * @author Chenyang He
+ * @version 1.4
+ */
 public class QRCodeUtil {
     private static final String CHARSET = "utf-8";
     private static final String FORMAT_NAME = "jpg";
 
+    /**
+     * constructor
+     * @param content String
+     * @param size int
+     * @return BufferedImage
+     */
     public static BufferedImage createImage(String content, int size) {
         Hashtable hints = new Hashtable();
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
@@ -38,6 +50,11 @@ public class QRCodeUtil {
         return image;
     }
 
+    /**
+     * encode QR code
+     * @param content String
+     * @param destPath String
+     */
     public static void encode(String content, String destPath) {
         BufferedImage image;
         try {
@@ -49,12 +66,21 @@ public class QRCodeUtil {
         }
     }
 
+    /**
+     * bash command mkdir
+     * @param destPath String
+     */
     public static void mkdirs(String destPath) {
         File file = new File(destPath);
         if (!file.exists() && !file.isDirectory())
             file.mkdirs();
     }
 
+    /**
+     * decode QR code
+     * @param image BufferedImage
+     * @return String
+     */
     public static String decode(BufferedImage image) {
         BufferedImageLuminanceSource source = new BufferedImageLuminanceSource(image);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));

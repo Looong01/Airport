@@ -9,10 +9,14 @@ import java.awt.*;
 /**
  * Check flight page
  *
- * @author Zelong Li & Shuzhou Zhao
+ * @author Zelong Li
+ * @author Shuzhou Zhao
  * @version 1.5
  */
 public class CheckFlight extends JPanel implements Page {
+	/**
+	 * constructor for check flight
+	 */
 	public CheckFlight() {
 		this.setLayout(new GridLayout(1, 1));
 

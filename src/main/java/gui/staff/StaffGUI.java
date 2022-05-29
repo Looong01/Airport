@@ -39,22 +39,40 @@ public class StaffGUI {
 		WINDOW.setLocationRelativeTo(null);
 	}
 
+	/**
+	 * get page number
+	 * @return int page number
+	 */
 	public static int getPageNum() {
 		return pageNum;
 	}
 
+	/**
+	 * set page number
+	 * @param pageNum int
+	 */
 	public static void setPageNum(int pageNum) {
 		StaffGUI.pageNum = pageNum;
 	}
 
+	/**
+	 * pageNum++
+	 */
 	public static void increasePageNum() {
 		++pageNum;
 	}
 
+	/**
+	 * pageNum--
+	 */
 	public static void decreasePageNum() {
 		--pageNum;
 	}
 
+	/**
+	 * get window
+	 * @return Template window
+	 */
 	public static Template getWindow() {
 		return WINDOW;
 	}

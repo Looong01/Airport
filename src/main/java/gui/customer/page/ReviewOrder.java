@@ -22,6 +22,9 @@ public class ReviewOrder extends JPanel implements Page {
 	private final JScrollPane scrollPane;
 	private final JComboBox<String> comboBox;
 
+	/**
+	 * constructor for review order
+	 */
 	public ReviewOrder() {
 		this.setLayout(null);
 		textArea = new JTextArea();
@@ -83,6 +86,7 @@ public class ReviewOrder extends JPanel implements Page {
 			}
 			comboBox.setVisible(true);
 		}
+		this.revalidate();
 		this.repaint();
 	}
 

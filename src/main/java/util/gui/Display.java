@@ -7,8 +7,9 @@ import java.awt.*;
 
 /**
  * The class achieves proper display of customer GUI
- * @author wzy
- * @version 2.0
+ *
+ * @author Ziyao Wang
+ * @version 1.5
  */
 public class Display {
 	/**
@@ -16,15 +17,8 @@ public class Display {
 	 * @return Proportion for scaling GUI
 	 */
 	public static float getProp() {
-
-
 		Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets((new JFrame()).getGraphicsConfiguration()); // screen border information
 		int screenHeight = (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() - screenInsets.top - screenInsets.bottom); // available screen height without borders
-
-		/*System.out.println("OS: " + System.getProperty("os.name"));
-		System.out.println("LogicalScreenSize (Toolkit) = " + (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() + " * " + (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight());
-		System.out.println("availableHeight = " + screenHeight);*/
-
 		return (float) (Math.floor(screenHeight / 800. * 2) / 2.);
 	}
 
@@ -53,6 +47,11 @@ public class Display {
 		setFont(page.getContentPane().getComponents(), 30);
 	}
 
+	/**
+	 * basic set font method called by other methods
+	 * @param components Component[]
+	 * @param size int
+	 */
 	private static void setFont(Component[] components, int size) {
 		for (Component component : components) {
 			if (component instanceof JPanel) {

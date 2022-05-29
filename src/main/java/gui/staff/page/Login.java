@@ -9,15 +9,17 @@ import java.awt.*;
 /**
  * Login page
  *
- * @author Zelong Li & Shuzhou Zhao
+ * @author Zelong Li
+ * @author Shuzhou Zhao
  * @version 1.5
  */
 public class Login extends JPanel implements Page {
-    
-    public JTextField textField = new JTextField("140109200010204817");
+    private final JTextField textField = new JTextField("140109200010204817");
+    private final JPasswordField passwordField = new JPasswordField("123456");
 
-    public JPasswordField passwordField = new JPasswordField("123456");
-
+    /**
+     * constructor for login
+     */
     public Login() {
         
         this.setLayout(new GridBagLayout());

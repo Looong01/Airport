@@ -126,34 +126,66 @@ public class Template extends JFrame {
 		this.setResizable(false);
 	}
 
+	/**
+	 * get prop
+	 * @return float
+	 */
 	public static float getP() {
 		return P;
 	}
 
+	/**
+	 * get page
+	 * @return JPanel
+	 */
 	public static JPanel getPage() {
 		return page;
 	}
 
+	/**
+	 * set page
+	 * @param page JPanel
+	 */
 	public static void setPage(JPanel page) {
 		Template.page = page;
 	}
 
+	/**
+	 * get information label
+	 * @return JLabel
+	 */
 	public static JLabel getInfoLabel() {
 		return infoLabel;
 	}
 
+	/**
+	 * get logout button
+	 * @return JButton
+	 */
 	public static JButton getLogout() {
 		return logout;
 	}
 
+	/**
+	 * get back button
+	 * @return JButton
+	 */
 	public static JButton getBack() {
 		return back;
 	}
 
+	/**
+	 * get continue button
+	 * @return JButton
+	 */
 	public static JButton getCont() {
 		return cont;
 	}
 
+	/**
+	 * get navigation
+	 * @return JList
+	 */
 	public static JList<String> getNav() {
 		return nav;
 	}

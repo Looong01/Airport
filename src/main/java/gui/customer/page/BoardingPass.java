@@ -34,6 +34,9 @@ public class BoardingPass extends JPanel implements Page {
 	private JFrame tagFrame;
 	private JFrame ticketFrame;
 
+	/**
+	 * constructor for boarding pass
+	 */
 	public BoardingPass() {
 		GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
 		GridBagLayout layout = new GridBagLayout();
@@ -135,10 +138,6 @@ public class BoardingPass extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		/*DAO.setCustomer(SERVICE.loginByCardId("140109200010204817"));
-		DAO.setOrder(SERVICE.getOrder("gCBlsM+AYu"));
-		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));*/
-
 		String[] dates = DAO.getFlight().getTime().split(" ");
 		String[] times = dates[3].split(":");
 		String[] names = DAO.getCustomer().getName().split(" ");
@@ -211,6 +210,11 @@ public class BoardingPass extends JPanel implements Page {
 		return false;
 	}
 
+	/**
+	 * generate a baggage tag / ticket
+	 * @param title title
+	 * @return JFrame
+	 */
 	private JFrame generateFrame(String title) {
 		JFrame frame = new JFrame(title);
 		JPanel south = new JPanel(new BorderLayout());
