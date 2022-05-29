@@ -41,6 +41,7 @@ public class Order implements Serializable {
      * The seatId will be set -1 which mean not chosen
      * The food will be set "Not Chosen"
      * @param orderId The ID of the order
+     * @param userId ID of customer as user
      * @param flightId The ID of the flight in this order
      * @param packageGate The gate ID of the package
      * @param carryOn The number of the carry on package

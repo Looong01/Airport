@@ -35,6 +35,7 @@ public class Customer extends User {
      * @param cardId The card ID of the customer
      * @param sex The sex of the customer
      * @param tel The telephone number of the customer
+     * @param email email of customer
      */
     public Customer(int userId,String name,String cardId,String sex,String tel,String email) {
         this.userId=userId;
