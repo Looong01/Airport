@@ -97,6 +97,7 @@ public class QRCodeUtil {
     /**
      * The Image decoder
      * @param file file
+     * @return String
      */
     public static String decode(File file) {
         BufferedImage image = null;
@@ -124,6 +125,7 @@ public class QRCodeUtil {
     /**
      * The Image decoder
      * @param path path
+     * @return String
      */
     public static String decode(String path) {
         return QRCodeUtil.decode(new File(path));

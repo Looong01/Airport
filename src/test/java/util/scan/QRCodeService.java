@@ -19,6 +19,7 @@ public class QRCodeService {
      * Generate the Code
      *
      * @param userId the ID of the user
+     * @return boolean
      */
     public boolean generateCode(int userId) {
         CustomerService service=new CustomerServiceImpl();
