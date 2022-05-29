@@ -8,6 +8,9 @@ import java.awt.GridBagConstraints;
  * @version 1.2
  */
 public class GridBagLayoutConstraints extends GridBagConstraints {
+	/**
+	 * constructor for GridBagLayoutConstraints
+	 */
 	public GridBagLayoutConstraints () {
 		this.fill = GridBagConstraints.BOTH; // if gridbag is larger than the component in it, enlarge component
 	}

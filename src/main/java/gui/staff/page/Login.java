@@ -17,6 +17,9 @@ public class Login extends JPanel implements Page {
     private final JTextField textField = new JTextField("140109200010204817");
     private final JPasswordField passwordField = new JPasswordField("123456");
 
+    /**
+     * constructor for login
+     */
     public Login() {
         
         this.setLayout(new GridBagLayout());

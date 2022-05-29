@@ -36,10 +36,18 @@ public class BankAccount implements Serializable {
         this.balance=balance;
     }
 
+    /**
+     * get user ID
+     * @return int
+     */
     public int getUserId() {
         return userId;
     }
 
+    /**
+     * set user ID
+     * @param userId int
+     */
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -53,6 +61,10 @@ public class BankAccount implements Serializable {
         return accNo;
     }
 
+    /**
+     * set account Number
+     * @param accNo int
+     */
     public void setAccNo(int accNo) {
         this.accNo = accNo;
     }
@@ -66,6 +78,10 @@ public class BankAccount implements Serializable {
         return accName;
     }
 
+    /**
+     * set account name
+     * @param accName String
+     */
     public void setAccName(String accName) {
         this.accName = accName;
     }
@@ -88,14 +104,26 @@ public class BankAccount implements Serializable {
         this.balance = balance;
     }
 
+    /**
+     * is flag
+     * @return boolean
+     */
     public boolean isFlagOverdraft() {
         return flagOverdraft;
     }
 
+    /**
+     * set flag
+     * @param flagOverdraft boolean
+     */
     public void setFlagOverdraft(boolean flagOverdraft) {
         this.flagOverdraft = flagOverdraft;
     }
 
+    /**
+     * get overdraft
+     * @return double
+     */
     public double getOverdraft() {
         return overdraft;
     }

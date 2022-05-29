@@ -28,6 +28,9 @@ public class CheckUser extends JPanel implements Page {
     JLabel label2 = new JLabel("All passengers", JLabel.CENTER);
     JLabel label3 = new JLabel("Choose one flight:    ");
 
+    /**
+     * constructor for check user
+     */
     public CheckUser() {
         this.setLayout(null);
         Border blackBorder = BorderFactory.createLineBorder(Color.black);
@@ -85,7 +88,14 @@ public class CheckUser extends JPanel implements Page {
     public void syncPage() {
 
     }
+
+    /**
+     * Table1
+     */
     private static class Table1 extends JPanel implements Page {
+        /**
+         * constructor for Table1
+         */
         Table1() {
             this.setLayout(new GridLayout(1, 1));
             String[] idInt = SERVICE.getFlightIds();
@@ -112,6 +122,10 @@ public class CheckUser extends JPanel implements Page {
             this.add(scrollPane);
         }
 
+        /**
+         * set data
+         * @param id ID
+         */
         private void setData(String id) {
             int[] statusInt = SERVICE.checkFlight(id);
             String s1 = Integer.toString(statusInt[0]);
@@ -164,12 +178,18 @@ public class CheckUser extends JPanel implements Page {
         }
     }
 
+    /**
+     * Table2
+     */
     private static class Table2 extends JPanel implements Page {
         private final String[] idInt = SERVICE.getFlightIds();
         private int[] userId = SERVICE.getUserIds(idInt[0]);
         private Object[][] obj2 = new Object[userId.length][3];
         private JTable table = new JTable(obj2, new String[] { "Name", "CardID", "Status" });
 
+        /**
+         * constructor for Table2
+         */
         Table2() {
             this.setLayout(new GridLayout(1, 1));
             String[] orderids = new String[userId.length];
@@ -218,6 +238,10 @@ public class CheckUser extends JPanel implements Page {
             this.add(scrollPane);
         }
 
+        /**
+         * set data
+         * @param id ID
+         */
         private void setData(String id) {
             userId = SERVICE.getUserIds(id);
             obj2 = new Object[userId.length][3];

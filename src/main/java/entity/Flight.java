@@ -178,10 +178,18 @@ public class Flight extends Plane {
         this.foods = foods;
     }
 
+    /**
+     * get occupied seats
+     * @return ArrayList
+     */
     public ArrayList<Integer> getOccupiedSeats() {
         return occupiedSeats;
     }
 
+    /**
+     * set occupied seats
+     * @param occupiedSeats ArrayList
+     */
     public void setOccupiedSeats(ArrayList<Integer> occupiedSeats) {
         this.occupiedSeats = occupiedSeats;
     }

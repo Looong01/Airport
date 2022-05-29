@@ -6,16 +6,33 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
+/**
+ * util class for QR code generation
+ *
+ * @author Chenyang He
+ * @version 1.4
+ */
 public class BufferedImageLuminanceSource extends LuminanceSource {
-
     private final BufferedImage image;
     private final int left;
     private final int top;
 
+    /**
+     * constructor
+     * @param image BufferedImage
+     */
     public BufferedImageLuminanceSource(BufferedImage image) {
         this(image, 0, 0, image.getWidth(), image.getHeight());
     }
 
+    /**
+     * constructor
+     * @param image BufferedImage
+     * @param left int
+     * @param top int
+     * @param width int
+     * @param height int
+     */
     public BufferedImageLuminanceSource(BufferedImage image, int left, int top, int width, int height) {
         super(width, height);
 
@@ -39,6 +56,12 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
         this.top = top;
     }
 
+    /**
+     * get raw bytes
+     * @param y int
+     * @param row byte[]
+     * @return byte[]
+     */
     public byte[] getRow(int y, byte[] row) {
         if (y < 0 || y >= getHeight()) {
             throw new IllegalArgumentException("Requested row is outside the image: " + y);
@@ -51,6 +74,10 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
         return row;
     }
 
+    /**
+     * get matrix
+     * @return byte[]
+     */
     public byte[] getMatrix() {
         int width = getWidth();
         int height = getHeight();
@@ -60,18 +87,38 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
         return matrix;
     }
 
+    /**
+     * crop supported
+     * @return true
+     */
     public boolean isCropSupported() {
         return true;
     }
 
+    /**
+     * crop method
+     * @param left int
+     * @param top int
+     * @param width int
+     * @param height int
+     * @return LuminanceSource
+     */
     public LuminanceSource crop(int left, int top, int width, int height) {
         return new BufferedImageLuminanceSource(image, this.left + left, this.top + top, width, height);
     }
 
+    /**
+     * rotate supported
+     * @return true
+     */
     public boolean isRotateSupported() {
         return true;
     }
 
+    /**
+     * rotate method
+     * @return LuminanceSource
+     */
     public LuminanceSource rotateCounterClockwise() {
         int sourceWidth = image.getWidth();
         int sourceHeight = image.getHeight();

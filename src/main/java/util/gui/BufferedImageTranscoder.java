@@ -17,6 +17,12 @@ import java.awt.image.BufferedImage;
 public class BufferedImageTranscoder extends ImageTranscoder {
 	private BufferedImage image;
 
+	/**
+	 * constructor for BufferedImageTranscoder
+	 * @param uri String
+	 * @param width float
+	 * @param height float
+	 */
 	public BufferedImageTranscoder(String uri, float width, float height) {
 		addTranscodingHint(PNGTranscoder.KEY_WIDTH, width);
 		addTranscodingHint(PNGTranscoder.KEY_HEIGHT, height);
@@ -29,15 +35,30 @@ public class BufferedImageTranscoder extends ImageTranscoder {
 		}
 	}
 
+	/**
+	 * get BufferedImage
+	 * @return BufferedImage
+	 */
 	public BufferedImage getImage() {
 		return image;
 	}
 
+	/**
+	 * create image
+	 * @param w int width
+	 * @param h int height
+	 * @return BufferedImage
+	 */
 	@Override
 	public BufferedImage createImage(int w, int h) {
 		return new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 	}
 
+	/**
+	 * write image
+	 * @param bi BufferedImage
+	 * @param output TranscoderOutput
+	 */
 	@Override
 	public void writeImage(BufferedImage bi, TranscoderOutput output) {
 		this.image = bi;

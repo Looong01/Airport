@@ -18,6 +18,9 @@ public class Payment extends JPanel implements Page {
 	private final JTextField textField2 = new JTextField();
 	private final JTextField textField3 = new JTextField();
 
+	/**
+	 * constructor for payment
+	 */
 	public Payment() {
 		this.setLayout(new GridLayout(3, 2));
 		// cardId, name, tel

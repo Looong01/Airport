@@ -118,7 +118,11 @@ public class Customer extends User {
     public void setOrders(ArrayList<String> orders) {
         this.orders = orders;
     }
-    // get userId
+
+    /**
+     * get user ID
+     * @return int
+     */
     public int getUserId() {
         return userId;
     }

@@ -174,26 +174,50 @@ public class Order implements Serializable {
         this.food = food;
     }
 
+    /**
+     * get package gate
+     * @return int
+     */
     public int getPackageGate() {
         return packageGate;
     }
 
+    /**
+     * set package gate
+     * @param packageGate int
+     */
     public void setPackageGate(int packageGate) {
         this.packageGate = packageGate;
     }
 
+    /**
+     * get carry on number
+     * @return int
+     */
     public int getCarryOn() {
         return carryOn;
     }
 
+    /**
+     * set carry on number
+     * @param carryOn int
+     */
     public void setCarryOn(int carryOn) {
         this.carryOn = carryOn;
     }
 
+    /**
+     * get check-in number
+     * @return int
+     */
     public int getCheckIn() {
         return checkIn;
     }
 
+    /**
+     * set check-in number
+     * @param checkIn int
+     */
     public void setCheckIn(int checkIn) {
         this.checkIn = checkIn;
     }

@@ -14,6 +14,9 @@ import java.awt.*;
  * @version 1.5
  */
 public class CheckOrder extends JPanel implements Page {
+	/**
+	 * constructor for check order
+	 */
 	public CheckOrder() {
 
 		this.setLayout(new GridLayout(1, 1));

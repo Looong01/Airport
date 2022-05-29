@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
  * @version 1.5
  */
 public class PageController implements ActionListener {
-	
+	/**
+	 * Constructor for PageController listening to logout, back, and continue buttons
+	 */
 	public PageController() {
 		Template.getLogout().addActionListener(this);
 		Template.getBack().addActionListener(this);
@@ -50,6 +52,9 @@ public class PageController implements ActionListener {
 			System.err.println("Unhandled action performed");
 	}
 
+	/**
+	 * repaintPage
+	 */
 	void repaintPage() {
 		Template.getNav().setSelectedIndex(StaffGUI.getPageNum() - 1); 
 		StaffGUI.WINDOW.remove(Template.getPage());

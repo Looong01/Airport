@@ -14,6 +14,9 @@ import java.awt.*;
  * @version 1.5
  */
 public class CheckFlight extends JPanel implements Page {
+	/**
+	 * constructor for check flight
+	 */
 	public CheckFlight() {
 		this.setLayout(new GridLayout(1, 1));
 

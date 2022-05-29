@@ -47,6 +47,11 @@ public class Display {
 		setFont(page.getContentPane().getComponents(), 30);
 	}
 
+	/**
+	 * basic set font method called by other methods
+	 * @param components Component[]
+	 * @param size int
+	 */
 	private static void setFont(Component[] components, int size) {
 		for (Component component : components) {
 			if (component instanceof JPanel) {

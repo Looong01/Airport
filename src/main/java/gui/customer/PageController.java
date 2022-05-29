@@ -52,6 +52,9 @@ public class PageController implements ActionListener {
 			System.err.println("Unhandled action performed");
 	}
 
+	/**
+	 * repaintPage
+	 */
 	void repaintPage() {
 		Template.getNav().setSelectedIndex(CustomerGUI.getPageNum() - 1); // set navigation
 		CustomerGUI.WINDOW.remove(Template.getPage());

@@ -24,6 +24,9 @@ public class ChooseSeat extends JPanel implements Page {
 	private final BufferedImageTranscoder cSeatTranscoder = new BufferedImageTranscoder(seatSVG + "-chosen.svg",60 * Template.getP(),60 * Template.getP());
 	private final ButtonGroup group = new ButtonGroup();
 
+	/**
+	 * constructor for choose seat
+	 */
 	public ChooseSeat() {
 		GridBagLayout layout = new GridBagLayout();
 		this.setLayout(layout);
@@ -242,9 +245,16 @@ public class ChooseSeat extends JPanel implements Page {
 		seatClass.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (30 * Template.getP())));
 	}
 
+	/**
+	 * JSeat extends JRadioButton
+	 */
 	private class JSeat extends JRadioButton {
 		private final int seatId;
 
+		/**
+		 * constructor for JSeat
+		 * @param seatId seat ID
+		 */
 		public JSeat(int seatId) {
 			super();
 			this.seatId = seatId;

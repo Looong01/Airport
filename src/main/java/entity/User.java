@@ -84,10 +84,18 @@ public abstract class User implements Serializable {
         System.out.println("Invalid type of user.");
     }
 
+    /**
+     * get email
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * set email
+     * @param email String
+     */
     public void setEmail(String email) {
         this.email = email;
     }
