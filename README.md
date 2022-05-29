@@ -7,11 +7,11 @@
 Windows: PowerShell
 
 ```
-在文件资源管理器中，在`Windows.ps1`文件上右键点击，然后左键点击“使用PowerShell运行”。
+在文件资源管理器中，在`Run.ps1`文件上右键点击，然后左键点击“使用PowerShell运行”。
 ```
 
 Linux: Bash 或 Mac: Terminal
 
 ```
-打开Bash或者Terminal，输入`sh ./Unix.sh`，回车。
+打开Bash或者Terminal，输入`sh ./Run.sh`，回车。
 ```
