@@ -56,12 +56,10 @@
             <artifactId>javacv</artifactId>
             <version>1.5.7</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
-        <!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
-
+<!-- https://mvnrepository.com/artifact/org.bytedeco/opencv-platform -->
+<!-- https://mvnrepository.com/artifact/org.bytedeco/openblas-platform -->
 <!-- For windows-x86_64-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
@@ -72,7 +70,20 @@
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>windows-x86_64</classifier>
-		</dependency>-->
+		</dependency>
+<!-- For windows-x86-->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>windows-x86</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>openblas</artifactId>
+            <version>0.3.19-1.5.7</version>
+            <classifier>windows-x86</classifier>
+        </dependency>
 <!-- For linux-x86_64-->
         <dependency>
             <groupId>org.bytedeco</groupId>
@@ -85,9 +96,22 @@
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
             <classifier>linux-x86_64</classifier>
-		</dependency> -->
+		</dependency>
+<!-- For linux-x86-->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.5.5-1.5.7</version>
+            <classifier>linux-x86</classifier>
+        </dependency>
+        <dependency>
+		    <groupId>org.bytedeco</groupId>
+		    <artifactId>openblas</artifactId>
+		    <version>0.3.19-1.5.7</version>
+            <classifier>linux-x86</classifier>
+		</dependency>
 <!-- For macosx-x86_64-->
-         <!--<dependency>
+         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
@@ -98,14 +122,14 @@
 		    <artifactId>openblas</artifactId>
 		    <version>0.3.19-1.5.7</version>
 		   <classifier>macosx-x86_64</classifier>
-		</dependency>-->
+		</dependency>
 <!-- For macosx-arm64-->
-         <dependency>
+        <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>opencv</artifactId>
             <version>4.5.5-1.5.7</version>
             <classifier>macosx-arm64</classifier>
-        </dependency>
+         </dependency>
          <dependency>
 		    <groupId>org.bytedeco</groupId>
 		    <artifactId>openblas</artifactId>
@@ -114,27 +138,27 @@
 		</dependency>
     </dependencies>
     <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>3.0.0</version>
-          <executions>
-              <execution>
-                  <phase>package</phase>
-                  <goals>
-                      <goal>shade</goal>
-                  </goals>
-                  <configuration>
-                      <transformers>
-                          <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                              <mainClass>Main</mainClass>
-                          </transformer>
-                      </transformers>
-                  </configuration>
-              </execution>
-          </executions>
-      </plugin>
-      </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
