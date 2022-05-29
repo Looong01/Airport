@@ -15,6 +15,7 @@ import java.util.Objects;
  * Review order page
  *
  * @author Ziyao Wang
+ * @author Zelong Li
  * @version 1.5
  */
 public class ReviewOrder extends JPanel implements Page {

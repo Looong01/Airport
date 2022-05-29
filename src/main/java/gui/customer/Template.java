@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
  * Customer page template
  *
  * @author Ziyao Wang
+ * @author Zelong Li
  * @version 1.5
  */
 public class Template extends JFrame {

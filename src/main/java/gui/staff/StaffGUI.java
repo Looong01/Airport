@@ -8,6 +8,7 @@ import java.util.ArrayList;
 /**
  * The class holds staff pages and controller
  *
+ * @author Zelong Li
  * @author Ziyao Wang
  * @version 1.5
  */

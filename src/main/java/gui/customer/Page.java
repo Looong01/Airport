@@ -10,6 +10,7 @@ import service.impl.BankServiceImpl;
  * Interface for six customer pages
  *
  * @author Ziyao Wang
+ * @author Zelong Li
  * @version 1.5
  */
 public interface Page {

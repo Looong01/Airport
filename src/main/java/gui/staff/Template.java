@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
 /**
  * Template for staff pages
  *
+ * @author Zelong Li
  * @author Ziyao Wang
  * @version 1.5
  */

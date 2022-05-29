@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * The class holds customer pages and controller
  *
  * @author Ziyao Wang
+ * @author Zelong Li
  * @version 1.5
  */
 public class CustomerGUI {

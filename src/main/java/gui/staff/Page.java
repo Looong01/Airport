@@ -6,6 +6,7 @@ import service.impl.StaffServiceImpl;
 /**
  * Interface for four staff pages
  *
+ * @author Zelong Li
  * @author Ziyao Wang
  * @version 1.5
  */

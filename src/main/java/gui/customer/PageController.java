@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
  * controller for customer page
  *
  * @author Ziyao Wang
+ * @author Zelong Li
  * @version 1.5
  */
 public class PageController implements ActionListener {
