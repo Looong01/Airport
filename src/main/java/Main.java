@@ -6,8 +6,8 @@ import java.awt.*;
 
 /**
  * Entry point for the whole project, provide options to choose CUSTOMER / STAFF
- * @author wzy
- * @version 1.5
+ * @author wzy & Zelong Li
+ * @version 1.6
  */
 public class Main extends JFrame {
 	public Main() {
