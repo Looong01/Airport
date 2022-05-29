@@ -5,7 +5,7 @@ import java.awt.GridBagConstraints;
 /**
  * The class extends GridBagConstraints to enriches it by adding additional methods
  * @author wzy
- * @version 2.0
+ * @version 1.2
  */
 public class GridBagLayoutConstraints extends GridBagConstraints {
 	public GridBagLayoutConstraints () {

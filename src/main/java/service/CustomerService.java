@@ -10,7 +10,8 @@ import entity.user.Customer;
  * <p> This interface is used to provide the
  * service for customer.
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @author Ziyao Wang
  * @version 1.2
  * @version 1.5
@@ -63,6 +64,7 @@ public interface CustomerService {
      * kind of seat. With this function, the status
      * will be set to the Waiting by default.
      *
+     * @param order Order
      * @return true if success, false if failed
      */
     boolean chooseSeat (Order order);
@@ -71,6 +73,7 @@ public interface CustomerService {
      * The customer chooses the food with his
      * order.
      *
+     * @param order Order
      * @return true if success, false if failed
      */
     boolean chooseFood (Order order);

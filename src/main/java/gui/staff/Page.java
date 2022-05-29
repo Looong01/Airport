@@ -1,5 +1,6 @@
 package gui.staff;
 
+import service.StaffService;
 import service.impl.StaffServiceImpl;
 
 /**
@@ -9,7 +10,7 @@ import service.impl.StaffServiceImpl;
  * @version 1.5
  */
 public interface Page {
-	StaffServiceImpl SERVICE = new StaffServiceImpl();
+	StaffService SERVICE = new StaffServiceImpl();
 	String getTitle();
 	String getLabel();
 	default String getBack() {

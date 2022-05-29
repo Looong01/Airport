@@ -11,7 +11,8 @@ import java.io.Serializable;
  * W: waiting, User have checked in and waited for the flight
  * B: boarding, User have been on the plane
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @version 1.0
  *
  */

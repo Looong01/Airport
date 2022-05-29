@@ -8,12 +8,15 @@ import org.apache.batik.transcoder.image.PNGTranscoder;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * The class encodes svg into BufferedImage
+ *
+ * @author Ziyao Wang
+ * @version 1.1
+ */
 public class BufferedImageTranscoder extends ImageTranscoder {
 	private BufferedImage image;
 
-	public BufferedImageTranscoder() {
-		super();
-	}
 	public BufferedImageTranscoder(String uri, float width, float height) {
 		addTranscodingHint(PNGTranscoder.KEY_WIDTH, width);
 		addTranscodingHint(PNGTranscoder.KEY_HEIGHT, height);

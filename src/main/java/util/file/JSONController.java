@@ -19,7 +19,7 @@ import java.util.List;
  *  @version 1.0
  */
 public class JSONController {
-    final IOController io;
+    private final IOController io;
 
     /** Constructor of CSVController
      * @param filename the name of the CSV file which needs to be I/O.
@@ -55,26 +55,6 @@ public class JSONController {
      */
     public boolean writeArray(List<?> objectList) {
         String temp= JSON.toJSONString(objectList);
-        return io.directWrite(temp);
-    }
-
-    /**
-     * read a single object from the JSON file
-     * @param tClass the class information of the object
-     * @return the object which is read from the file
-     */
-    public Object read(Class<?> tClass) {
-        String json=io.directRead();
-        return JSON.parseObject(json,tClass);
-    }
-
-    /**
-     * write a single object to the JSON file
-     * @param x the object which is need to be written to the file
-     * @return Whether the write operation was successful
-     */
-    public boolean write(Object x) {
-        String temp= JSON.toJSONString(x);
         return io.directWrite(temp);
     }
 }

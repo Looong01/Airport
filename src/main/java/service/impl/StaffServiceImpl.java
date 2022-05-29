@@ -16,7 +16,8 @@ import java.util.Objects;
  * <p>
  * This class provides implements for methods required for staff side actions.
  *
- * @author Zelong Le & Shuzhou Zhao
+ * @author Zelong Le
+ * @author Shuzhou Zhao
  * @version 1.2
  *
  */
@@ -94,6 +95,7 @@ public class StaffServiceImpl implements StaffService {
      *
      * @return All the flight ID in the flight list.
      */
+    @Override
     public String[] getFlightIds() {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         String[] flightIds = new String[flightList.size()];
@@ -109,6 +111,7 @@ public class StaffServiceImpl implements StaffService {
     * @param flightId The ID of current flight.
     * @return The gate ID of current flight.
      */
+    @Override
     public int getGateId(String flightId) {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         for (Flight flight : flightList) {
@@ -125,6 +128,7 @@ public class StaffServiceImpl implements StaffService {
     * @param flightId The ID of current flight.
     * @return The FromCity of current flight.
      */
+    @Override
     public String getFromCity(String flightId) {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         for (Flight flight : flightList) {
@@ -141,6 +145,7 @@ public class StaffServiceImpl implements StaffService {
     * @param flightId The ID of current flight.
     * @return The ToCity of current flight.
      */
+    @Override
     public String getToCity(String flightId) {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         for (Flight flight : flightList) {
@@ -157,6 +162,7 @@ public class StaffServiceImpl implements StaffService {
     * @param flightId The ID of current flight.
     * @return The departure time of current flight.
      */
+    @Override
     public String getTime(String flightId) {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         for (Flight flight : flightList) {
@@ -169,9 +175,10 @@ public class StaffServiceImpl implements StaffService {
     /**
     *This method helps to find the orderId
     *
-    * @param the user Id.
+    * @param userid the user Id.
     * @return The orderId of current flight.    
      */
+    @Override
     public String[] getOrderId(int userid) {
         List<Customer> customerList = jsonC.readArray(Customer.class);
         List<String> orderIdList = new ArrayList<>();
@@ -191,9 +198,10 @@ public class StaffServiceImpl implements StaffService {
     /**
     *This method helps to find the status
     *
-    * @param the orderId.
+    * @param orderId the orderId.
     * @return The status of current flight.
      */
+    @Override
     public String getStatus(String orderId) {
         List<Order> orderList = jsonO.readArray(Order.class);
         for (Order order : orderList) {
@@ -206,10 +214,10 @@ public class StaffServiceImpl implements StaffService {
     /**
     *This method helps to find the flightId
     *
-    * @param the flightId.
+    * @param flightId the flightId.
     * @return The all userIds of this flight.
      */
-
+    @Override
     public int[] getUserIds(String flightId) {
         List<Flight> flightList = jsonF.readArray(Flight.class);
         List<Integer> customerIdList = new ArrayList<>();
@@ -228,9 +236,10 @@ public class StaffServiceImpl implements StaffService {
     /**
     *This method helps to find the cardId
     *
-    * @param the userId.
+    * @param userId the userId.
     * @return The cardId of this user.
      */
+    @Override
     public String getCardId(int userId) {
         List<Customer> customerList = jsonC.readArray(Customer.class);
         for (Customer customer : customerList) {
@@ -244,9 +253,10 @@ public class StaffServiceImpl implements StaffService {
     /**
     *This method helps to find the user's name
     *
-    * @param the userId.
+    * @param userId the userId.
     * @return The name of this user.
      */
+    @Override
     public String getName(int userId) {
         List<Customer> customerList = jsonC.readArray(Customer.class);
         for (Customer customer : customerList) {
@@ -260,9 +270,10 @@ public class StaffServiceImpl implements StaffService {
     /**
     *This method helps to find flightId from the orderId
     *
-    * @param the orderId.
+    * @param orderId the orderId.
     * @return The flightId of this order.
      */
+    @Override
     public String getFlightId(String orderId) {
         List<Order> orderList = jsonO.readArray(Order.class);
         for (Order order : orderList) {
@@ -272,11 +283,13 @@ public class StaffServiceImpl implements StaffService {
         }
         return null;
     }
+
     /**
      * This method is to find all the flightIds
      * 
      * @return flightIds
      */
+    @Override
     public String[] getFlightId() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<String> flightIdList = new ArrayList<>();
@@ -291,10 +304,11 @@ public class StaffServiceImpl implements StaffService {
     }
 
     /**
-        * This method is to find all the orderIds
-        *
-        * @return orderIds
+    * This method is to find all the orderIds
+    *
+    * @return orderIds
      */
+    @Override
     public String[] getOrderId() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<String> orderIdList = new ArrayList<>();
@@ -309,11 +323,11 @@ public class StaffServiceImpl implements StaffService {
     }
 
     /**
-        * This method is to find all the seats
-        *
-        * @return seats
+    * This method is to find all the seats
+    *
+    * @return seats
      */
-
+    @Override
     public String[] getSeat() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<Integer> seatList = new ArrayList<>();
@@ -332,10 +346,11 @@ public class StaffServiceImpl implements StaffService {
     }
 
     /**
-        * This method is to find all the food
-        *
-        * @return food
+    * This method is to find all the food
+    *
+    * @return food
      */
+    @Override
     public String[] getFood() {
         List<Order> orderList = jsonO.readArray(Order.class);
         List<String> foodList = new ArrayList<>();
@@ -350,21 +365,13 @@ public class StaffServiceImpl implements StaffService {
     }
 
     /**
-        * This method is to find the total num of orders
-        *
-        * @return orderNum
+    * This method is to find the total num of orders
+    *
+    * @return orderNum
      */
-    
+    @Override
     public int getOrderNum() {
         List<Order> orderList = jsonO.readArray(Order.class);
         return orderList.size();
-    }
-
-    /**
-     * This method is to log out and close the system.
-     */
-    @Override
-    public void logout() {
-        System.exit(1);
     }
 }

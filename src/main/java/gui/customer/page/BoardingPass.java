@@ -135,10 +135,6 @@ public class BoardingPass extends JPanel implements Page {
 
 	@Override
 	public void syncPage() {
-		/*DAO.setCustomer(SERVICE.loginByCardId("140109200010204817"));
-		DAO.setOrder(SERVICE.getOrder("gCBlsM+AYu"));
-		DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));*/
-
 		String[] dates = DAO.getFlight().getTime().split(" ");
 		String[] times = dates[3].split(":");
 		String[] names = DAO.getCustomer().getName().split(" ");

@@ -10,7 +10,8 @@ import java.util.ArrayList;
  * <p> This class provides the entity about customers' basic information.
  * Class {@code User} is the parent of this class.
  *
- * @author Loong Lee & Shuzhou Zhao
+ * @author Loong Lee
+ * @author Shuzhou Zhao
  * @version 1.1
  *
  */

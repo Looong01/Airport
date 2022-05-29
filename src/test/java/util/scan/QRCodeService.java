@@ -7,7 +7,7 @@ import service.impl.CustomerServiceImpl;
 /**
  * Utility class {@code QRCodeService}
  *
- * <p> This class can make QR Code</>
+ * <p> This class can make QR Code</p>
  *
  * @author Chenyang He
  * @version 2.0
@@ -31,21 +31,5 @@ public class QRCodeService {
             e.printStackTrace();
         }
         return false;
-    }
-
-    /**
-     * Analyse the code
-     *
-     * @param userId the ID of the user
-     */
-    public String analyseCode(int userId) {
-        String str="";
-        String destPath = "src/main/resources/jpg/"+userId+".jpg";
-        try{
-            str = QRCodeUtil.decode(destPath);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return str;
     }
 }

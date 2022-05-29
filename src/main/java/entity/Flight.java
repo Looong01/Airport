@@ -12,7 +12,8 @@ import java.util.Arrays;
  * We will consider of the user's authority, that only the staff can
  * check the customers of the flight.
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @version 1.0
  *
  */
@@ -24,7 +25,7 @@ public class Flight extends Plane {
     private int gateId;
     private String[] foods = {"Standard", "Vegetarian", "Halal", "Light Meal", "Gourmet Menu", "Chef's Special"};
     private ArrayList<Integer> customers = new ArrayList<>();
-    ArrayList<Integer> occupiedSeats = new ArrayList<>();
+    private ArrayList<Integer> occupiedSeats = new ArrayList<>();
 
     /**
      * The default constructor of the Flight
@@ -35,6 +36,7 @@ public class Flight extends Plane {
 
     /**
      * The constructor of the Flight
+     * @param planeID plane ID
      * @param flightId The ID of the flight
      * @param time The time of the flight
      * @param fromCity The departure

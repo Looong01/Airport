@@ -23,7 +23,8 @@ import java.util.Objects;
  * And this is the only class which interaction with the DAO layer.
  * This can help the program decouple.
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @author Ziyao Wang
  * @version 1.2
  * @version 1.5

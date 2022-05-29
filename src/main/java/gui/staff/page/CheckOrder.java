@@ -9,7 +9,8 @@ import java.awt.*;
 /**
  * Check order page
  *
- * @author Zelong Li & Shuzhou Zhao
+ * @author Zelong Li
+ * @author Shuzhou Zhao
  * @version 1.5
  */
 public class CheckOrder extends JPanel implements Page {

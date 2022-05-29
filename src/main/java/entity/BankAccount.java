@@ -8,7 +8,8 @@ import java.io.Serializable;
  * <p> This class provides the entity about bank accounts' basic information
  * Also,it has the method to deposit, withdraw and check balance.
  *
- * @author Chenyang He & Hao Sun
+ * @author Chenyang He
+ * @author Hao Sun
  * @author Ziyao Wang
  * @version 1.5
  *
@@ -18,14 +19,15 @@ public class BankAccount implements Serializable {
     private int accNo;
     private String accName;
     private double balance;
-    boolean flagOverdraft = false;
+    private boolean flagOverdraft = false;
     private final double overdraft = 500.0;
 
     /**
      * Initialize BankAccount
-     *
-     * @param accNo the ID that will be used
-     * @param accName the name that will be used
+     * @param userId user ID
+     * @param accNo account Number
+     * @param accName account Name
+     * @param balance balance
      */
     public BankAccount(int userId, int accNo,String accName,double balance){
         this.userId = userId;
@@ -136,6 +138,7 @@ public class BankAccount implements Serializable {
      * Reduce the balance of account
      *
      * @param withdrawBalance the balance will be reduced
+     * @return true if success
      */
     public boolean withdraw(double withdrawBalance){
         if(flagOverdraft){

@@ -83,6 +83,7 @@ public class ReviewOrder extends JPanel implements Page {
 			}
 			comboBox.setVisible(true);
 		}
+		this.revalidate();
 		this.repaint();
 	}
 
