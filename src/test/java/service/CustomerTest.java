@@ -3,35 +3,39 @@ package service;
 import entity.Order;
 import org.junit.jupiter.api.Test;
 import service.impl.CustomerServiceImpl;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CustomerTest {
     CustomerService service=new CustomerServiceImpl();
-
     static CustomerServiceImpl cs = new CustomerServiceImpl();
 
     //Test for getCustomer(int userId)
     @Test
     public void testGetCustomer() {
-        System.out.println(cs.getCustomer(1));
+        assertNotNull(cs.getCustomer(1));
+        assertNull(cs.getCustomer(114514));
     }
 
     //Test for getOrder(String orderId)
     @Test
     public void testGetOrder() {
-        System.out.println(cs.getOrder("BJEV1RmqVm"));
+        assertNotNull(cs.getOrder("BJEV1RmqVm"));
+        assertNull(cs.getOrder("BJEV123qVm1"));
     }
 
     //Test for getFlight(int flightId)
     @Test
     public void testGetFlight() {
-        System.out.println(cs.getFlight("MH1001"));
+        assertNotNull(cs.getFlight("MH1001"));
+        assertNull(cs.getFlight("MH789789"));
     }
 
     //Test for LoginByCardId(String cardId)
     @Test
     public void testLoginByCardId() {
-        System.out.println(cs.loginByCardId("140109200010204817"));
+        assertNotNull(cs.loginByCardId("140109200010204817"));
+        assertNull(cs.loginByCardId("140109201234504818"));
     }
 
     //Test for chooseSeat()
@@ -39,9 +43,9 @@ public class CustomerTest {
     public void testChooseSeat() {
         Order order = cs.getOrder("BJEV1RmqVm");
         order.setSeatId(2);
-        System.out.println(cs.chooseSeat(order));
-        System.out.println(order);
-        System.out.println(cs.getFlight("MH1001"));
+        assertTrue(cs.chooseSeat(order));
+        assertNotNull(order);
+        assertNotNull(cs.getFlight("MH1001"));
     }
 
     //Test for chooseFood()
@@ -49,15 +53,13 @@ public class CustomerTest {
     public void testChooseFood() {
         Order order = cs.getOrder("BJEV1RmqVm");
         order.setFood("Standard");
-        System.out.println(cs.chooseFood(order));
-        System.out.println(order);
+        assertTrue(cs.chooseFood(order));
+        assertNotNull(order);
     }
 
     @Test
     public void logInByScan(){
-        System.out.println(service.loginByScanId());
+        assertNotNull(service.loginByScanId());
     }
-
-
 }
 
