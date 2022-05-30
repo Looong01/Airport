@@ -1,6 +1,6 @@
 package gui.staff.page;
 
-import gui.customer.Template;
+import gui.staff.Template;
 import gui.staff.Page;
 
 import javax.swing.*;

@@ -5,6 +5,9 @@ import gui.customer.Template;
 import util.gui.Display;
 
 import javax.swing.*;
+
+import org.apache.xalan.templates.ElemSort;
+
 import java.awt.*;
 
 /**
@@ -87,6 +90,8 @@ public class Login extends JPanel implements Page {
                 DAO.setCustomer(SERVICE.loginByCardId(textField.getText()));
                 if(DAO.getCustomer() == null)
                     JOptionPane.showMessageDialog(this, "Your card ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(this, "Login successfully", "Prompt", JOptionPane.INFORMATION_MESSAGE);
                 return (DAO.getCustomer() != null);
             case 1: // orderId
                 DAO.setOrder(SERVICE.getOrder(textField.getText()));
@@ -94,6 +99,8 @@ public class Login extends JPanel implements Page {
                     JOptionPane.showMessageDialog(this, "Your order ID is wrong", "Alert", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
+                else
+                    JOptionPane.showMessageDialog(this, "Login successfully", "Prompt", JOptionPane.INFORMATION_MESSAGE);
                 DAO.setCustomer(SERVICE.getCustomer(DAO.getOrder().getUserId()));
                 DAO.setFlight(SERVICE.getFlight(DAO.getOrder().getFlightId()));
                 DAO.setCardLogin(false);

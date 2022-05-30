@@ -1,6 +1,6 @@
 package gui.staff.page;
 
-import gui.customer.Template;
+import gui.staff.Template;
 import gui.staff.Page;
 import util.gui.Display;
 
@@ -39,10 +39,10 @@ public class CheckUser extends JPanel implements Page {
         panel1.setBorder(blackBorder);
         label3.setBounds(0, 0, 800, 30);
         panel1.setBounds(0, 0, (int) (900 * Template.getP()), (int) (50 * Template.getP()));
-        panel2.setBounds(0, (int) (101 * Template.getP()), (int) (300 * Template.getP()), (int) (500 * Template.getP()));
-        panel3.setBounds((int) (301 * Template.getP()), (int) (101 * Template.getP()), (int) (600 * Template.getP()), (int) (500 * Template.getP()));
-        label1.setBounds(0, (int) (51 * Template.getP()), (int) (300 * Template.getP()), (int) (50 * Template.getP()));
-        label2.setBounds((int) (301 * Template.getP()), (int) (51 * Template.getP()), (int) (600 * Template.getP()), (int) (50 * Template.getP()));
+        panel2.setBounds(0, (int) (100 * Template.getP()), (int) (302 * Template.getP()), (int) (500 * Template.getP()));
+        panel3.setBounds((int) (301 * Template.getP()), (int) (100 * Template.getP()), (int) (600 * Template.getP()), (int) (500 * Template.getP()));
+        label1.setBounds(0, (int) (50 * Template.getP()), (int) (300 * Template.getP()), (int) (50 * Template.getP()));
+        label2.setBounds((int) (300 * Template.getP()), (int) (50 * Template.getP()), (int) (600 * Template.getP()), (int) (50 * Template.getP()));
         String[] idInt = SERVICE.getFlightIds();
         JComboBox<String> comboBox = new JComboBox<>();
         for (String j : idInt) {
