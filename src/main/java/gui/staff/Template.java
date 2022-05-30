@@ -108,8 +108,8 @@ public class Template extends JFrame {
 		infoLabel.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (40 * P)));
 		logout.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
 		nav.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (40 * P)));
-		back.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
-		cont.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
+		back.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (30 * P)));
+		cont.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (30 * P)));
 
 		// scaling window
 		iconLabel.setPreferredSize(new Dimension((int) (300 * P), (int) (100 * P)));

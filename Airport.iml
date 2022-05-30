@@ -68,6 +68,16 @@
     <orderEntry type="library" name="Maven: org.bytedeco:flandmark:1.07-1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco:leptonica:1.82.0-1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco:tesseract:5.0.1-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:opencv:windows-x86_64:4.5.5-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:openblas:windows-x86_64:0.3.19-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:opencv:windows-x86:4.5.5-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:openblas:windows-x86:0.3.19-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:opencv:linux-x86_64:4.5.5-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:openblas:linux-x86_64:0.3.19-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:opencv:linux-x86:4.5.5-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:openblas:linux-x86:0.3.19-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:opencv:macosx-x86_64:4.5.5-1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:openblas:macosx-x86_64:0.3.19-1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco:opencv:macosx-arm64:4.5.5-1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco:openblas:macosx-arm64:0.3.19-1.5.7" level="project" />
   </component>

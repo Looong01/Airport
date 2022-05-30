@@ -47,8 +47,8 @@ public class Login extends JPanel implements Page {
 
         this.add(label);
         this.add(panel);
-        Display.setPanelFont(this, 40);
-        label.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (70 * Template.getP())));
+        Display.setPanelFont(this, 36);
+        label.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (63 * Template.getP())));
     }
 
     @Override
