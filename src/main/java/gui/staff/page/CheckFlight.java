@@ -24,7 +24,6 @@ public class CheckFlight extends JPanel implements Page {
 		Object[][] obj = new Object[idInt.length][5];
 		JTable table = new JTable(obj, columnNames);
 		table.setEnabled(false);
-		table.setBounds(0, 0, (int) (900 * Template.getP()), (int) (600 * Template.getP()));
 		table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
 		table.getTableHeader().setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -35,6 +34,7 @@ public class CheckFlight extends JPanel implements Page {
 		table.getColumnModel().getColumn(4).setPreferredWidth((int) (550 * Template.getP()));
 		table.setRowHeight((int) (530 * Template.getP() / (table.getRowCount())));
 		JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBounds(0, 0, (int) (900 * Template.getP()), (int) (600 * Template.getP()));
 		for (int i = 0; i < idInt.length; i++) {
 			for (int j = 0; j < 5; j++) {
 				switch (j) {
