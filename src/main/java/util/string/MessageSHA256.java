@@ -25,7 +25,6 @@ public class MessageSHA256 {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-
 		return encodedHash != null? bytesToHex(encodedHash) : null;
 	}
 

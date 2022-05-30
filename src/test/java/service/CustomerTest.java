@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import service.impl.CustomerServiceImpl;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class CustomerTest {
     CustomerService service=new CustomerServiceImpl();
     static CustomerServiceImpl cs = new CustomerServiceImpl();
@@ -62,4 +61,3 @@ public class CustomerTest {
         assertNotNull(service.loginByScanId());
     }
 }
-

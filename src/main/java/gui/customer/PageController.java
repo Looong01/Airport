@@ -59,20 +59,15 @@ public class PageController implements ActionListener {
 	void repaintPage() {
 		Template.getNav().setSelectedIndex(CustomerGUI.getPageNum() - 1); // set navigation
 		CustomerGUI.WINDOW.remove(Template.getPage());
-
 		Template.setPage(CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1));
-
 		CustomerGUI.WINDOW.setTitle(((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).getTitle());
 		Template.getInfoLabel().setText(((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).getLabel());
 		Template.getBack().setText(((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).getBack());
 		Template.getCont().setText(((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).getCont());
-
 		Template.CONSTRAINTS.setConstraints(3,1,9,6);
 		Template.LAYOUT.setConstraints(Template.getPage(), Template.CONSTRAINTS);
 		CustomerGUI.WINDOW.add(Template.getPage());
-
 		((Page) CustomerGUI.PAGES.get(CustomerGUI.getPageNum() - 1)).syncPage();
-
 		CustomerGUI.WINDOW.repaint();
 		CustomerGUI.WINDOW.revalidate(); // repack
 	}

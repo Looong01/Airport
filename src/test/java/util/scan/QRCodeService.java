@@ -14,7 +14,6 @@ import service.impl.CustomerServiceImpl;
  *
  */
 public class QRCodeService {
-
     /**
      * Generate the Code
      *

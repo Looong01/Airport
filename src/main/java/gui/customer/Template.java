@@ -34,7 +34,6 @@ public class Template extends JFrame {
 		this.setTitle("template title");
 		this.setLayout(LAYOUT); // 12 * 8
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // confirmation needed
-
 		// instantiate components
 		String bank = "src/main/resources/svg/bank.svg";
 		BufferedImageTranscoder bit = new BufferedImageTranscoder(bank,80 * P,80 * P);
@@ -58,11 +57,9 @@ public class Template extends JFrame {
 				return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			}
 		});
-
 		page = new JPanel(); // (3,1) w9h6
 		back = new JButton("BACK"); // (0,7) w6h1
 		cont = new JButton("CONTINUE"); // (6,7) w6h1
-
 		// set GridBagConstraints
 		CONSTRAINTS.setConstraints(0,0,3,1);
 		LAYOUT.setConstraints(iconLabel, CONSTRAINTS);
@@ -78,7 +75,6 @@ public class Template extends JFrame {
 		LAYOUT.setConstraints(back, CONSTRAINTS);
 		CONSTRAINTS.setConstraints(6,7,6,1);
 		LAYOUT.setConstraints(cont, CONSTRAINTS);
-
 		// add components
 		this.add(iconLabel);
 		this.add(infoLabel);
@@ -87,7 +83,6 @@ public class Template extends JFrame {
 		this.add(page);
 		this.add(back);
 		this.add(cont);
-
 		// add listeners
 		this.addWindowListener(new WindowAdapter() {
 			/**
@@ -105,14 +100,12 @@ public class Template extends JFrame {
 					System.err.println("WindowEvent not belongs to this window");
 			}
 		});
-
 		// scaling font
 		infoLabel.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (40 * P)));
 		logout.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (35 * P)));
 		nav.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (40 * P)));
 		back.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (25 * P)));
 		cont.setFont(new Font(Font.MONOSPACED, Font.ITALIC, (int) (25 * P)));
-
 		// scaling window
 		iconLabel.setPreferredSize(new Dimension((int) (300 * P), (int) (100 * P)));
 		infoLabel.setPreferredSize(new Dimension((int) (700 * P), (int) (100 * P)));
@@ -120,9 +113,7 @@ public class Template extends JFrame {
 		nav.setPreferredSize(new Dimension((int) (300 * P), (int) (600 * P)));
 		page.setPreferredSize(new Dimension((int) (900 * P), (int) (600 * P)));
 		back.setPreferredSize(new Dimension((int) (600 * P), (int) (100 * P)));
-
 		nav.setFixedCellHeight((int) (100 * P)); // 600 / 6 = 100
-
 		this.pack(); // pack() overrides weightx, weighty
 		this.setResizable(false);
 	}

@@ -26,7 +26,6 @@ public class BufferedImageTranscoder extends ImageTranscoder {
 	public BufferedImageTranscoder(String uri, float width, float height) {
 		addTranscodingHint(PNGTranscoder.KEY_WIDTH, width);
 		addTranscodingHint(PNGTranscoder.KEY_HEIGHT, height);
-
 		TranscoderInput input = new TranscoderInput(uri);
 		try {
 			transcode(input, null);

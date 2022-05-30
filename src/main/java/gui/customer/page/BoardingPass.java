@@ -41,16 +41,13 @@ public class BoardingPass extends JPanel implements Page {
 		GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
 		GridBagLayout layout = new GridBagLayout();
 		this.setLayout(layout);
-
 		JPanel mainPanel = new JPanel(new GridLayout(6,1));
 		JPanel sidePanel = new JPanel(new GridLayout(6,1));
 		sidePanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-
 		constraints.setConstraints(0,0,5,4);
 		layout.setConstraints(mainPanel, constraints);
 		constraints.setConstraints(5,0,1,4);
 		layout.setConstraints(sidePanel, constraints);
-
 		// main panel
 		GridBagLayout titleLayout = new GridBagLayout();
 		GridBagLayout flightLayout = new GridBagLayout();
@@ -59,45 +56,35 @@ public class BoardingPass extends JPanel implements Page {
 		JPanel flightPanel = new JPanel(flightLayout);
 		JPanel boardingTitlePanel = new JPanel(new GridLayout(1,3));
 		JPanel boardingPanel = new JPanel(new GridLayout(1,3));
-
 		// titlePanel
 		BufferedImageTranscoder iconTranscoder = new BufferedImageTranscoder("src/main/resources/svg/apple.svg",80 * Template.getP(),80 * Template.getP());
 		JLabel iconLabel = new JLabel(new ImageIcon(iconTranscoder.getImage()));
-
 		constraints.setConstraints(0,0,3,2);
 		titleLayout.setConstraints(iconLabel, constraints);
 		constraints.setConstraints(3,0,12,2);
 		titleLayout.setConstraints(infoLabel, constraints);
-
 		titlePanel.add(iconLabel);
 		titlePanel.add(infoLabel);
-
 		// flightTitlePanel
 		JLabel flightTitle = new JLabel("Flight / Date / Class");
 		JLabel nameTitle = new JLabel("Name");
-
 		constraints.setConstraints(0,0,10,2);
 		flightLayout.setConstraints(flightTitle, constraints);
 		constraints.setConstraints(10,0,5,2);
 		flightLayout.setConstraints(nameTitle, constraints);
-
 		flightTitlePanel.add(flightTitle);
 		flightTitlePanel.add(nameTitle);
-
 		// flightPanel
 		constraints.setConstraints(0,0,10,2);
 		flightLayout.setConstraints(flight, constraints);
 		constraints.setConstraints(10,0,5,2);
 		flightLayout.setConstraints(name, constraints);
-
 		flightPanel.add(flight);
 		flightPanel.add(name);
-
 		// boardingTitlePanel
 		boardingTitlePanel.add(new JLabel("Gate", JLabel.CENTER));
 		boardingTitlePanel.add(new JLabel("Boarding Time", JLabel.CENTER));
 		boardingTitlePanel.add(new JLabel("Seat No.", JLabel.CENTER));
-
 		// boardingPanel
 		gate.setHorizontalAlignment(JLabel.CENTER);
 		boardingTime.setHorizontalAlignment(JLabel.CENTER);
@@ -105,14 +92,12 @@ public class BoardingPass extends JPanel implements Page {
 		boardingPanel.add(gate);
 		boardingPanel.add(boardingTime);
 		boardingPanel.add(seatNo);
-
 		mainPanel.add(titlePanel);
 		mainPanel.add(flightTitlePanel);
 		mainPanel.add(flightPanel);
 		mainPanel.add(cityLabel);
 		mainPanel.add(boardingTitlePanel);
 		mainPanel.add(boardingPanel);
-
 		// side panel
 		sidePanel.add(new JLabel(new ImageIcon(iconTranscoder.getImage())));
 		sidePanel.add(sideFlight);
@@ -120,10 +105,8 @@ public class BoardingPass extends JPanel implements Page {
 		sidePanel.add(sideTo);
 		sidePanel.add(sideDate);
 		sidePanel.add(sideSeatNo);
-
 		this.add(mainPanel);
 		this.add(sidePanel);
-
 		mainPanel.setPreferredSize(new Dimension((int) (750 * Template.getP()), (int) (600 * Template.getP())));
 		iconLabel.setPreferredSize(new Dimension((int) (150 * Template.getP()), (int) (100 * Template.getP())));
 		infoLabel.setPreferredSize(new Dimension((int) (600 * Template.getP()), (int) (100 * Template.getP())));
@@ -132,7 +115,6 @@ public class BoardingPass extends JPanel implements Page {
 		flight.setPreferredSize(new Dimension((int) (500 * Template.getP()), (int) (100 * Template.getP())));
 		name.setPreferredSize(new Dimension((int) (250 * Template.getP()), (int) (100 * Template.getP())));
 		sidePanel.setPreferredSize(new Dimension((int) (150 * Template.getP()), (int) (600 * Template.getP())));
-
 		Display.setPanelFont(this);
 	}
 
@@ -141,22 +123,18 @@ public class BoardingPass extends JPanel implements Page {
 		String[] dates = DAO.getFlight().getTime().split(" ");
 		String[] times = dates[3].split(":");
 		String[] names = DAO.getCustomer().getName().split(" ");
-
 		infoLabel.setText(DAO.getFlight().getFromCity() + " Airport");
-
 		if (DAO.getOrder().getSeatId() <= 8) // first class
 			flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / First");
 		else if (DAO.getOrder().getSeatId() <= 14) // extra legroom
 			flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / Legroom");
 		else // economy class
 			flight.setText(DAO.getFlight().getFlightId() + " / " + dates[2] + dates[1] + " / Economy");
-
 		name.setText(DAO.getCustomer().getName());
 		cityLabel.setText("From " + DAO.getFlight().getFromCity() + " To " + DAO.getFlight().getToCity());
 		gate.setText(DAO.getFlight().getGateId() + "");
 		boardingTime.setText(times[0] + times[1]);
 		seatNo.setText(DAO.getOrder().getSeatId() + "");
-
 		sideFlight.setText("" + DAO.getFlight().getFlightId());
 		sideName.setText(names[0].charAt(0) + " " + names[1]);
 		sideTo.setText(DAO.getFlight().getToCity().split(" ")[0]);
@@ -219,10 +197,8 @@ public class BoardingPass extends JPanel implements Page {
 		JFrame frame = new JFrame(title);
 		JPanel south = new JPanel(new BorderLayout());
 		JLabel label = new JLabel(DAO.getFlight().getFromCity() + " Airport", JLabel.CENTER);
-
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
-
 		String[] dates = DAO.getFlight().getTime().split(" ");
 		if (title.contains("Tag")) { // carry-on
 			textArea.append("CARRY-ON_BAG " + DAO.getOrder().getCarryOn() + "\t" + DAO.getFlight().getFlightId() + "\n");
@@ -232,7 +208,6 @@ public class BoardingPass extends JPanel implements Page {
 			textArea.append("COUNTER " + DAO.getOrder().getPackageGate());
 		}
 		textArea.append("\t" + dates[2] + dates[1] + "\nTO " + DAO.getFlight().getToCity());
-
 		MessageSHA256 sha256 = new MessageSHA256();
 		String textAreaHash = sha256.encode(textArea.getText());
 		String orderIdHash = sha256.encode(DAO.getOrder().getOrderId());
@@ -241,16 +216,13 @@ public class BoardingPass extends JPanel implements Page {
 		south.add(label1, BorderLayout.NORTH);
 		south.add(new JLabel(new ImageIcon(QRCodeUtil.createImage(textAreaHash + "\n" + orderIdHash, (int) (575 * Template.getP())))), BorderLayout.CENTER);
 		south.add(label2, BorderLayout.SOUTH);
-
 		frame.add(label, BorderLayout.NORTH);
 		frame.add(textArea, BorderLayout.CENTER);
 		frame.add(south, BorderLayout.SOUTH);
-
 		Display.setFrameFont(frame);
 		label.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (60 * Template.getP())));
 		label1.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) (15 * Template.getP())));
 		label2.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) (15 * Template.getP())));
-
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setLocationRelativeTo(null);

@@ -45,10 +45,8 @@ public class OrderUtil extends DataBaseUtil {
             orders = new ArrayList<>();
         orders.add(o);
         controller.writeArray(orders);
-
         CustomerUtil customerUtil = new CustomerUtil();
         FlightUtil flightUtil = new FlightUtil();
-
         // update order for customer
         customerUtil.updateCustomerOrder(o.getUserId(), o.getOrderId());
         // update customer for flight

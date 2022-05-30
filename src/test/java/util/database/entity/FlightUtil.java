@@ -70,7 +70,6 @@ public class FlightUtil extends DataBaseUtil {
                         return;
                     }
                 }
-
                 // append customer
                 customers.add(customer);
                 f.setCustomers(customers);
@@ -102,7 +101,6 @@ public class FlightUtil extends DataBaseUtil {
                 return;
             }
         }
-
         fail("The flight ID not found");
     }
 }

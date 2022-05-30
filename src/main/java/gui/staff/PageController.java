@@ -59,18 +59,13 @@ public class PageController implements ActionListener {
 	void repaintPage() {
 		Template.getNav().setSelectedIndex(StaffGUI.getPageNum() - 1); 
 		StaffGUI.WINDOW.remove(Template.getPage());
-
 		Template.setPage(StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)); 
-
 		StaffGUI.WINDOW.setTitle(((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).getTitle());
 		Template.getInfoLabel().setText(((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).getLabel());
-
 		Template.CONSTRAINTS.setConstraints(3, 1, 9, 6);
 		Template.LAYOUT.setConstraints(Template.getPage(), Template.CONSTRAINTS);
 		StaffGUI.WINDOW.add(Template.getPage());
-
 		((Page) StaffGUI.PAGES.get(StaffGUI.getPageNum() - 1)).syncPage();
-
 		StaffGUI.WINDOW.repaint();
 		StaffGUI.WINDOW.revalidate(); // repack
 	}

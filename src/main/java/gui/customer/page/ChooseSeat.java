@@ -30,7 +30,6 @@ public class ChooseSeat extends JPanel implements Page {
 	public ChooseSeat() {
 		GridBagLayout layout = new GridBagLayout();
 		this.setLayout(layout);
-
 		JList<String> seatClass = new JList<>(new String[]{
 				"First Class +$200",
 				"Economy Class +$0",
@@ -38,20 +37,17 @@ public class ChooseSeat extends JPanel implements Page {
 		});
 		CardLayout cardLayout = new CardLayout();
 		JPanel panel = new JPanel(cardLayout);
-
 		GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
 		constraints.setConstraints(0,0,3,6);
 		layout.setConstraints(seatClass, constraints);
 		constraints.setConstraints(3,0,6,6);
 		layout.setConstraints(panel, constraints);
-
 		seatClass.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		seatClass.setDragEnabled(false);
 		seatClass.addListSelectionListener(e -> {
 			if (!e.getValueIsAdjusting())
 				cardLayout.show(panel, (String) ((JList<?>) e.getSource()).getSelectedValue());
 		});
-
 		// 50 seats
 		JSeat seat1 = new JSeat(1);
 		JSeat seat2 = new JSeat(2);
@@ -103,7 +99,6 @@ public class ChooseSeat extends JPanel implements Page {
 		JSeat seat48 = new JSeat(48);
 		JSeat seat49 = new JSeat(49);
 		JSeat seat50 = new JSeat(50);
-
 		// button group
 		group.add(seat1);
 		group.add(seat2);
@@ -155,7 +150,6 @@ public class ChooseSeat extends JPanel implements Page {
 		group.add(seat48);
 		group.add(seat49);
 		group.add(seat50);
-
 		// first class
 		JPanel panel1 = new JPanel(new GridLayout(2, 5));
 		panel1.add(seat1);
@@ -168,7 +162,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel1.add(new JLabel());
 		panel1.add(seat7);
 		panel1.add(seat8);
-
 		// economy class
 		JPanel panel2 = new JPanel(new GridLayout(6, 7));
 		panel2.add(seat15);
@@ -178,7 +171,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel2.add(seat18);
 		panel2.add(seat19);
 		panel2.add(seat20);
-
 		panel2.add(seat21);
 		panel2.add(seat22);
 		panel2.add(seat23);
@@ -186,7 +178,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel2.add(seat24);
 		panel2.add(seat25);
 		panel2.add(seat26);
-
 		panel2.add(seat27);
 		panel2.add(seat28);
 		panel2.add(seat29);
@@ -194,7 +185,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel2.add(seat30);
 		panel2.add(seat31);
 		panel2.add(seat32);
-
 		panel2.add(seat33);
 		panel2.add(seat34);
 		panel2.add(seat35);
@@ -202,7 +192,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel2.add(seat36);
 		panel2.add(seat37);
 		panel2.add(seat38);
-
 		panel2.add(seat39);
 		panel2.add(seat40);
 		panel2.add(seat41);
@@ -210,7 +199,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel2.add(seat42);
 		panel2.add(seat43);
 		panel2.add(seat44);
-
 		panel2.add(seat45);
 		panel2.add(seat46);
 		panel2.add(seat47);
@@ -218,7 +206,6 @@ public class ChooseSeat extends JPanel implements Page {
 		panel2.add(seat48);
 		panel2.add(seat49);
 		panel2.add(seat50);
-
 		// extra legroom
 		JPanel panel3 = new JPanel(new GridLayout(1, 7));
 		panel3.add(seat9);
@@ -228,18 +215,14 @@ public class ChooseSeat extends JPanel implements Page {
 		panel3.add(seat12);
 		panel3.add(seat13);
 		panel3.add(seat14);
-
 		// cardLayout
 		panel.add("First Class +$200", panel1);
 		panel.add("Economy Class +$0", panel2);
 		panel.add("Extra Legroom +$50", panel3);
-
 		this.add(seatClass);
 		this.add(panel);
-
 		seatClass.setPreferredSize(new Dimension((int) (300 * Template.getP()), (int) (600 * Template.getP())));
 		panel.setPreferredSize(new Dimension((int) (600 * Template.getP()), (int) (600 * Template.getP())));
-
 		seatClass.setFixedCellHeight((int) (200 * Template.getP())); // 600 / 3 = 200
 		seatClass.setSelectedIndex(0);
 		seatClass.setFont(new Font(Font.SERIF, Font.ITALIC, (int) (30 * Template.getP())));
@@ -280,7 +263,6 @@ public class ChooseSeat extends JPanel implements Page {
 			ArrayList<Integer> occupiedSeats = DAO.getFlight().getOccupiedSeats();
 			group.clearSelection();
 			Enumeration<AbstractButton> seats = group.getElements();
-
 			for (int i = 1; i <= 50 && seats.hasMoreElements(); ++i)
 				seats.nextElement().setEnabled(!occupiedSeats.contains(i));
 		}
@@ -314,7 +296,6 @@ public class ChooseSeat extends JPanel implements Page {
 				return true;
 			}
 		}
-
 		JOptionPane.showMessageDialog(this, "Please choose your seat", "Prompt", JOptionPane.ERROR_MESSAGE);
 		return false;
 	}

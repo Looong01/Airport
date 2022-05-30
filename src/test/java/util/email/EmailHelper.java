@@ -1,6 +1,5 @@
 package util.email;
 
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -9,17 +8,14 @@ import javax.mail.internet.*;
 import java.util.Properties;
 
 public class EmailHelper {
-
     private final String host;
     private final String username;
     private final String password;
     private final String from;
-
     private String to;
     private String subject;
     private String htmlContent;
     private String imagePath;
-
     public EmailHelper(String host, String username, String password, String from) {
         this.host = host;
         this.username = username;
@@ -28,44 +24,35 @@ public class EmailHelper {
     }
 
     public void sendWithImage() throws Exception {
-
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.host", host);
-
         final String username1 = username;
         final String password1 = password;
-
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username1, password1);
             }
         });
-
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(from));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
         message.setSubject(subject);
         Multipart multipart = new MimeMultipart("related");
-
         System.out.println(" html ");
         BodyPart htmlPart = new MimeBodyPart();
         htmlContent = htmlContent + "<img src=\"cid:image\">";
         htmlPart.setContent(htmlContent, "text/html;charset=UTF-8");
         multipart.addBodyPart(htmlPart);
-
         System.out.println(" image ");
         System.out.println("image path : " + imagePath);
         BodyPart imgPart = new MimeBodyPart();
         DataSource fds = new FileDataSource(this.imagePath);
-
         imgPart.setDataHandler(new DataHandler(fds));
         imgPart.setHeader("Content-ID", "<image>");
-
         multipart.addBodyPart(imgPart);
         message.setContent(multipart);
         Transport.send(message);
-
         System.out.println(" Sent -| ");
     }
 

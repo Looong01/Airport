@@ -45,10 +45,8 @@ public class StaffServiceImpl implements StaffService {
             }
         }
         return false;
-
     }
 
-    
     /**
      * This method helps to check customers' status.
      * 
@@ -193,7 +191,6 @@ public class StaffServiceImpl implements StaffService {
         }
         return orderIds;
     }
-
 
     /**
     *This method helps to find the status

@@ -38,11 +38,9 @@ public class BankUtil extends DataBaseUtil {
 		BankAccount account = (BankAccount) o;
 		if (get(account.getAccNo() + "") != null)
 			fail("ID already exists");
-
 		List<BankAccount> accounts = controller.readArray(BankAccount.class);
 		if(accounts == null)
 			accounts = new ArrayList<>();
-
 		accounts.add(account);
 		controller.writeArray(accounts);
 	}

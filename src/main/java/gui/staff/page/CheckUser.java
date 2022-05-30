@@ -104,8 +104,7 @@ public class CheckUser extends JPanel implements Page {
             String s3 = Integer.toString(statusInt[2]);
             String s2 = Integer.toString(statusInt[1]);
             String s1 = Integer.toString(statusInt[0]);
-            Object[][] obj = {{"Not check-in", s1}, {"Not boarded", s2}, {"Finished boarding", s3},
-                    {"Total", s4}};
+            Object[][] obj = {{"Not check-in", s1}, {"Not boarded", s2}, {"Finished boarding", s3}, {"Total", s4}};
             TableModel model = new DefaultTableModel(obj, new String[]{"", ""});
             JTable table = new JTable(model);
             table.setEnabled(false);
@@ -132,9 +131,7 @@ public class CheckUser extends JPanel implements Page {
             String s2 = Integer.toString(statusInt[1]);
             String s3 = Integer.toString(statusInt[2]);
             String s4 = Integer.toString(statusInt[3]);
-            Object[][] obj = { { "Not check-in", s1 }, { "Not boarded", s2 },
-                    { "Finished boarding", s3 },
-                    { "Total", s4 } };
+            Object[][] obj = { { "Not check-in", s1 }, { "Not boarded", s2 }, { "Finished boarding", s3 }, { "Total", s4 } };
             TableModel model = new DefaultTableModel(obj, new String[] { "", "" });
             JTable table = new JTable(model);
             table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
@@ -219,22 +216,15 @@ public class CheckUser extends JPanel implements Page {
                 obj2[i][1] = card[i];
                 obj2[i][2] = status[i];
             }
-
             table.setEnabled(false);
             table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
             table.getTableHeader().setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
-
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); 
-
             table.getColumnModel().getColumn(0).setPreferredWidth((int) (200 * Template.getP()));
             table.getColumnModel().getColumn(1).setPreferredWidth((int) (310 * Template.getP()));
             table.getColumnModel().getColumn(2).setPreferredWidth((int) (100 * Template.getP()));
-
             table.setRowHeight((int) (428 * Template.getP() / (table.getRowCount())));
-
-            JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
+            JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             this.add(scrollPane);
         }
 
@@ -259,7 +249,6 @@ public class CheckUser extends JPanel implements Page {
             for (int flag = 0; flag < userId.length; flag++) {
                 name[flag] = SERVICE.getName(userId[flag]);
             }
-
             String[] card = new String[userId.length];
             for (int flag2 = 0; flag2 < userId.length; flag2++) {
                 card[flag2] = SERVICE.getCardId(userId[flag2]);
@@ -277,18 +266,12 @@ public class CheckUser extends JPanel implements Page {
             table.setEnabled(false);
             table.setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
             table.getTableHeader().setFont(new Font("", Font.ITALIC, (int) (30 * Template.getP())));
-
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-
             table.getColumnModel().getColumn(0).setPreferredWidth((int) (200 * Template.getP()));
             table.getColumnModel().getColumn(1).setPreferredWidth((int) (310 * Template.getP()));
             table.getColumnModel().getColumn(2).setPreferredWidth((int) (100 * Template.getP()));
-
             table.setRowHeight((int) (428 * Template.getP() / (table.getRowCount())));
-
-            JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
+            JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
             this.removeAll();
             this.add(scrollPane);
             this.paintAll(this.getGraphics());

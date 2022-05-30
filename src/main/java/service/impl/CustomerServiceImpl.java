@@ -34,7 +34,6 @@ public class CustomerServiceImpl implements CustomerService {
     private final JSONController customerController = new JSONController("src/main/resources/json/Customer.json");
     private final JSONController orderController = new JSONController("src/main/resources/json/Order.json");
     private final JSONController flightController = new JSONController("src/main/resources/json/Flight.json");
-
     @Override
     public Customer getCustomer(int userId) {
         List<Customer> customers = customerController.readArray(Customer.class);
@@ -98,13 +97,11 @@ public class CustomerServiceImpl implements CustomerService {
             CanvasFrame canvas;
             Frame frame;
             String cardId = null;
-
             try{
                 grabber.start();
                 canvas = new CanvasFrame("Camera");
                 canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 canvas.toFront();
-
                 while (canvas.isDisplayable()) {
                     frame = grabber.grab();
                     canvas.showImage(frame);
@@ -140,7 +137,6 @@ public class CustomerServiceImpl implements CustomerService {
                 occupiedSeats.add(order.getSeatId());
                 flight.setOccupiedSeats(occupiedSeats);
                 flightController.writeArray(flights);
-
                 List<Order> orders = orderController.readArray(Order.class);
                 if(orders == null) {
                     System.out.println("No orders");
@@ -154,12 +150,10 @@ public class CustomerServiceImpl implements CustomerService {
                         return true;
                     }
                 }
-
                 System.out.println("The order ID not found");
                 return false;
             }
         }
-
         System.out.println("The flight ID not found");
         return false;
     }

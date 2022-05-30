@@ -23,7 +23,7 @@ public interface StaffService {
      */
     boolean loginByPasswd(String cardId,String passwd);
     
-      /**
+     /**
      * This method helps to check customers' status.
      * 
      * @param flightId The ID of current flight.
@@ -39,19 +39,19 @@ public interface StaffService {
      */
     int[] checkFlight(String flightId);
 
-/**
+     /**
      * This method helps to find the flight ID from the flight list.
      *
      * @return All the flight ID in the flight list.
      */
     String[] getFlightIds();
 
-  /**
+    /**
     *This method helps to find the gate ID.
     *
     * @param flightId The ID of current flight.
     * @return The gate ID of current flight.
-     */
+    */
     int getGateId(String flightId);
 
     /**
@@ -75,7 +75,7 @@ public interface StaffService {
     *
     * @param flightId The ID of current flight.
     * @return The departure time of current flight.
-     */
+    */
     String getTime(String flightId);
 
     /**
@@ -83,15 +83,15 @@ public interface StaffService {
     *
     * @param userid the user Id.
     * @return The orderId of current user.    
-     */
+    */
     String[] getOrderId(int userid);
 
- /**
+    /**
     *This method helps to find the status
     *
     * @param orderId the orderId.
     * @return The status of current flight.
-     */
+    */
     String getStatus(String orderId);
 
     /**
@@ -99,7 +99,7 @@ public interface StaffService {
     *
     * @param flightId the flightId.
     * @return The all userIds of this flight.
-     */
+    */
     int[] getUserIds(String flightId);
 
     /**
@@ -107,7 +107,7 @@ public interface StaffService {
     *
     * @param userId the userId.
     * @return The cardId of this user.
-     */
+    */
     String getCardId(int userId);
 
     /**
@@ -115,7 +115,7 @@ public interface StaffService {
     *
     * @param userId the userId.
     * @return The name of this user.
-     */
+    */
     String getName(int userId);
   
     /**
@@ -123,41 +123,41 @@ public interface StaffService {
     *
     * @param orderId the orderId.
     * @return The flightId of this order.
-     */
+    */
     String getFlightId(String orderId);
 
     /**
-     * This method is to find all the flightIds
-     * 
-     * @return flightIds
-     */
+    * This method is to find all the flightIds
+    * 
+    * @return flightIds
+    */
     String[] getFlightId();
 
     /**
     * This method is to find all the orderIds
     *
     * @return orderIds
-     */
+    */
     String[] getOrderId();
 
     /**
     * This method is to find all the seats
     *
     * @return seats
-     */
+    */
     String[] getSeat();
 
     /**
     * This method is to find all the food
     *
     * @return food
-     */
+    */
     String[] getFood();
 
     /**
     * This method is to find the total num of orders
     *
     * @return orderNum
-     */
+    */
     int getOrderNum();
 }

@@ -58,7 +58,6 @@ public class ReviewOrder extends JPanel implements Page {
 				textArea.append("Seat: " + DAO.getOrder().getSeatId() + "\n");
 				textArea.append("Food: " + DAO.getOrder().getFood() + "\n");
 			}
-
 			// hide comboBox
 			comboBox.setVisible(false);
 		} else {
@@ -70,7 +69,6 @@ public class ReviewOrder extends JPanel implements Page {
 			for (String o : orders) {
 				Order order = SERVICE.getOrder(o);
 				Flight flight = SERVICE.getFlight(order.getFlightId());
-
 				textArea.append("> Order " + order.getOrderId() + "\n");
 				if (order.getStatus().equals("C")) {
 					textArea.append("Status: " + "Checking in" + "\n");
@@ -114,7 +112,6 @@ public class ReviewOrder extends JPanel implements Page {
 	public boolean cont() {
 		if (!DAO.isCardLogin())
 			return DAO.getOrder().getStatus().equals("C");
-
 		if (comboBox.getSelectedIndex() == 0) {
 			JOptionPane.showMessageDialog(this, "Please choose your order", "Prompt", JOptionPane.ERROR_MESSAGE);
 			return false;

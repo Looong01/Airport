@@ -17,17 +17,13 @@ import java.awt.*;
 public class Login extends JPanel implements Page {
     private final JTextField textField = new JTextField("140109200010204817");
     private final JPasswordField passwordField = new JPasswordField("123456");
-
-    /**
-     * constructor for login
-     */
+    //constructor for login
     public Login() {
         GridBagLayout layout = new GridBagLayout();
         GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
         this.setLayout(layout);
         JLabel label1 = new JLabel("Card ID: ");
         JLabel label2 = new JLabel("Password: ");
-
         constraints.setConstraints(0,0,1,1);
         layout.setConstraints(label1, constraints);
         constraints.setConstraints(1,0,2,1);
@@ -36,12 +32,10 @@ public class Login extends JPanel implements Page {
         layout.setConstraints(label2, constraints);
         constraints.setConstraints(1,1,3,1);
         layout.setConstraints(passwordField, constraints);
-
         this.add(label1);
         this.add(textField);
         this.add(label2);
         this.add(passwordField);
-
         Display.setPanelFont(this,35);
     }
 
@@ -66,13 +60,10 @@ public class Login extends JPanel implements Page {
         String password = new String(passwordField.getPassword());
         boolean TorF = SERVICE.loginByPasswd(cardId, password);
         if (TorF) {
-            JOptionPane.showMessageDialog(this, "Login successfully", "Prompt",
-                    JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Login successfully", "Prompt", JOptionPane.INFORMATION_MESSAGE);
             return true;
         }
-        JOptionPane.showMessageDialog(this, "Login failed", "Prompt",
-                    JOptionPane.INFORMATION_MESSAGE);
-
+        JOptionPane.showMessageDialog(this, "Login failed", "Prompt", JOptionPane.INFORMATION_MESSAGE);
         return false;
     }
 

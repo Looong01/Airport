@@ -35,13 +35,11 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
      */
     public BufferedImageLuminanceSource(BufferedImage image, int left, int top, int width, int height) {
         super(width, height);
-
         int sourceWidth = image.getWidth();
         int sourceHeight = image.getHeight();
         if (left + width > sourceWidth || top + height > sourceHeight) {
             throw new IllegalArgumentException("Crop rectangle does not fit within image data.");
         }
-
         for (int y = top; y < top + height; y++) {
             for (int x = left; x < left + width; x++) {
                 if ((image.getRGB(x, y) & 0xFF000000) == 0) {
@@ -49,7 +47,6 @@ public class BufferedImageLuminanceSource extends LuminanceSource {
                 }
             }
         }
-
         this.image = new BufferedImage(sourceWidth, sourceHeight, BufferedImage.TYPE_BYTE_GRAY);
         this.image.getGraphics().drawImage(image, 0, 0, null);
         this.left = left;

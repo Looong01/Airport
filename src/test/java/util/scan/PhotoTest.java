@@ -20,20 +20,16 @@ public class PhotoTest {
 	public void photo() throws Exception {
 		OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
 		grabber.start();
-
 		CanvasFrame canvas = new CanvasFrame("Camera");
 		canvas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		canvas.toFront();
-
 		try (Java2DFrameConverter converter = new Java2DFrameConverter()) {
 			Frame frame = null;
-
 			while (canvas.isDisplayable()) {
 				frame = grabber.grab();
 				canvas.showImage(frame);
 			}
 			grabber.close();
-
 			BufferedImage image = converter.convert(frame);
 			ImageIO.write(image,"png",new File("src/main/resources/jpg/photo-test.png"));
 		}catch (Exception e) {

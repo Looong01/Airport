@@ -1,12 +1,10 @@
 package service.impl;
 
-
 import entity.BankAccount;
 import service.BankService;
 import util.file.JSONController;
 
 import java.util.List;
-
 
 /**
  * Service class {@code BankService}

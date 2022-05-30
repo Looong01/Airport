@@ -27,14 +27,12 @@ public class ChooseFood extends JPanel implements Page {
 	 */
 	public ChooseFood() {
 		this.setLayout(new GridLayout(3, 2));
-
 		JFood food1 = new JFood("Standard +$0");
 		JFood food2 = new JFood("Vegetarian +$0");
 		JFood food3 = new JFood("Halal +$0");
 		JFood food4 = new JFood("Light Meal +$5");
 		JFood food5 = new JFood("Gourmet Menu +$15");
 		JFood food6 = new JFood("Chef's Special +$20");
-
 		// buttonGroup
 		group.add(food1);
 		group.add(food2);
@@ -42,14 +40,12 @@ public class ChooseFood extends JPanel implements Page {
 		group.add(food4);
 		group.add(food5);
 		group.add(food6);
-
 		this.add(food1);
 		this.add(food2);
 		this.add(food3);
 		this.add(food4);
 		this.add(food5);
 		this.add(food6);
-
 		Display.setPanelFont(this);
 	}
 
@@ -104,7 +100,6 @@ public class ChooseFood extends JPanel implements Page {
 			JOptionPane.showMessageDialog(this, "Please choose your food", "Prompt", JOptionPane.INFORMATION_MESSAGE);
 			return false;
 		}
-
 		DAO.getOrder().setFood(selectedFood);
 		return true;
 	}

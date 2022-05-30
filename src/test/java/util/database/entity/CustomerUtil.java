@@ -55,7 +55,6 @@ public class CustomerUtil extends DataBaseUtil {
         List<Customer> customers = controller.readArray(Customer.class);
         if(customers == null)
             fail("No customer exist!");
-
         for(Customer c: customers) {
             if(c.getUserId() == userId) {
                 ArrayList<String> orders = c.getOrders();
@@ -67,7 +66,6 @@ public class CustomerUtil extends DataBaseUtil {
                         return;
                     }
                 }
-
                 // append order
                 orders.add(order);
                 c.setOrders(orders);

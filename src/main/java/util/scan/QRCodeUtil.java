@@ -90,6 +90,7 @@ public class QRCodeUtil {
         try {
             result = new MultiFormatReader().decode(bitmap, hints);
         } catch (NotFoundException e) {
+            e.printStackTrace();
         }
         return result == null? null : result.getText();
     }
@@ -130,5 +131,4 @@ public class QRCodeUtil {
     public static String decode(String path) {
         return QRCodeUtil.decode(new File(path));
     }
-
 }

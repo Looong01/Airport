@@ -24,16 +24,13 @@ public class Login extends JPanel implements Page {
         this.setLayout(new GridLayout(2,1));
         JPanel panel = new JPanel(new BorderLayout());
         JPanel inputPanel = new JPanel(new GridLayout(1,2));
-
         JLabel label = new JLabel("Group 79 ☀ Kiosk Project", JLabel.CENTER);
-
         comboBox.addActionListener(e -> {
             Template.getInfoLabel().setText("Please input your " + comboBox.getSelectedItem());
             textField.setText((comboBox.getSelectedIndex() == 0)? "140109200010204817" : "BJEV1RmqVm");
         });
         inputPanel.add(comboBox);
         inputPanel.add(textField);
-
         JButton button = new JButton("Scan QR Code");
         button.addActionListener(e -> {
             if (JOptionPane.showConfirmDialog(this, "1. Your computer must have a camera.\n2. The scanner won't terminate unless QR code is identified.", "Prompt", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -41,10 +38,8 @@ public class Login extends JPanel implements Page {
                 Template.getCont().doClick();
             }
         });
-
         panel.add(inputPanel, BorderLayout.CENTER);
         panel.add(button, BorderLayout.SOUTH);
-
         this.add(label);
         this.add(panel);
         Display.setPanelFont(this, 36);
@@ -82,13 +77,11 @@ public class Login extends JPanel implements Page {
         // scan login
         if (DAO.getCustomer() != null)
             return true;
-
         // input validation
         if (textField.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please input your ID", "Prompt", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-
         switch (comboBox.getSelectedIndex()) {
             case 0: // cardId
                 DAO.setCustomer(SERVICE.loginByCardId(textField.getText()));
