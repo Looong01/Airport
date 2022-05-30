@@ -3,10 +3,8 @@ package gui.staff.page;
 import gui.staff.Template;
 import gui.staff.Page;
 import util.gui.Display;
-import util.gui.GridBagLayoutConstraints;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Login page

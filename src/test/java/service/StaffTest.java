@@ -47,7 +47,7 @@ public class StaffTest {
     //test for getTime
     @Test
     public void testGetTime(){
-        assertEquals("Wed May 25 05:37:42", ss.getTime("MH1001"));
+        assertEquals("Sun May 29 17:42:41", ss.getTime("MH1001"));
         assertNull(ss.getTime("MH789789"));
     }
 

@@ -6,8 +6,6 @@ import util.gui.Display;
 
 import javax.swing.*;
 
-import org.apache.xalan.templates.ElemSort;
-
 import java.awt.*;
 
 /**

@@ -18,7 +18,8 @@ Maven 3.8.5 参考链接：https://maven.apache.org/download.cgi
 软件需求：带有GUI的操作系统。如Windows、Macosx、带有图形界面的Linux或WSL2（WSLG）
 
 #### 运行
-对于发行版
+对于发行版  
+  
 Windows: PowerShell
 ```
 在文件资源管理器中，在`Run.ps1`文件上右键点击，然后左键点击“使用PowerShell运行”。
@@ -27,9 +28,12 @@ Linux: Bash 或 Mac: Terminal
 ```
 打开Bash或者Terminal，输入`sh ./Run.sh`，回车。
 ```
-
-对于源代码，这里建议使用IDE（如Microsoft Visual Studio Code或者Jetbrains IntelliJ IDEA）进行编译运行
+  
+对于源代码  
+首先更改Maven配置文件pom.xml文件中，OpenCV和OpenBlas在对应系统平台的依赖配置  
+其次，这里建议使用IDE（如Microsoft Visual Studio Code或者Jetbrains IntelliJ IDEA）进行编译运行
 
 #### 打包
-1. 可以使用IDE进行快捷打包
-2. 进入项目目录后，输入`mvn package -f pom.xml`
+1. 首先更改Maven配置文件pom.xml文件中，OpenCV和OpenBlas在对应系统平台的依赖配置
+2. 可以使用IDE进行快捷打包
+3. 进入项目目录后，输入`mvn package -f pom.xml`

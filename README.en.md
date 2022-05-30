@@ -29,11 +29,11 @@ Linux: Bash or Mac: Terminal
 Open the bash or terminal, then input `sh ./Run.sh`, and Enter it.
 ```
   
-
 For source code:  
-  
+Firstly, change the dependency configurations of OpenCV and OpenBlas for the corresponding system platform in the Maven configuration file, pom.xml.
 we recommended to compile and run using an IDE (such as Microsoft Visual Studio Code or Jetbrains IntelliJ IDEA)
 
 #### Packaging
-1. You can use the IDE for quick packaging.
-2. Once in the project directory, enter `mvn package -f pom.xml`.
+1. Firstly, change the dependency configurations of OpenCV and OpenBlas for the corresponding system platform in the Maven configuration file, pom.xml.
+2. You can use the IDE for quick packaging.
+3. Once in the project directory, enter `mvn package -f pom.xml`.
