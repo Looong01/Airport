@@ -20,24 +20,13 @@ public class Login extends JPanel implements Page {
     private final JPasswordField passwordField = new JPasswordField("123456");
     //constructor for login
     public Login() {
-        // GridBagLayout layout = new GridBagLayout();
-        // GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
-        // this.setLayout(layout);
         this.setLayout(null);
         JLabel label1 = new JLabel("Card ID: ");
         JLabel label2 = new JLabel("Password: ");
-        label1.setBounds((int) (150 * Template.getP()), (int) (150 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
-        label2.setBounds((int) (150 * Template.getP()), (int) (350 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
-        textField.setBounds((int) (350 * Template.getP()), (int) (150 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
-        passwordField.setBounds((int) (350 * Template.getP()), (int) (350 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
-        // constraints.setConstraints(0,0,1,1);
-        // layout.setConstraints(label1, constraints);
-        // constraints.setConstraints(1,0,2,1);
-        // layout.setConstraints(textField, constraints);
-        // constraints.setConstraints(0,1,1,1);
-        // layout.setConstraints(label2, constraints);
-        // constraints.setConstraints(1,1,3,1);
-        // layout.setConstraints(passwordField, constraints);
+        label1.setBounds((int) (150 * Template.getP()), (int) (165 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
+        label2.setBounds((int) (150 * Template.getP()), (int) (335 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
+        textField.setBounds((int) (350 * Template.getP()), (int) (165 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
+        passwordField.setBounds((int) (350 * Template.getP()), (int) (335 * Template.getP()), (int) (400 * Template.getP()), (int) (100 * Template.getP()));
         this.add(label1);
         this.add(textField);
         this.add(label2);
