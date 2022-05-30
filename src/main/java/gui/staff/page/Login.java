@@ -2,6 +2,7 @@ package gui.staff.page;
 
 import gui.staff.Page;
 import util.gui.Display;
+import util.gui.GridBagLayoutConstraints;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,38 +22,27 @@ public class Login extends JPanel implements Page {
      * constructor for login
      */
     public Login() {
-        
-        this.setLayout(new GridBagLayout());
-        JLabel label1 = new JLabel("Enter Card ID:   ");
-        JLabel label2 = new JLabel("Enter password:   ");
+        GridBagLayout layout = new GridBagLayout();
+        GridBagLayoutConstraints constraints = new GridBagLayoutConstraints();
+        this.setLayout(layout);
+        JLabel label1 = new JLabel("Card ID: ");
+        JLabel label2 = new JLabel("Password: ");
 
-        
-        GridBagConstraints gbc1 = new GridBagConstraints();
-        gbc1.gridx = 0;
-        gbc1.gridy = 0;
-        this.add(label1, gbc1);
-        
-        textField.setPreferredSize(new Dimension(350, 70));
-        
-        GridBagConstraints gbc2 = new GridBagConstraints();
-        gbc2.gridx = 1;
-        gbc2.gridy = 0;
-        this.add(textField, gbc2);
+        constraints.setConstraints(0,0,1,1);
+        layout.setConstraints(label1, constraints);
+        constraints.setConstraints(1,0,2,1);
+        layout.setConstraints(textField, constraints);
+        constraints.setConstraints(0,1,1,1);
+        layout.setConstraints(label2, constraints);
+        constraints.setConstraints(1,1,3,1);
+        layout.setConstraints(passwordField, constraints);
 
-       
-        GridBagConstraints gbc3 = new GridBagConstraints();
-        gbc3.gridx = 0;
-        gbc3.gridy = 1;
-        this.add(label2, gbc3);
-        passwordField.setPreferredSize(new Dimension(350, 70));
-        label2.setBorder(BorderFactory.createEmptyBorder(100, 0, 100, 0));
-        
-        GridBagConstraints gbc4 = new GridBagConstraints();
-        gbc4.gridx = 1;
-        gbc4.gridy = 1;
-        this.add(passwordField, gbc4);
+        this.add(label1);
+        this.add(textField);
+        this.add(label2);
+        this.add(passwordField);
 
-        Display.setPanelFont(this);
+        Display.setPanelFont(this,35);
     }
 
     @Override
